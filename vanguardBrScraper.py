@@ -15,13 +15,13 @@ def pageRequest(url):
     }
     r = requests.get(url, headers=headers)
     html = r.text
-    parsed = BeautifulSoup(html)
+    parsed = BeautifulSoup(html, features="html.parser")
     return parsed
 
 # function used to parse the links from scraping the full page.
 def parseLinks(url, category):
     # Query Page
-    page = pageRequest(bedroomURL)
+    page = pageRequest(url)
     # pull out all anchor tags
     anchors = page.find_all('a')
     # loop over all of the links
