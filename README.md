@@ -12,6 +12,6 @@ For one of the vendors that we'll be using on the site, we are utilizing Python 
 
 Requests is a http request library similar to that of Axios/AJAX in Javascript.  BS4 or otherwise known as BeautifulSoup is a HTML/XML parsing library, it's similar to the cheerio module in Javascript.  Finally pymongo is the mongodb driver for python, that allows us to add records to the database, via python.
 
-[alt screenshot](./readme_imgs/vanguard.png)
+![alt screenshot](./readme_imgs/vanguard.png)
 
 
