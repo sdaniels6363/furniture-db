@@ -40,18 +40,21 @@ def parseLinks(url, category):
             if itemLink.startswith("/styles/sku"):
                 # retrieves the URL of the image for the item.
                 image = anchor.find("img").attrs['src']
+                
                 # first we extract the SKU out of itemLink:
                 # Ex: itemLink = '/styles/sku/W526Q-HF'
                 # strip removes "/styles/sku" and leaves us with W526Q-HF
                 sku = itemLink.strip("/styles/sku/")\
+                
                 # tearsheet
                 tearsheet = "https://www.vanguardfurniture.com/style/%s" % (sku)
-                # this is what the link text looks like
+                # this is what the link.text looks like
                 # example: '\n\n\n\n\n\r\n                                                    W526Q-HF\r\n                                                    Barrett\r\n                                                '
                 # as you can see that's useless, so the below line formats it nicely for us.
                 # Python uses strip, Javascript uses trim, they accomplish the same task.
                 description = "\n".join(anchor.text.splitlines()).strip().split("\n")[1].strip()
                 # result is description = 'Barrett'
+                
                 # create new object
                 newObject = {
                     "description": description, 
@@ -63,8 +66,10 @@ def parseLinks(url, category):
                     "vendor": "Vanguard",
                     "pageStatus": statusCode
                 }
+
                 # append a new object to the details array, we will pass this into Mongo later.
                 details.append(newObject)
+                
         except KeyError:
             pass
         except AttributeError:
