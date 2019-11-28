@@ -16,12 +16,21 @@ def pageRequest(url):
     r = requests.get(url, headers=headers)
     html = r.text
     parsed = BeautifulSoup(html, features="html.parser")
-    return parsed
+    # get status code too
+    status = r.status_code
+    parsedObject = {
+        "html": parsed,
+        "status": status
+    }
+    return parsedObject
 
 # function used to parse the links from scraping the full page.
 def parseLinks(url, category):
     # Query Page
-    page = pageRequest(url)
+    request = pageRequest(url)
+    # separate returned object
+    page = request['html']
+    statusCode = request['status']
     # pull out all anchor tags
     anchors = page.find_all('a')
     # loop over all of the links
@@ -50,7 +59,9 @@ def parseLinks(url, category):
                     "url": "https://www.vanguardfurniture.com/%s" % (itemLink), 
                     "sku": sku, 
                     "image": image, 
-                    "tearsheet": tearsheet
+                    "tearsheet": tearsheet,
+                    "vendor": "Vanguard",
+                    "pageStatus": statusCode
                 }
                 # append a new object to the details array, we will pass this into Mongo later.
                 details.append(newObject)
