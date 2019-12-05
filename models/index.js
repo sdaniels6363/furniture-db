@@ -1,3 +1,7 @@
+
+// Exporting an object containing all of our models
 module.exports = {
-    TaylorKing: require("./TaylorKing")
+    Hekman: require("./Hekman");
+    TaylorKing: require("./TaylorKing");
 };
+
