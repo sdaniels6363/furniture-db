@@ -61,8 +61,6 @@ var searchLex = function (url, category) {
             });
 
             // console.log(result)
-
-
         });
     });
 
