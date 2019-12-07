@@ -79,19 +79,19 @@ def parseLinks(url, category):
 category_url = [
     {
         "url": "https://vanguardfurniture.com/styles?PageSize=2000000000&Room=BR&ProdType=002",
-        "category": "Beds"
+        "category": "beds"
     },{
         "url": "https://vanguardfurniture.com/styles?PageSize=2000000000&Room=BR&ProdType=018",
-        "category": "Benches/Ottomans"
+        "category": "benches/ottomans"
     },{
         "url": "https://vanguardfurniture.com/styles?PageSize=2000000000&Room=BR&ProdType=016",
-        "category": "Dressers"
+        "category": "dressers"
     },{
         "url": "https://vanguardfurniture.com/styles?PageSize=2000000000&Room=BR&ProdType=008",
-        "category": "Mirrors"
+        "category": "mirrors"
     },{
         "url": "https://vanguardfurniture.com/styles?PageSize=2000000000&Room=BR&ProdType=035",
-        "category": "Nightstands"
+        "category": "nightstands"
     }
 ]
 # create empty array
