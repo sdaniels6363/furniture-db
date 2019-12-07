@@ -3,9 +3,9 @@ const mongoose = require("mongoose");
 const cheerio = require("cheerio");
 const axios = require("axios");
 
-const db = require("./models");
+const db = require("../models");
 
-const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/scrapetest";
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/furniture";
 
 mongoose.connect(MONGODB_URI);
 
