@@ -7,6 +7,10 @@ var HekmanSchema = new Schema({
     description: {
         type: String,
     },
+    vendor: {
+        type: String,
+        default: "Hekman"
+    },
     category: {
         type: String,
     },
