@@ -5,6 +5,7 @@ module.exports = {
     TaylorKing: require("./TaylorKing"),
     Uttermost: require("./Uttermost"),
     Revelation: require("./Revelation"),
-    Lexington: require("./Lexington")
+    Lexington: require("./Lexington"),
+    Hooker: require("./Hooker"),
 };
 
