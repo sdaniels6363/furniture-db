@@ -12,19 +12,19 @@ var RevelationSchema = new Schema({
     },
     url: {
         type: String,
-        unique: true
+        
     },
     sku: {
         type: String,
-        unique: true
+        
     },
     img: {
         type: String,
-        unique: true
+        
     },
     tearsheet: {
         type: String,
-        unique: true
+        
     },
 });
 
