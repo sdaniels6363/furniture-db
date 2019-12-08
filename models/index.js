@@ -3,6 +3,7 @@
 module.exports = {
     Hekman: require("./Hekman"),
     TaylorKing: require("./TaylorKing"),
-    Lexington: require("./Lexington")
+    Lexington: require("./Lexington"),
+    Hooker: require("./Hooker"),
 };
 
