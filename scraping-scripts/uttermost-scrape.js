@@ -1,38 +1,17 @@
-var express = require("express");
-var logger = require("morgan");
-var mongoose = require("mongoose");
+const mongoose = require("mongoose");
+const cheerio = require("cheerio");
+const axios = require("axios");
 
-// Our scraping tools
-// Axios is a promised-based http library, similar to jQuery's Ajax method
-// It works on the client and on the server
-var axios = require("axios");
-var cheerio = require("cheerio");
+const db = require("../models");
 
-// Require all models
-var db = require("./models");
-var PORT = process.env.PORT || 3000;
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/furniture";
 
-// Initialize Express
-var app = express();
+mongoose.connect(MONGODB_URI, { useUnifiedTopology: true, useNewUrlParser: true });
 
-// Configure middleware
-
-// Use morgan logger for logging requests
-app.use(logger("dev"));
-// Parse request body as JSON
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
-// Make public a static folder
-app.use(express.static("public"));
-
-// If deployed, use the deployed database. Otherwise use the local mongoHeadlines database
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/furniture";
-mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true });
-mongoose.set('useCreateIndex', true);
 // A GET route for scraping the echoJS website
-app.get("/uttermost-scrape", function (req, res) {
+var searchUttermost = function (url) {
     // First, we grab the body of the html with axios
-    axios.get("https://www.uttermost.com/Accent-Furniture-Shop-By-Room-Bedroom/").then(function (response) {
+    axios.get(url).then(function (response) {
         // Then, we load that into cheerio and save it to $ for a shorthand selector
         var $ = cheerio.load(response.data);
 
@@ -66,13 +45,7 @@ app.get("/uttermost-scrape", function (req, res) {
                   });
               });
 
-            // Send a message to the client
-            res.send("Scrape completed");
         });
-    });
+    }
 
-// Start the server
-app.listen(PORT, () => {
-    console.log("App running at http://localhost:" + PORT);
-});
-
+searchUttermost("https://www.uttermost.com/Accent-Furniture-Shop-By-Room-Bedroom/");
