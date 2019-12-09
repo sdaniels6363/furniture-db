@@ -3,6 +3,8 @@
 module.exports = {
     Hekman: require("./Hekman"),
     TaylorKing: require("./TaylorKing"),
+    Uttermost: require("./Uttermost"),
+    Revelation: require("./Revelation"),
     Lexington: require("./Lexington"),
     Hooker: require("./Hooker"),
     Ambella: require("./Ambella")
