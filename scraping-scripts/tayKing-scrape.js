@@ -41,10 +41,10 @@ var searchTK = function (url, category) {
                 .children("img")
                 .attr("src");
 
-            db.TaylorKing.create(result)
-                .then(function (dbTaylorKing) {
+            db.furniture.create(result)
+                .then(function (dbfurniture) {
 
-                    console.log(dbTaylorKing);
+                    console.log(dbfurniture);
                 })
                 .catch(function (err) {
 
