@@ -23,7 +23,7 @@ var FurnitureSchema = new Schema({
   sku: {
     type: String
   },
-  img: {
+  image: {
     type: String
   },
   tearsheet: {
