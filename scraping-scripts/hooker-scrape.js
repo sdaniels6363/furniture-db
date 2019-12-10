@@ -6,7 +6,7 @@ mongoose.set('useCreateIndex', true);
 const cheerio = require("cheerio");
 const axios = require("axios");
 
-const db = require("./models");
+const db = require("../models");
 
 const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/furniture";
 
@@ -50,6 +50,7 @@ let scrapeHooker = function (url, category) {
                 .children("p.ProductThumbnailParagraphDescription")
                 .children("a")
                 .attr("href");
+            result.vendor = "Hooker";
 
             db.furniture.create(result)
                 .then(function (dbFurniture) {
