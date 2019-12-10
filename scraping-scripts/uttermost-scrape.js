@@ -21,7 +21,7 @@ var searchUttermost = function (url) {
             var result = {};
 
             // Add the text and href of every link, and save them as properties of the result object
-            result.img = $(this)
+            result.image = $(this)
                 .children("figure")
                 .children("a")
                 .children("img")

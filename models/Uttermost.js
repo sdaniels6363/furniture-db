@@ -18,7 +18,7 @@ var UttermostSchema = new Schema({
         type: String,
         
     },
-    img: {
+    image: {
         type: String,
         
     },

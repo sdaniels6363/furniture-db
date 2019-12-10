@@ -9,7 +9,7 @@ const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/furniture";
 mongoose.connect(MONGODB_URI, { useUnifiedTopology: true, useNewUrlParser: true });
 
 // A GET route for scraping the echoJS website
-var searchRevelation = function (url) {
+var searchRevelation = function (url, category) {
     // First, we grab the body of the html with axios
     axios.get(url).then(function (response) {
         // Then, we load that into cheerio and save it to $ for a shorthand selector
@@ -21,7 +21,7 @@ var searchRevelation = function (url) {
             var result = {};
 
             // Add the text and href of every link, and save them as properties of the result object
-            result.img = $(this)
+            result.image = $(this)
                 .children("figure")
                 .children("a")
                 .children("img")
@@ -30,6 +30,7 @@ var searchRevelation = function (url) {
                 .children("figure")
                 .children("a")
                 .attr("href");
+                // result.category = category;
 
             console.log(`result`, result);
 

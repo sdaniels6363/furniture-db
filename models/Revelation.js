@@ -18,7 +18,7 @@ var RevelationSchema = new Schema({
         type: String,
         
     },
-    img: {
+    image: {
         type: String,
         
     },
