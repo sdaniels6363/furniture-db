@@ -7,6 +7,8 @@ module.exports = {
     Revelation: require("./Revelation"),
     Lexington: require("./Lexington"),
     Hooker: require("./Hooker"),
-    Ambella: require("./Ambella")
-};
+    Ambella: require("./Ambella"),
+    Client: require("./Client"),
+    Furniture: require("./Furniture"),
 
+};
