@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
-const TaylorKingSchema = new Schema({
+const RoweSchema = new Schema({
 
   description: {
     type: String,
@@ -37,6 +37,6 @@ const TaylorKingSchema = new Schema({
 
 });
 
-const TaylorKing = mongoose.model("TaylorKing", TaylorKingSchema);
+const Rowe = mongoose.model("Rowe", RoweSchema);
 
-module.exports = TaylorKing;
+module.exports = Rowe;
