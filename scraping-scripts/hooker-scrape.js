@@ -8,7 +8,7 @@ const axios = require("axios");
 
 const db = require("./models");
 
-const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/scrapetest";
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/furniture";
 
 mongoose.connect(MONGODB_URI);
 
@@ -51,8 +51,8 @@ let scrapeHooker = function (url, category) {
                 .children("a")
                 .attr("href");
 
-            db.Hooker.create(result)
-                .then(function (dbFurn) {
+            db.furniture.create(result)
+                .then(function (dbFurniture) {
                     // console.log(dbFurn);
                 })
                 .catch(function (err) {
@@ -76,6 +76,6 @@ scrapeHooker("https://www.hookerfurniture.com/bedroom/chests-and-dressers/room-t
 
 scrapeHooker("https://www.hookerfurniture.com/bedroom/mirrors/room-type.aspx", "mirrors");
 
-scrapeHooker("https://www.hookerfurniture.com/bedroom/beds/room-type.aspx?brand=marq", "MARQ-beds");
+scrapeHooker("https://www.hookerfurniture.com/bedroom/beds/room-type.aspx?brand=marq", "beds");
 
-scrapeHooker("https://www.hookerfurniture.com/mattresses/department-type.aspx?brand=marq", "MARQ-mattresses");
+// scrapeHooker("https://www.hookerfurniture.com/mattresses/department-type.aspx?brand=marq", "MARQ-mattresses");

@@ -8,7 +8,7 @@ const axios = require("axios");
 
 const db = require("./models");
 
-const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/scrapetest";
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/furniture";
 
 mongoose.connect(MONGODB_URI);
 
@@ -42,8 +42,8 @@ let scrapeAmbella = function (url, category) {
                 .children("a")
                 .attr("href");
 
-            db.Ambella.create(result)
-                .then(function (dbFurn) {
+            db.furniture.create(result)
+                .then(function (dbFurniture) {
                     // console.log(dbFurn);
                 })
                 .catch(function (err) {
