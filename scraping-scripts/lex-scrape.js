@@ -20,6 +20,8 @@ var searchLex = function (url, category) {
 
             result.category = category;
 
+            result.vendor = "Lexington";
+
             result.description = $(this)
                 .children()
                 .children()
@@ -47,10 +49,10 @@ var searchLex = function (url, category) {
                         .attr("href");
                     // console.log(result.tearsheet)
 
-                    db.Lexington.create(result)
-                        .then(function (dblexington) {
+                    db.furniture.create(result)
+                        .then(function (dbfurniture) {
 
-                            console.log(dblexington);
+                            console.log(dbfurniture);
                         })
                         .catch(function (err) {
 

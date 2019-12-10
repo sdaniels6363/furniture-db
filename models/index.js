@@ -3,9 +3,10 @@
 module.exports = {
     Hekman: require("./Hekman"),
     TaylorKing: require("./TaylorKing"),
+    Uttermost: require("./Uttermost"),
+    Revelation: require("./Revelation"),
     Lexington: require("./Lexington"),
     Hooker: require("./Hooker"),
-    SamMoore: require("./Rowe"),
-    ParkerSouthern: require("./ParkerSouthern")
+    Ambella: require("./Ambella")
 };
 

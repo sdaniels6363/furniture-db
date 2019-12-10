@@ -4,9 +4,14 @@ const Schema = mongoose.Schema;
 
 const LexingtonSchema = new Schema({
 
-  description: {
+  vendor: {
     type: String,
     required: true
+  },
+  
+  description: {
+    type: String,
+    required: false
   },
 
   category: {
@@ -14,14 +19,15 @@ const LexingtonSchema = new Schema({
     required: true
   },
 
-  // sku: {
-  //   type: String,
-  //   required: true
-  // },
+  sku: {
+    type: String,
+    required: false
+  },
 
   url: {
     type: String,
-    required: true
+    required: true,
+    unique: true
   },
 
   image: {
