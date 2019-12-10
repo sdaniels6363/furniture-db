@@ -2,5 +2,6 @@
 module.exports = {
     Client: require("./Client"),
     Furniture: require("./Furniture"),
+    User: require("./User"),
 
 };
