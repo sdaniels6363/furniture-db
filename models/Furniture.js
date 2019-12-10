@@ -34,5 +34,5 @@ var FurnitureSchema = new Schema({
 // This creates our model from the above schema, using mongoose's model method
 var Furniture = mongoose.model("Furniture", FurnitureSchema);
 
-// Export the Hekman model
+// Export the Furniture model
 module.exports = Furniture;
