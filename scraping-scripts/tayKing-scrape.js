@@ -28,6 +28,7 @@ var TaylorKing = function () {
                 let dataSplit = descriptionHtml.split("<br>", 2)
                 result.description = dataSplit[1]
                 result.sku = dataSplit[0]
+                result.vendor
 
                 result.category = category;
 
