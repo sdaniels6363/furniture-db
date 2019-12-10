@@ -9,52 +9,73 @@ const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/furniture";
 
 mongoose.connect(MONGODB_URI);
 
-var searchTK = function (url, category) {
+var TaylorKing = function () {
 
-    axios.get(url).then(function (response) {
+    var searchTK = function (url, category) {
 
-        var $ = cheerio.load(response.data);
+        axios.get(url).then(function (response) {
 
-        $("article").each(function (i, element) {
+            var $ = cheerio.load(response.data);
 
-            var result = {};
+            $("article").each(function (i, element) {
 
-            let descriptionHtml = $(this)
-                .children(".productText")
-                .html()
-                .trim();
-            let dataSplit = descriptionHtml.split("<br>", 2)
-            result.description = dataSplit[1]
-            result.sku = dataSplit[0]
+                var result = {};
 
-            result.category = category;
+                let descriptionHtml = $(this)
+                    .children(".productText")
+                    .html()
+                    .trim();
+                let dataSplit = descriptionHtml.split("<br>", 2)
+                result.description = dataSplit[1]
+                result.sku = dataSplit[0]
+                result.vendor
 
-            result.url = "https://taylorking.com/" + $(this)
-                .children("a")
-                .attr("href");
-            result.tearsheet = "https://taylorking.com/" + $(this)
-                .children("a")
-                .attr("href");
-            result.image = "https://taylorking.com/" + $(this)
-                .children()
-                .children()
-                .children("img")
-                .attr("src");
+                result.category = category;
 
-            db.furniture.create(result)
-                .then(function (dbfurniture) {
+                result.url = "https://taylorking.com/" + $(this)
+                    .children("a")
+                    .attr("href");
+                result.tearsheet = "https://taylorking.com/" + $(this)
+                    .children("a")
+                    .attr("href");
+                result.image = "https://taylorking.com/" + $(this)
+                    .children()
+                    .children()
+                    .children("img")
+                    .attr("src");
 
-                    console.log(dbfurniture);
-                })
-                .catch(function (err) {
+                db.furniture.create(result)
+                    .then(function (dbfurniture) {
 
-                    console.log(err);
-                });
+                        console.log(dbfurniture);
+                    })
+                    .catch(function (err) {
 
+                        console.log(dbTaylorKing);
+                    })
+
+            });
         });
-    });
+
+    }
+
+    searchTK("https://taylorking.com/category.asp?CID=11", "bedroom");
+
+    searchTK("https://taylorking.com/category3columns.asp?CID=3", "sleepers");
+
+    searchTK("https://taylorking.com/category.asp?CID=26", "chairs");
+    searchTK("https://taylorking.com/category.asp?pageID=2&CID=26", "chairs");
+    searchTK("https://taylorking.com/category.asp?pageID=3&CID=26", "chairs");
+    searchTK("https://taylorking.com/category.asp?pageID=4&CID=26", "chairs");
+    searchTK("https://taylorking.com/category.asp?pageID=5&CID=26", "chairs");
+
+    searchTK("https://taylorking.com/category.asp?CID=14", "benches");
+    searchTK("https://taylorking.com/category.asp?pageID=2&CID=14", "benches");
+    searchTK("https://taylorking.com/category.asp?pageID=3&CID=14", "benches");
+    searchTK("https://taylorking.com/category.asp?pageID=4&CID=14", "benches");
+    searchTK("https://taylorking.com/category.asp?pageID=5&CID=14", "benches");
+    searchTK("https://taylorking.com/category.asp?pageID=6&CID=14", "benches");
 
 }
 
-searchTK("https://taylorking.com/category.asp?CID=11", "bedroom");
-searchTK("https://taylorking.com/category3columns.asp?CID=3", "sleepers");
+module.exports.TaylorKing = TaylorKing;
