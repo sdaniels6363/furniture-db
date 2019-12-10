@@ -64,7 +64,6 @@ def parseLinks(url, category):
                     "image": image, 
                     "tearsheet": tearsheet,
                     "vendor": "Vanguard",
-                    "pageStatus": statusCode
                 }
 
                 # append a new object to the details array, we will pass this into Mongo later.
@@ -114,8 +113,8 @@ mongo = pymongo.MongoClient("localhost", 27017)
 db = mongo.furniture
 
 # select the vanguard collection
-vanguard = db.vanguard
+furniture = db.furniture
 
 # use the pymongo insert_many function to add an array of values to the database
-result = vanguard.insert_many(details)
+result = furniture.insert_many(details)
 
