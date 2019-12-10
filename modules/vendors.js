@@ -36,6 +36,7 @@ function hekmanScrape() {
                     .find(".popup_productname")
                     .text().replace(/\w-?\w+/, "").trim();
                 result.category = section.category;
+                result.vendor = "Hekman";
                 result.url = "http://www.hekman.com/" + $(this)
                     .find("a[id*='imgPopupcatBrowse']")
                     .attr("href");
@@ -43,11 +44,11 @@ function hekmanScrape() {
                     .find(".popup_productname")
                     .text()
                     .match(/(\w+[-]?\w+)/)[0];
-                result.img = $(this)
+                result.image = $(this)
                     .find("a[id*='imgPopupcatBrowse'] img")
                     .attr("src");
                 result.tearsheet = `https://cms.howardmiller.com/products/sku/${result.sku.replace("-", "")}.pdf`;
-                db.Hekman.create(result)
+                db.Furniture.create(result)
                     .then(data => {
                         console.log(`Added ${data.description}`);
                     })
