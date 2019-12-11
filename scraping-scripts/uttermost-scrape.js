@@ -21,7 +21,7 @@ var searchUttermost = function (url) {
             var result = {};
 
             // Add the text and href of every link, and save them as properties of the result object
-            result.img = $(this)
+            result.image = $(this)
                 .children("figure")
                 .children("a")
                 .children("img")
@@ -34,7 +34,7 @@ var searchUttermost = function (url) {
             console.log(`result`, result);
 
             // Create a new Article using the `result` object built from scraping
-                db.Uttermost.create(result)
+                db.furniture.create(result)
                   .then(function(dbUttermost) {
                     // View the added result in the console
                     console.log(dbUttermost);
