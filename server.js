@@ -3,10 +3,6 @@ var logger = require("morgan");
 var mongoose = require("mongoose");
 
 
-//Vendor requires
-var vendors = require("./modules/vendors")
-
-
 // Require all models
 var PORT = process.env.PORT || 3000;
 
@@ -25,11 +21,7 @@ app.use(express.static("public"));
 
 // If deployed, use the deployed database. Otherwise use the local mongoHeadlines database
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/furniture";
-mongoose.connect(MONGODB_URI);
-
-console.log("Retrieving Hekman Bedroom Catalogue")
-vendors.hekmanScrape();
-
+mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true } );
 
 // Start the server
 app.listen(PORT, () => {
