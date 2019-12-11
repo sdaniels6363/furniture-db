@@ -1,6 +1,6 @@
 import React from "react";
 
-function Categories() {
+function CatNav() {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
       <a className="navbar-brand" href="/api/category/beds">
@@ -22,4 +22,4 @@ function Categories() {
   );
 }
 
-export default Categories;
+export default CatNav;
