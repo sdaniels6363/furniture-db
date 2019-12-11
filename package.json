@@ -31,7 +31,6 @@
     "mongoose-bcrypt": "^1.6.0",
     "morgan": "^1.9.1",
     "puppeteer": "^2.0.0"
-
   },
   "browserslist": {
     "production": [
@@ -46,4 +45,3 @@
     ]
   }
 }
-
