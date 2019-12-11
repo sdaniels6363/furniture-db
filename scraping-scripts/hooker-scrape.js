@@ -52,7 +52,7 @@ let scrapeHooker = function (url, category) {
                 .attr("href");
             result.vendor = "Hooker";
 
-            db.furniture.create(result)
+            db.Furniture.create(result)
                 .then(function (dbFurniture) {
                     // console.log(dbFurn);
                 })
