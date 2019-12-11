@@ -81,7 +81,7 @@ category_url = [
         "category": "beds"
     },{
         "url": "https://vanguardfurniture.com/styles?PageSize=2000000000&Room=BR&ProdType=018",
-        "category": "benches/ottomans"
+        "category": "benches"
     },{
         "url": "https://vanguardfurniture.com/styles?PageSize=2000000000&Room=BR&ProdType=016",
         "category": "dressers"
