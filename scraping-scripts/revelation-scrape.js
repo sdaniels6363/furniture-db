@@ -35,10 +35,10 @@ var searchRevelation = function (url, category) {
             console.log(`result`, result);
 
             // Create a new Article using the `result` object built from scraping
-                db.Revelation.create(result)
-                  .then(function(dbRevelation) {
+                db.Furniture.create(result)
+                  .then(function(dbFurniture) {
                     // View the added result in the console
-                    console.log(dbRevelation);
+                    console.log(dbFurniture);
                   })
                   .catch(function(err) {
                     // If an error occurred, log it

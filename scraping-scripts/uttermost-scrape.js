@@ -34,10 +34,10 @@ var searchUttermost = function (url) {
             console.log(`result`, result);
 
             // Create a new Article using the `result` object built from scraping
-                db.Uttermost.create(result)
-                  .then(function(dbUttermost) {
+                db.Furniture.create(result)
+                  .then(function(dbFurniture) {
                     // View the added result in the console
-                    console.log(dbUttermost);
+                    console.log(dbFurniture);
                   })
                   .catch(function(err) {
                     // If an error occurred, log it
