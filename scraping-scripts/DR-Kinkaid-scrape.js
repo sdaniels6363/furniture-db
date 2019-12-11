@@ -33,7 +33,6 @@ var DRKincaid = function () {
 
                 dataSplit[1] = dataSplit[1].trim();
                 result.description = dataSplit[1];
-                console.log(result.description)
                 
                 result.vendor = "DR Kincaid";
 
@@ -68,9 +67,20 @@ var DRKincaid = function () {
     }
 
     searchDRKincaid("http://www.drkincaidchair.com/ProductList.php?productCategory=Traditional", "chairs");
+    searchDRKincaid("http://www.drkincaidchair.com/ProductList.php?productCategory=Traditional&page=2", "chairs");
+    searchDRKincaid("http://www.drkincaidchair.com/ProductList.php?productCategory=Traditional&page=3", "chairs");
+    searchDRKincaid("http://www.drkincaidchair.com/ProductList.php?productCategory=Traditional&page=4", "chairs");
+    searchDRKincaid("http://www.drkincaidchair.com/ProductList.php?productCategory=Traditional&page=5", "chairs");
+    searchDRKincaid("http://www.drkincaidchair.com/ProductList.php?productCategory=Traditional&page=6", "chairs");
+    searchDRKincaid("http://www.drkincaidchair.com/ProductList.php?productCategory=Basic", "chairs");
+    searchDRKincaid("http://www.drkincaidchair.com/ProductList.php?productCategory=Basic&page=2", "chairs");
 
+    searchDRKincaid("http://www.drkincaidchair.com/ProductList.php?productCategory=Bench_Ottoman", "benches");
+    searchDRKincaid("http://www.drkincaidchair.com/ProductList.php?productCategory=Bench_Ottoman&page=2", "benches");
+    searchDRKincaid("http://www.drkincaidchair.com/ProductList.php?productCategory=Bench_Ottoman&page=3", "benches");
+    searchDRKincaid("http://www.drkincaidchair.com/ProductList.php?productCategory=Bench_Ottoman&page=4", "benches");
+
+    searchDRKincaid("http://www.drkincaidchair.com/ProductList.php?productCategory=Upholstered_Headboards", "beds");
 }
-
-DRKincaid();
 
 module.exports.DRKincaid = DRKincaid;
