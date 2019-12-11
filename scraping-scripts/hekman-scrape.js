@@ -6,23 +6,23 @@ function hekmanScrape() {
 
     let sections = [{
             url: "beds",
-            category: "Beds"
+            category: "beds"
         },
         {
             url: "night_stands",
-            category: "Nightstands"
+            category: "nightstands"
         },
         {
             url: "dressers_chests",
-            category: "Dressers"
+            category: "dressers"
         },
         {
             url: "media_chests",
-            category: "Dressers"
+            category: "dressers"
         },
         {
             url: "mirrors",
-            category: "Mirrors"
+            category: "mirrors"
         },
     ]
     sections.forEach(section => {
@@ -43,7 +43,7 @@ function hekmanScrape() {
                     .find(".popup_productname")
                     .text()
                     .match(/(\w+[-]?\w+)/)[0];
-                result.img = $(this)
+                result.image = $(this)
                     .find("a[id*='imgPopupcatBrowse'] img")
                     .attr("src");
                 result.tearsheet = `https://cms.howardmiller.com/products/sku/${result.sku.replace("-", "")}.pdf`;
@@ -59,4 +59,4 @@ function hekmanScrape() {
     });
 }
 
-module.exports.hekmanScrape = hekmanScrape;
+hekmanScrape();
