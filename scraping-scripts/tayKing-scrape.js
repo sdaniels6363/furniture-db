@@ -41,7 +41,7 @@ var searchTK = function (url, category) {
                 .children("img")
                 .attr("src");
 
-            db.furniture.create(result)
+            db.Furniture.create(result)
                 .then(function (dbfurniture) {
 
                     console.log(dbfurniture);

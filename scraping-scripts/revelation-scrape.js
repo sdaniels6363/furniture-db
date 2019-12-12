@@ -34,7 +34,7 @@ var searchRevelation = function (url) {
             console.log(`result`, result);
 
             // Create a new Article using the `result` object built from scraping
-                db.furniture.create(result)
+                db.Furniture.create(result)
                   .then(function(dbRevelation) {
                     // View the added result in the console
                     console.log(dbRevelation);

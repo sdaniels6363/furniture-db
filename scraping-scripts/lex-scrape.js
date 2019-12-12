@@ -49,7 +49,7 @@ var searchLex = function (url, category) {
                         .attr("href");
                     // console.log(result.tearsheet)
 
-                    db.furniture.create(result)
+                    db.Furniture.create(result)
                         .then(function (dbfurniture) {
 
                             console.log(dbfurniture);

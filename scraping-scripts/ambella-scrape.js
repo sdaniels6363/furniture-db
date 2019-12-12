@@ -42,7 +42,7 @@ let scrapeAmbella = function (url, category) {
                 .children("a")
                 .attr("href");
 
-            db.furniture.create(result)
+            db.Furniture.create(result)
                 .then(function (dbFurniture) {
                     // console.log(dbFurn);
                 })

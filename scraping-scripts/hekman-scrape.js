@@ -47,7 +47,7 @@ function hekmanScrape() {
                     .find("a[id*='imgPopupcatBrowse'] img")
                     .attr("src");
                 result.tearsheet = `https://cms.howardmiller.com/products/sku/${result.sku.replace("-", "")}.pdf`;
-                db.Hekman.create(result)
+                db.Furniture.create(result)
                     .then(data => {
                         console.log(`Added ${data.description}`);
                     })
