@@ -67,7 +67,7 @@ let scrapeHooker = function (url, category) {
 
 scrapeHooker("https://www.hookerfurniture.com/bedroom/benches/room-type.aspx", "benches");
 
-scrapeHooker("https://www.hookerfurniture.com/bedroom/armoire-cabinets/room-type.aspx", "armoire-cabinets");
+scrapeHooker("https://www.hookerfurniture.com/bedroom/armoire-cabinets/room-type.aspx", "cabinets");
 
 scrapeHooker("https://www.hookerfurniture.com/bedroom/nightstands/room-type.aspx", "nightstands");
 

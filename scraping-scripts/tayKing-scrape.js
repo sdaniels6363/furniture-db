@@ -32,6 +32,7 @@ var TaylorKing = function () {
 
                 result.category = category;
 
+
                 result.url = "https://taylorking.com/" + $(this)
                     .children("a")
                     .attr("href");
