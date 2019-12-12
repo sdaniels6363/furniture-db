@@ -50,9 +50,9 @@ var searchLex = function (url, category) {
                     // console.log(result.tearsheet)
 
                     db.Furniture.create(result)
-                        .then(function (dbfurniture) {
-
-                            console.log(dbfurniture);
+                        .then(function (dbFurniture) {
+                            
+                            console.log(dbFurniture);
                         })
                         .catch(function (err) {
 
@@ -73,5 +73,5 @@ searchLex("https://lexington.com/dressers", "dressers");
 searchLex("https://lexington.com/mirrors", "mirrors");
 searchLex("https://lexington.com/chests", "chests");
 searchLex("https://lexington.com/night-stands", "nightstands");
-searchLex("https://lexington.com/benches-ottomans1521", "benches/ottomans");
+searchLex("https://lexington.com/benches-ottomans1521", "benches");
 

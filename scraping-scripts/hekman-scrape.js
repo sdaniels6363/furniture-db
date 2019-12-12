@@ -6,23 +6,23 @@ function hekmanScrape() {
 
     let sections = [{
             url: "beds",
-            category: "Beds"
+            category: "beds"
         },
         {
             url: "night_stands",
-            category: "Nightstands"
+            category: "nightstands"
         },
         {
             url: "dressers_chests",
-            category: "Dressers"
+            category: "dressers"
         },
         {
             url: "media_chests",
-            category: "Dressers"
+            category: "dressers"
         },
         {
             url: "mirrors",
-            category: "Mirrors"
+            category: "mirrors"
         },
     ]
     sections.forEach(section => {
@@ -60,4 +60,4 @@ function hekmanScrape() {
     });
 }
 
-module.exports.hekmanScrape = hekmanScrape;
+hekmanScrape();

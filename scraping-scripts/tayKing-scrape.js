@@ -28,9 +28,10 @@ var TaylorKing = function () {
                 let dataSplit = descriptionHtml.split("<br>", 2)
                 result.description = dataSplit[1]
                 result.sku = dataSplit[0]
-                result.vendor
+                result.vendor = "Taylor King"
 
                 result.category = category;
+
 
                 result.url = "https://taylorking.com/" + $(this)
                     .children("a")
@@ -44,14 +45,14 @@ var TaylorKing = function () {
                     .children("img")
                     .attr("src");
 
-                db.furniture.create(result)
-                    .then(function (dbfurniture) {
+                db.Furniture.create(result)
+                    .then(function (dbFurniture) {
 
-                        console.log(dbfurniture);
+                        console.log(dbFurniture);
                     })
                     .catch(function (err) {
 
-                        console.log(dbTaylorKing);
+                        console.log("item was not added");
                     })
 
             });
