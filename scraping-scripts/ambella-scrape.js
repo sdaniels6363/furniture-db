@@ -6,11 +6,11 @@ mongoose.set('useCreateIndex', true);
 const cheerio = require("cheerio");
 const axios = require("axios");
 
-const db = require("./models");
+const db = require("../models");
 
 const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/furniture";
 
-mongoose.connect(MONGODB_URI);
+mongoose.connect(MONGODB_URI, { useUnifiedTopology: true, useNewUrlParser: true });
 
 let scrapeAmbella = function (url, category) {
 
@@ -41,13 +41,14 @@ let scrapeAmbella = function (url, category) {
             result.tearsheet = "https://www.ambellahome.com" + $(this)
                 .children("a")
                 .attr("href");
+            result.vendor = "Ambella";
 
             db.Furniture.create(result)
                 .then(function (dbFurniture) {
                     // console.log(dbFurn);
                 })
                 .catch(function (err) {
-                    console.log(err);
+                    // console.log(err);
                 });
 
         });

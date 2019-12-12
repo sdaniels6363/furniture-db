@@ -36,6 +36,7 @@ function hekmanScrape() {
                     .find(".popup_productname")
                     .text().replace(/\w-?\w+/, "").trim();
                 result.category = section.category;
+                result.vendor = "Hekman";
                 result.url = "http://www.hekman.com/" + $(this)
                     .find("a[id*='imgPopupcatBrowse']")
                     .attr("href");

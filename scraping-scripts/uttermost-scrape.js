@@ -35,9 +35,9 @@ var searchUttermost = function (url) {
 
             // Create a new Article using the `result` object built from scraping
                 db.Furniture.create(result)
-                  .then(function(dbUttermost) {
+                  .then(function(dbFurniture) {
                     // View the added result in the console
-                    console.log(dbUttermost);
+                    console.log(dbFurniture);
                   })
                   .catch(function(err) {
                     // If an error occurred, log it

@@ -50,9 +50,9 @@ var searchLex = function (url, category) {
                     // console.log(result.tearsheet)
 
                     db.Furniture.create(result)
-                        .then(function (dbfurniture) {
-
-                            console.log(dbfurniture);
+                        .then(function (dbFurniture) {
+                            
+                            console.log(dbFurniture);
                         })
                         .catch(function (err) {
 
