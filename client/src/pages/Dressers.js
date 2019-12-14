@@ -23,11 +23,12 @@ class Dressers extends Component {
   render() {
     return (
       <div>
-        Dressers page
+        <h2>Dressers</h2>
         {this.state.dressers.map(item => {
           return (
             <ItemCard
               key={item._id}
+              vendor={item.vendor}
               description={item.description}
               image={item.image}
               sku={item.sku}

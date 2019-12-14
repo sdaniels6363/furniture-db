@@ -23,11 +23,12 @@ class Mirrors extends Component {
   render() {
     return (
       <div>
-        Mirrors page
+        <h2>Mirrors</h2>
         {this.state.mirrors.map(item => {
           return (
             <ItemCard
               key={item._id}
+              vendor={item.vendor}
               description={item.description}
               image={item.image}
               sku={item.sku}

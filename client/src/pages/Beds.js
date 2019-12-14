@@ -22,11 +22,12 @@ class Beds extends Component {
   render() {
     return (
       <div>
-        Beds page
+        <h2>Beds</h2>
         {this.state.beds.map(item => {
           return (
             <ItemCard
               key={item._id}
+              vendor={item.vendor}
               description={item.description}
               image={item.image}
               sku={item.sku}

@@ -14,7 +14,7 @@ class Nightstands extends Component {
   loadNightstands = () => {
     API.getFurnitureByCategory("nightstands")
       .then(res =>
-        this.setState({ nightstands: res.data})
+        this.setState({ nightstands: res.data })
       )
       .catch(err => console.log(err));
   };
@@ -23,11 +23,12 @@ class Nightstands extends Component {
   render() {
     return (
       <div>
-        Nightstands page
+        <h2>Nightstands</h2>
         {this.state.nightstands.map(item => {
           return (
             <ItemCard
               key={item._id}
+              vendor={item.vendor}
               description={item.description}
               image={item.image}
               sku={item.sku}

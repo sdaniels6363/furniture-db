@@ -23,11 +23,12 @@ class Benches extends Component {
   render() {
     return (
       <div>
-        Benches page
+        <h2>Benches</h2>
         {this.state.benches.map(item => {
           return (
             <ItemCard
               key={item._id}
+              vendor={item.vendor}
               description={item.description}
               image={item.image}
               sku={item.sku}

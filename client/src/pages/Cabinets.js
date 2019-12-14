@@ -23,10 +23,12 @@ class Cabinets extends Component {
   render() {
     return (
       <div>
+        <h2>Cabinets</h2>
         {this.state.cabinets.map(item => {
           return (
             <ItemCard
               key={item._id}
+              vendor={item.vendor}
               description={item.description}
               image={item.image}
               sku={item.sku}
