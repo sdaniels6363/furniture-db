@@ -16,7 +16,7 @@ var ClientSchema = new Schema({
 });
 
 // This creates our model from the above schema, using mongoose's model method
-var Client = mongoose.model("Client", ClientSchema);
+var Client = mongoose.model("Client", ClientSchema, "client");
 
-// Export the Hekman model
+// Export the Client model
 module.exports = Client;

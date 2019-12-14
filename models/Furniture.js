@@ -23,7 +23,7 @@ var FurnitureSchema = new Schema({
   sku: {
     type: String
   },
-  img: {
+  image: {
     type: String
   },
   tearsheet: {
@@ -32,7 +32,7 @@ var FurnitureSchema = new Schema({
 });
 
 // This creates our model from the above schema, using mongoose's model method
-var Furniture = mongoose.model("Furniture", FurnitureSchema);
+var Furniture = mongoose.model("Furniture", FurnitureSchema, "furniture");
 
-// Export the Hekman model
+// Export the Furniture model
 module.exports = Furniture;
