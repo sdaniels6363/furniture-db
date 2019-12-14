@@ -13,7 +13,9 @@ class Beds extends Component {
 
   loadBeds = () => {
     API.getFurnitureByCategory("beds")
-      .then(res => this.setState({ beds: res.data }))
+      .then(res => {
+        this.setState({ beds: res.data });        
+      })
       .catch(err => console.log(err));
   };
 
@@ -24,6 +26,7 @@ class Beds extends Component {
         {this.state.beds.map(item => {
           return (
             <ItemCard
+              key={item._id}
               description={item.description}
               image={item.image}
               sku={item.sku}
