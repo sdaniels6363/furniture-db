@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import API from "../utils/API";
+import ItemCard from "../components/ItemCard";
 
 class Benches extends Component {
   state = {
@@ -11,7 +12,7 @@ class Benches extends Component {
   }
 
   loadBenches = () => {
-    API.getFurnitureByCategory()
+    API.getFurnitureByCategory("benches")
       .then(res =>
         this.setState({ benches: res.data})
       )
@@ -23,6 +24,18 @@ class Benches extends Component {
     return (
       <div>
         Benches page
+        {this.state.benches.map(item => {
+          return (
+            <ItemCard
+              key={item._id}
+              description={item.description}
+              image={item.image}
+              sku={item.sku}
+              url={item.url}
+              tearsheet={item.tearsheet}
+            />
+          );
+        })}
       </div>
     );
   }

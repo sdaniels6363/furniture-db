@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import API from "../utils/API";
+import ItemCard from "../components/ItemCard";
 
 class Nightstands extends Component {
   state = {
@@ -11,7 +12,7 @@ class Nightstands extends Component {
   }
 
   loadNightstands = () => {
-    API.getFurnitureByCategory()
+    API.getFurnitureByCategory("nightstands")
       .then(res =>
         this.setState({ nightstands: res.data})
       )
@@ -23,6 +24,18 @@ class Nightstands extends Component {
     return (
       <div>
         Nightstands page
+        {this.state.nightstands.map(item => {
+          return (
+            <ItemCard
+              key={item._id}
+              description={item.description}
+              image={item.image}
+              sku={item.sku}
+              url={item.url}
+              tearsheet={item.tearsheet}
+            />
+          );
+        })}
       </div>
     );
   }
