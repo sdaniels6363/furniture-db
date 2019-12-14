@@ -7,8 +7,8 @@ function ItemCard(props) {
       <img alt={props.description} src={props.image} />
       <p>Description: {props.description}</p>
       <p>SKU: {props.sku}</p>
-      <p>URL: <a href={props.url}>{props.url}</a></p>
-      <p>Tearsheet: <a href={props.tearsheet}>{props.tearsheet}</a></p>
+      <p>URL: <a href={props.url} target="_blank">{props.url}</a></p>
+      <p>Tearsheet: <a href={props.tearsheet} target="_blank">{props.tearsheet}</a></p>
     </div>
   );
 }
