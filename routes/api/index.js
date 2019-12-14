@@ -1,8 +1,7 @@
 const router = require("express").Router();
-const furniture = require("./furniture");
-const clients = require("./clients");
+const furnitureRoutes = require("./furniture.js");
 
-router.use("",furniture);
-router.use("",clients);
+// Book routes
+router.use("/furniture", furnitureRoutes);
 
 module.exports = router;

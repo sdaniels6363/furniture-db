@@ -1,53 +1,32 @@
 {
-  "name": "furniture-db",
+  "name": "mern",
   "version": "1.0.0",
-  "description": "Full Stack Web Development - Project 3",
-  "main": "hekman.js",
+  "description": "",
+  "main": "server.js",
   "scripts": {
-    "predeploy": "npm run build",
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
+    "start:prod": "node server.js",
+    "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
+    "client": "cd client && npm run start",
+    "seed": "node scripts/seedDB.js",
+    "install": "cd client && npm install",
+    "build": "cd client && npm run build",
+    "heroku-postbuild": "npm run build"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/sdaniels6363/furniture-db.git"
-  },
-  "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/sdaniels6363/furniture-db/issues"
+  "devDependencies": {
+    "concurrently": "^4.1.0",
+    "nodemon": "^1.18.7"
   },
-  "homepage": "https://github.com/sdaniels6363/furniture-db#readme",
   "dependencies": {
-    "axios": "^0.19.0",
+    "axios": "^0.18.0",
     "bootstrap": "^4.4.1",
     "cheerio": "^1.0.0-rc.3",
-    "create-react-app": "^3.3.0",
-    "express": "^4.17.1",
-    "jquery": "^3.4.1",
-    "mongodb": "^3.3.5",
-    "mongoose": "^5.7.13",
+    "express": "^4.16.3",
+    "if-env": "^1.0.4",
+    "mongoose": "^5.3.16",
     "mongoose-bcrypt": "^1.6.0",
-    "morgan": "^1.9.1",
-    "puppeteer": "^2.0.0",
-    "react": "^16.12.0",
-    "react-bootstrap": "^1.0.0-beta.16",
-    "react-dom": "^16.12.0",
-    "react-scripts": "^3.3.0"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+    "puppeteer": "^2.0.0"
   }
 }
