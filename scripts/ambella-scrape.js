@@ -12,13 +12,13 @@ const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/furniture";
 
 mongoose.connect(MONGODB_URI, { useUnifiedTopology: true, useNewUrlParser: true });
 
-let scrapeAmbella = function (url, category) {
+let scrapeAmbella = function(url, category) {
 
-    axios.get(url).then(function (response) {
+    axios.get(url).then(function(response) {
 
         var $ = cheerio.load(response.data);
 
-        $("gallery-item").each(function (i, element) {
+        $("gallery-item").each(function(i, element) {
 
             const result = {};
 
@@ -44,10 +44,10 @@ let scrapeAmbella = function (url, category) {
             result.vendor = "Ambella";
 
             db.Furniture.create(result)
-                .then(function (dbFurniture) {
+                .then(function(dbFurniture) {
                     // console.log(dbFurn);
                 })
-                .catch(function (err) {
+                .catch(function(err) {
                     // console.log(err);
                 });
 
@@ -63,4 +63,3 @@ scrapeAmbella("https://www.ambellahome.com/Product/Bedroom/Dressers", "dressers"
 scrapeAmbella("https://www.ambellahome.com/Product/Bedroom/Nightstands", "nightstands");
 
 scrapeAmbella("https://www.ambellahome.com/Product/Mirrors/Mirrors", "mirrors");
-
