@@ -1,9 +1,21 @@
-var axios = require("axios");
-var cheerio = require("cheerio");
-var db = require("../models");
+const axios = require("axios");
+const cheerio = require("cheerio");
+const mongoose = require("mongoose");
+
+mongoose.set('useFindAndModify', false);
+mongoose.set('useCreateIndex', true);
+
+const db = require("../models");
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/furniture";
+mongoose.connect(MONGODB_URI, { useUnifiedTopology: true, useNewUrlParser: true });
+
+
+runExit = () => {
+    console.log("Scraping Complete");
+    process.exit();
+}
 
 function hekmanScrape() {
-
     let sections = [{
             url: "beds",
             category: "beds"
@@ -25,13 +37,14 @@ function hekmanScrape() {
             category: "mirrors"
         },
     ]
-    sections.forEach(section => {
+    sections.forEach((section, index) => {
         axios.get(`http://www.hekman.com/products-bedroom-${section.url}`).then(data => {
 
             var result = {};
             var $ = cheerio.load(data.data);
             $ = cheerio.load($("#resultJSONDiv").val())
-            $("table tr:first-child").each(function() {
+            let elemCount = $("table tr:first-child").length;
+            $("table tr:first-child").each(function(elemIndex) {
                 result.description = $(this)
                     .find(".popup_productname")
                     .text().replace(/\w-?\w+/, "").trim();
@@ -49,15 +62,17 @@ function hekmanScrape() {
                     .attr("src");
                 result.tearsheet = `https://cms.howardmiller.com/products/sku/${result.sku.replace("-", "")}.pdf`;
                 db.Furniture.create(result)
-                    .then(data => {
-                        console.log(`Added ${data.description}`);
+                    .then(() => {
+                        if (index === sections.length - 1 && elemIndex === elemCount - 1) {
+                            runExit();
+                        }
                     })
                     .catch(err => {
                         console.log(`Error: ${err}`);
                     });
             })
         })
-    });
+    })
 }
 
 hekmanScrape();
