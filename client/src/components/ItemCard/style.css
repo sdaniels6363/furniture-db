@@ -15,7 +15,7 @@ img{
 	margin: 15px;
 	box-shadow: 3px 3px #000000;
 	position: relative;
-
+	display: inline-flex;
 }
 
 .item-description{

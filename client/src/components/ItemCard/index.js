@@ -7,7 +7,6 @@ function ItemCard(props) {
 		<div className="item-container">
 			<img alt={props.description} src={props.image} />
 			<div className="item-description">
-				<h3>Details</h3>
 				<ul>
 					<li>Vendor: {props.vendor}</li>
 					<li>Description: {props.description}</li>
