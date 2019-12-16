@@ -9,7 +9,7 @@ const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/furniture";
 mongoose.connect(MONGODB_URI, { useUnifiedTopology: true, useNewUrlParser: true });
 
 // A GET route for scraping the echoJS website
-var searchUttermost = function (url) {
+var searchUttermost = function (url, category) {
     // First, we grab the body of the html with axios
     axios.get(url).then(function (response) {
         // Then, we load that into cheerio and save it to $ for a shorthand selector
@@ -24,7 +24,7 @@ var searchUttermost = function (url) {
             result.category = category;
 
             result.vendor = "Uttermost";
-            
+
             result.image = $(this)
                 .children("figure")
                 .children("a")
@@ -52,4 +52,4 @@ var searchUttermost = function (url) {
         });
     }
 
-searchUttermost("https://www.uttermost.com/Accent-Furniture-Shop-By-Room-Bedroom/");
+searchUttermost("https://www.uttermost.com/Accent-Furniture-Shop-By-Room-Bedroom/", "Bedroom");

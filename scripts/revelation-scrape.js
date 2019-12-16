@@ -21,6 +21,10 @@ var searchRevelation = function (url, category) {
             var result = {};
 
             // Add the text and href of every link, and save them as properties of the result object
+            result.category = category;
+
+            result.vendor = "Revelation";
+
             result.image = $(this)
                 .children("figure")
                 .children("a")
@@ -49,4 +53,4 @@ var searchRevelation = function (url, category) {
         });
     }
 
-searchRevelation("https://www.uttermost.com/Revelation-Accent-Furniture-Shop-By-Room-Bedroom/");
+searchRevelation("https://www.uttermost.com/Revelation-Accent-Furniture-Shop-By-Room-Bedroom/", "Bedroom");
