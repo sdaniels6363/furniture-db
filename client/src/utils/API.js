@@ -12,6 +12,10 @@ export default {
     // Gets all unique Vendors
     getVendors: function() {
         return axios.get(`/api/vendor`);
+    },
+    // Get all unique Categories
+    getCategories: function(){
+        return axios.get("/api/categories");
     }
 
 
