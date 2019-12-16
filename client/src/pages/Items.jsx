@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import API from "../utils/API";
 import ItemCard from "../components/ItemCard";
+import NoItemCard from "../components/NoItemCard";
 
 class Items extends Component {
     state = {
@@ -9,6 +10,7 @@ class Items extends Component {
         filter: []
     };
 
+    //Grab "category" from url params
     category = this.props.match.params.item;
     componentDidMount() {
         this.getVendors();
@@ -34,21 +36,26 @@ class Items extends Component {
             .catch(err => console.log(err));
     }
 
-    filterVendor(vendor){
-        if(vendor === "all")
+    filterVendor(vendor) {
+        //If show all, "clear" state.filter, and set items to itself to trigger the state change.
+        if (vendor === "all")
             this.setState({
                 filter: [],
                 items: this.state.items
             })
-        else{
+        else {
+            //Otherwise, create a new array with object.vendor equal to passed vendor variable.
             let result = this.state.items.filter(item => item.vendor === vendor)
-            if(result.length === 0)
+            //If there are no vendors for that item, create a dummy object to display.
+            if (result.length === 0)
                 result = [{
-                    vendor:vendor,
-                    description:"No Items for this vendor"}];
-            this.setState({
-                filter: result
-            })
+                    vendor: vendor,
+                    error: true
+                }];
+            //Else, set filter state with the filtered array "result", which will trigger the ItemCard re-draw
+                this.setState({
+                    filter: result
+                })
 
         }
     }
@@ -60,15 +67,21 @@ class Items extends Component {
                     <ul>
                         {this.state.vendors.map((vendor, i) => {
                             return (
-                                <li key={i}><button onClick={()=>this.filterVendor(vendor)}>Show only {vendor}</button></li>
+                                <li key={i}><button onClick={() => this.filterVendor(vendor)}>Show only {vendor}</button></li>
                             )
                         })}
-                        <li><button onClick={()=>this.filterVendor("all")}>Show All</button></li>
+                        <li><button onClick={() => this.filterVendor("all")}>Show All</button></li>
                     </ul>
                 </div>
                 <div>
                     <h2>{this.category.toUpperCase()}</h2>
-                    {(this.state.filter.length > 0) ? this.state.filter.map(item => {
+                    {//Check if state.filter has more than 0 elements.  
+                    (this.state.filter.length > 0) ? 
+                    //If true, use state.filter with the ItemCard component.
+                    this.state.filter.map(item => {
+                        if(item.error)
+                            return <NoItemCard category={this.category} vendor={item.vendor}/>
+                        else
                         return (
                             <ItemCard
                                 key={item._id}
@@ -80,7 +93,9 @@ class Items extends Component {
                                 tearsheet={item.tearsheet}
                             />
                         );
-                    }) : this.state.items.map((item,i) => {
+                    }) 
+                    : //Otherwise, use state.items, which should be all items for the "category" from the DB.
+                    this.state.items.map((item, i) => {
                         return (
                             <ItemCard
                                 key={i}
