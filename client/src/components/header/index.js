@@ -7,7 +7,7 @@ import "../styles/Header.css";
 class Header extends React.Component {
     render() {
         return (
-            <Navbar fixedTop>
+            <Navbar fixedTop className="header">
                 <Navbar.Header>
                     <Navbar.Brand href="#home">Custom Corner</Navbar.Brand>
                 </Navbar.Header>
