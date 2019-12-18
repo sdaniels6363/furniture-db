@@ -27,6 +27,11 @@ class CatNav extends Component {
         <a className="navbar-brand" href="/about">
           About
         </a>
+        {/* 
+        All navigation links with the exception of the About page are derived from a database call.
+        Which occurs via the getCategories function.
+        This will allow us to load links dynamically based on the category of furniture in the database.
+        */}
         {this.state.categories.map((category,i) => {
           return (
             <a 
