@@ -13,9 +13,10 @@ class CatNav extends Component {
   getCategories = () => {
     API.getCategories()
       .then(res => {
+        let data = res.data.sort()
         console.log(res.data);
         this.setState({
-          categories: res.data
+          categories: data
         });
       })
       .catch(err => console.log(err));
