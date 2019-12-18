@@ -1,17 +1,17 @@
 import React from "react";
 // import ReactDOM from "./node_modules/react-dom";
-import Nav from 'react-bootstrap/Nav'
+import Navbar from 'react-bootstrap/Navbar'
 import "../../styles/Header.css";
 
 
 class Header extends React.Component {
     render() {
         return (
-            <Nav fixedTop className="header">
-                <Nav.Header>
-                    <Nav.Brand href="#home">Custom Corner</Nav.Brand>
-                </Nav.Header>
-            </Nav>
+            <Navbar fixedTop className="header">
+                {/* <Navbar.Header> */}
+                    <Navbar.Brand href="#home">Custom Corner</Navbar.Brand>
+                {/* </Navbar.Header> */}
+            </Navbar>
         );
     }
 
