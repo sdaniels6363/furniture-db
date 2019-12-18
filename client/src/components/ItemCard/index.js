@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/ItemCard.css";
+import "../../styles/ItemCard.css";
 import tack from "./tack.svg"
 
 function ItemCard(props) {

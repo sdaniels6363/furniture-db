@@ -1,2 +1,2 @@
 import React from "react";
-import "../styles/TacBoard.css";
+import "../../styles/TacBoard.css";

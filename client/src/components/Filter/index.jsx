@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "../styles/Filter.css";
+import "../../styles/Filter.css";
 import API from "../../utils/API";
 
 class Vendor extends Component {

@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/NoItemCard.css";
+import "../../styles/NoItemCard.css";
 
 function NoItemCard(props) {
 	return (

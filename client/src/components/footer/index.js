@@ -1,5 +1,5 @@
 import React from "./node_modules/react";
-import "../styles.Footer.css";
+import "../../styles.Footer.css";
 
 
 
