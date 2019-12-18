@@ -9,6 +9,11 @@ const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/furniture";
 
 mongoose.connect(MONGODB_URI);
 
+runExit = () => {
+    console.log("Scraping Complete");
+    process.exit();
+}
+
 var TaylorKing = function () {
 
     var searchTK = function (url, category) {
