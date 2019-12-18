@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import CatNav from "./components/CatNav"
 import About from "./pages/About";
 import Items from "./pages/Items";
+import Header from "./components/Header";
 // import Beds from "./pages/Beds";
 // import Benches from "./pages/Benches"
 // import Nightstands from "./pages/Nightstands";
@@ -14,6 +15,7 @@ function App() {
   return (
     <Router>
       <div>
+        <Header />
         <CatNav />
         <Switch>
           <Route exact path="/" component={About} />

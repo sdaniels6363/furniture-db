@@ -1,5 +1,5 @@
 import React from "react";
-import "./style.css";
+import "../../styles/ItemCard.css";
 import tack from "./tack.svg"
 
 function ItemCard(props) {
@@ -16,7 +16,7 @@ function ItemCard(props) {
 				</ul>
 			</div>
 			<div>
-				<a href="#"><img className="tack" alt="thumbtack" src={tack} /></a>
+				<button><img className="tack" alt="thumbtack" src={tack} /></button>
 			</div>
 		</div>
 	);
