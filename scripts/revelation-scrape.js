@@ -43,19 +43,32 @@ var searchRevelation = function (url, category) {
 
             console.log(`result`, result);
 
-            // Create a new Article using the `result` object built from scraping
+            axios.get(result.url).then(function (response) {
+
+              var $ = cheerio.load(response.data);
+      
+              $(".product__links").each(function (i, element) {
+                result.tearsheet = $(this).attr("href");
+      
+                // Create a new Article using the `result` object built from scraping
                 db.Furniture.create(result)
-                  .then(function(dbFurniture) {
+                  .then(function (dbFurniture) {
                     // View the added result in the console
                     console.log(dbFurniture);
                   })
-                  .catch(function(err) {
+                  .catch(function (err) {
                     // If an error occurred, log it
                     console.log(err);
                   });
-              });
-
+      
+      
+              })
+            })
+      
+      
+          });
+      
         });
-    }
+      }
 
 searchRevelation("https://www.uttermost.com/Revelation-Accent-Furniture-Shop-By-Room-Bedroom/", "Bedroom");
