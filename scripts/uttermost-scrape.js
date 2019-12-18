@@ -8,6 +8,11 @@ const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/furniture";
 
 mongoose.connect(MONGODB_URI, { useUnifiedTopology: true, useNewUrlParser: true });
 
+runExit = () => {
+    console.log("Scraping Complete");
+    process.exit();
+}
+
 // A GET route for scraping the echoJS website
 var searchUttermost = function (url) {
     // First, we grab the body of the html with axios
