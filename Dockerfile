@@ -7,16 +7,10 @@ ENV NODE_ENV=production
 # change working dir to /app
 WORKDIR /app
 
-# copy specific files to container
-COPY client .
-COPY controllers .
-COPY models .
-COPY routes .
-COPY server.js .
-COPY package.json .
+# copy all files to  container
+COPY . .
 
 # run the following commands before wrapping up the container
-RUN npm install
 RUN npm run build
 
 # expose the following ports
