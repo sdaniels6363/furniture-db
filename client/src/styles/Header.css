@@ -1,3 +1,13 @@
 .header{
-    background: #274b55;
+    height: 60px;
+    background: #002d39;
+    color: white;
+    opacity: 75%;
+    background-blend-mode: multiply;
+}
+
+.header img{
+    position:absolute;
+    left:0;
+    top:0;
 }
