@@ -4,6 +4,7 @@ import CatNav from "./components/CatNav"
 import About from "./pages/About";
 import Items from "./pages/Items";
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 // import Beds from "./pages/Beds";
 // import Benches from "./pages/Benches"
 // import Nightstands from "./pages/Nightstands";
@@ -28,6 +29,7 @@ function App() {
           <Route exact path="/category/mirrors" component={Mirrors} />
           <Route exact path="/category/nightstands" component={Nightstands} /> */}
         </Switch>
+        <Footer />
       </div>
     </Router>
   );
