@@ -25,9 +25,6 @@ class CatNav extends Component {
   render() {
     return (
       <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
-        <a className="navbar-brand" href="/about">
-          About
-        </a>
         {/* 
         All navigation links with the exception of the About page are derived from a database call.
         Which occurs via the getCategories function.
