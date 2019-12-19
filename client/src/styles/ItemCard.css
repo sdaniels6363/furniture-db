@@ -1,33 +1,56 @@
-img{
-	display: block;
-	position: absolute;
-	right: 75px;
-	top: 25px;
-	max-height: 150px;
-	max-width: 150px;
+img {
+  /* display: block; */
+  /* position: absolute; */
+  /* right: 75px;
+	top: 25px; */
+  max-height: 150px;
+  max-width: 150px;
 }
 
-.item-container{
-	border: 1px solid #000000;
-	width: 500px;
-	height: 200px;
-	border-radius: 25px;
-	margin: 15px;
-	box-shadow: 3px 3px #000000;
-	position: relative;
-	display: inline-flex;
+li {
+  list-style-type: none;
+  line-height: 24px;
+  height: 24px;
 }
 
-.item-description{
-	position: absolute;
-	bottom: 0;
-	left: 20px;
+.item-container {
+  border: 1px solid #000000;
+	min-width: 250px;
+	max-width: 250px;
+	min-height: 350px;
+	max-height: 350px;
+  border-radius: 25px;
+  margin: 15px;
+  box-shadow: 3px 3px #000000;
+  /* position: relative; */
+  display: inline-flex;
 }
 
-.tack{
-	position: absolute;
-	top: 10px;
-	right: 10px;
-	height: 50px;
-	width: 50px;
+.item-description {
+  /* position: absolute; */
+  bottom: 0;
+  left: 20px;
+}
+
+.tack {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  height: 50px;
+  width: 50px;
+}
+
+.scrollText {
+  width: 200px;
+  overflow: hidden;
+  position: relative;
+}
+.scrollText span {
+  position: absolute;
+  white-space: nowrap;
+  transform: translateX(0);
+  transition: 1s;
+}
+.scrollText:hover span {
+  transform: translateX(calc(200px - 100%));
 }
