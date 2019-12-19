@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
+import "../../styles/CatNav.css";
 
 class CatNav extends Component {
   state = {
