@@ -14,74 +14,74 @@ runExit = () => {
     process.exit();
 }
 
-var TaylorKing = function () {
+var searchTK = function (url, category) {
 
-    var searchTK = function (url, category) {
+    axios.get(url).then(function (response) {
 
-        axios.get(url).then(function (response) {
+        var $ = cheerio.load(response.data);
 
-            var $ = cheerio.load(response.data);
+        $("article").each(function (i, element) {
 
-            $("article").each(function (i, element) {
+            var result = {};
 
-                var result = {};
+            let descriptionHtml = $(this)
+                .children(".productText")
+                .html()
+                .trim();
+            let dataSplit = descriptionHtml.split("<br>", 2)
+            result.description = dataSplit[1]
+            result.sku = dataSplit[0]
+            result.vendor = "Taylor King"
+            result.category = category;
 
-                let descriptionHtml = $(this)
-                    .children(".productText")
-                    .html()
-                    .trim();
-                let dataSplit = descriptionHtml.split("<br>", 2)
-                result.description = dataSplit[1]
-                result.sku = dataSplit[0]
-                result.vendor = "Taylor King"
+            result.url = "https://taylorking.com/" + $(this)
+                .children("a")
+                .attr("href");
+            result.tearsheet = "https://taylorking.com/" + $(this)
+                .children("a")
+                .attr("href");
+            result.image = "https://taylorking.com/" + $(this)
+                .children()
+                .children()
+                .children("img")
+                .attr("src");
 
-                result.category = category;
+            db.Furniture.create(result)
+                .then(function (dbFurniture) {
 
+                    console.log(dbFurniture);
+                })
+                .catch(function (err) {
 
-                result.url = "https://taylorking.com/" + $(this)
-                    .children("a")
-                    .attr("href");
-                result.tearsheet = "https://taylorking.com/" + $(this)
-                    .children("a")
-                    .attr("href");
-                result.image = "https://taylorking.com/" + $(this)
-                    .children()
-                    .children()
-                    .children("img")
-                    .attr("src");
+                    console.log("item was not added");
+                })
 
-                db.Furniture.create(result)
-                    .then(function (dbFurniture) {
-
-                        console.log(dbFurniture);
-                    })
-                    .catch(function (err) {
-
-                        console.log("item was not added");
-                    })
-
-            });
         });
-
-    }
-
-    searchTK("https://taylorking.com/category.asp?CID=11", "bedroom");
-
-    searchTK("https://taylorking.com/category3columns.asp?CID=3", "sleepers");
-
-    searchTK("https://taylorking.com/category.asp?CID=26", "chairs");
-    searchTK("https://taylorking.com/category.asp?pageID=2&CID=26", "chairs");
-    searchTK("https://taylorking.com/category.asp?pageID=3&CID=26", "chairs");
-    searchTK("https://taylorking.com/category.asp?pageID=4&CID=26", "chairs");
-    searchTK("https://taylorking.com/category.asp?pageID=5&CID=26", "chairs");
-
-    searchTK("https://taylorking.com/category.asp?CID=14", "benches");
-    searchTK("https://taylorking.com/category.asp?pageID=2&CID=14", "benches");
-    searchTK("https://taylorking.com/category.asp?pageID=3&CID=14", "benches");
-    searchTK("https://taylorking.com/category.asp?pageID=4&CID=14", "benches");
-    searchTK("https://taylorking.com/category.asp?pageID=5&CID=14", "benches");
-    searchTK("https://taylorking.com/category.asp?pageID=6&CID=14", "benches");
+    });
 
 }
 
-module.exports.TaylorKing = TaylorKing;
+async function runScrapes() {
+
+    await searchTK("https://taylorking.com/category.asp?CID=11", "beds");
+
+    await searchTK("https://taylorking.com/category3columns.asp?CID=3", "sleepers");
+
+    await searchTK("https://taylorking.com/category.asp?CID=26", "chairs");
+    await searchTK("https://taylorking.com/category.asp?pageID=2&CID=26", "chairs");
+    await searchTK("https://taylorking.com/category.asp?pageID=3&CID=26", "chairs");
+    await searchTK("https://taylorking.com/category.asp?pageID=4&CID=26", "chairs");
+    await searchTK("https://taylorking.com/category.asp?pageID=5&CID=26", "chairs");
+
+    await searchTK("https://taylorking.com/category.asp?CID=14", "benches");
+    await searchTK("https://taylorking.com/category.asp?pageID=2&CID=14", "benches");
+    await searchTK("https://taylorking.com/category.asp?pageID=3&CID=14", "benches");
+    await searchTK("https://taylorking.com/category.asp?pageID=4&CID=14", "benches");
+    await searchTK("https://taylorking.com/category.asp?pageID=5&CID=14", "benches");
+    await searchTK("https://taylorking.com/category.asp?pageID=6&CID=14", "benches");
+
+    setTimeout(function () { runExit(); }, 20000);
+};
+
+runScrapes();
+

@@ -71,4 +71,11 @@ var searchRevelation = function (url, category) {
         });
       }
 
-searchRevelation("https://www.uttermost.com/Revelation-Accent-Furniture-Shop-By-Room-Bedroom/", "Bedroom");
+async function runScrapes() {
+    
+  await searchRevelation("https://www.uttermost.com/Revelation-Accent-Furniture-Shop-By-Room-Bedroom/", "Bedroom");
+
+  setTimeout(function(){ runExit(); }, 15000);
+};
+
+runScrapes();
