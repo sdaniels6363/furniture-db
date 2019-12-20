@@ -1,8 +1,4 @@
 img {
-  /* display: block; */
-  /* position: absolute; */
-  /* right: 75px;
-	top: 25px; */
   max-height: 150px;
   max-width: 150px;
 }
@@ -22,12 +18,11 @@ li {
   border-radius: 25px;
   margin: 15px;
   box-shadow: 3px 3px #000000;
-  /* position: relative; */
   display: inline-flex;
+  background-color: #ffffff;
 }
 
 .item-description {
-  /* position: absolute; */
   bottom: 0;
   left: 20px;
 }
@@ -40,6 +35,10 @@ li {
   width: 50px;
 }
 
+.tack:hover{
+  transform: scale(1.10);
+}
+
 .scrollText {
   width: 200px;
   overflow: hidden;
@@ -48,9 +47,8 @@ li {
 .scrollText span {
   position: absolute;
   white-space: nowrap;
-  transform: translateX(0);
-  transition: 1s;
+  transition: 3s;
 }
 .scrollText:hover span {
-  transform: translateX(calc(200px - 100%));
+  transform: translateX(calc(100% - 200%));
 }

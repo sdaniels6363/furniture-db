@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import API from "../utils/API";
 import ItemCard from "../components/ItemCard";
 import NoItemCard from "../components/NoItemCard";
+import "../styles/Items.css"
 
 class Items extends Component {
   state = {
@@ -97,26 +98,40 @@ class Items extends Component {
         </div>
         {/* Display Category, and item cards */}
         <div>
-          <h2>{this.category.toUpperCase()}</h2>
           <div>
-          <div className="row">
-            <div className="col-md-1"></div>
-            <div className="col-md-9">
-              {//Check if state.filter has more than 0 elements.
-              this.state.filter.length > 0
-                ? //If true, use state.filter with the ItemCard component.
-                  this.state.filter.map(item => {
-                    if (item.error)
-                      return (
-                        <NoItemCard
-                          category={this.category}
-                          vendor={item.vendor}
-                        />
-                      );
-                    else
+            <div className="row">
+              <div className="col-md-1"></div>
+              <div className="col-md-9">
+                <h2 className="categoryTitle">{this.category.toUpperCase()}</h2>
+                {//Check if state.filter has more than 0 elements.
+                  this.state.filter.length > 0
+                    ? //If true, use state.filter with the ItemCard component.
+                    this.state.filter.map(item => {
+                      if (item.error)
+                        return (
+                          <NoItemCard
+                            category={this.category}
+                            vendor={item.vendor}
+                          />
+                        );
+                      else
+                        return (
+                          <ItemCard
+                            key={item._id}
+                            vendor={item.vendor}
+                            description={item.description}
+                            image={item.image}
+                            sku={item.sku}
+                            url={item.url}
+                            tearsheet={item.tearsheet}
+                          />
+                        );
+                    })
+                    : //Otherwise, use state.items, which should be all items for the "category" from the DB.
+                    this.state.items.map((item, i) => {
                       return (
                         <ItemCard
-                          key={item._id}
+                          key={i}
                           vendor={item.vendor}
                           description={item.description}
                           image={item.image}
@@ -125,23 +140,9 @@ class Items extends Component {
                           tearsheet={item.tearsheet}
                         />
                       );
-                  })
-                : //Otherwise, use state.items, which should be all items for the "category" from the DB.
-                  this.state.items.map((item, i) => {
-                    return (
-                      <ItemCard
-                        key={i}
-                        vendor={item.vendor}
-                        description={item.description}
-                        image={item.image}
-                        sku={item.sku}
-                        url={item.url}
-                        tearsheet={item.tearsheet}
-                      />
-                    );
-                  })}
+                    })}
+              </div>
             </div>
-          </div>
           </div>
         </div>
       </div>
