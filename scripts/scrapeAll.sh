@@ -6,7 +6,7 @@
 node ./ambella-scarpe.js
 node ./DR-Kinkaid-scrape.js
 node ./hekman-scrape.js
-node ./hooker-scrape.js
+node ./hooker-puppeteer-scrape.js
 node ./lex-scrape.js
 node ./paladin-scrape.js
 node ./tayKing-scrape.js
