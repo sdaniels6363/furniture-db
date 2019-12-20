@@ -17,13 +17,13 @@ runExit = () => {
     process.exit();
 }
 
-let scrapeAmbella = function(url, category) {
+let scrapeAmbella = function (url, category) {
 
-    axios.get(url).then(function(response) {
+    axios.get(url).then(function (response) {
 
         var $ = cheerio.load(response.data);
 
-        $("gallery-item").each(function(i, element) {
+        $("gallery-item").each(function (i, element) {
 
             const result = {};
 
@@ -49,10 +49,10 @@ let scrapeAmbella = function(url, category) {
             result.vendor = "Ambella";
 
             db.Furniture.create(result)
-                .then(function(dbFurniture) {
+                .then(function (dbFurniture) {
                     // console.log(dbFurn);
                 })
-                .catch(function(err) {
+                .catch(function (err) {
                     // console.log(err);
                 });
 
@@ -61,10 +61,17 @@ let scrapeAmbella = function(url, category) {
 
 }
 
-scrapeAmbella("https://www.ambellahome.com/Product/Bedroom/Beds", "beds");
+async function runScrapes() {
 
-scrapeAmbella("https://www.ambellahome.com/Product/Bedroom/Dressers", "dressers");
+    await scrapeAmbella("https://www.ambellahome.com/Product/Bedroom/Beds", "beds");
 
-scrapeAmbella("https://www.ambellahome.com/Product/Bedroom/Nightstands", "nightstands");
+    await scrapeAmbella("https://www.ambellahome.com/Product/Bedroom/Dressers", "dressers");
 
-scrapeAmbella("https://www.ambellahome.com/Product/Mirrors/Mirrors", "mirrors");
+    await scrapeAmbella("https://www.ambellahome.com/Product/Bedroom/Nightstands", "nightstands");
+
+    await scrapeAmbella("https://www.ambellahome.com/Product/Mirrors/Mirrors", "mirrors");
+
+    setTimeout(function () { runExit(); }, 15000);
+};
+
+runScrapes();

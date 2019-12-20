@@ -68,6 +68,14 @@ var searchUttermost = function (url, category) {
     });
 
   });
+  
 }
 
-searchUttermost("https://www.uttermost.com/Accent-Furniture-Shop-By-Room-Bedroom/", "Bedroom");
+async function runScrapes() {
+    
+  await searchUttermost("https://www.uttermost.com/Accent-Furniture-Shop-By-Room-Bedroom/", "Bedroom");
+
+  setTimeout(function(){ runExit(); }, 15000);
+};
+
+runScrapes();
