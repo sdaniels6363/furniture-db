@@ -2,105 +2,71 @@ import React, { Component } from "react";
 import API from "../utils/API";
 import ItemCard from "../components/ItemCard";
 import NoItemCard from "../components/NoItemCard";
+import Vendors from "../components/Vendors";
 import "../styles/Items.css"
 
 class Items extends Component {
   state = {
     items: [],
-    vendors: [],
-    filter: []
+    filter: [],
+    vendorList: []
   };
 
   //Grab "category" from url params
   category = this.props.match.params.item;
   componentDidMount() {
-    this.getVendors();
     this.loadItems();
   }
 
   loadItems = () => {
     API.getFurnitureByCategory(this.category)
       .then(res => {
-        this.setState({ items: res.data });
+        //Get vendors from retrieved items.
+        let tempData=[];
+        res.data.forEach(item => {
+          //If vendor doesn't exist in tempData, add it.
+          if (!tempData.includes(item.vendor)) {
+            tempData.push(item.vendor)
+          }
+        });
+        //Set states
+        this.setState({ 
+          items: res.data,
+          vendorList: tempData })
       })
       .catch(err => console.log(err));
   };
 
-  getVendors() {
-    API.getVendors()
-      .then(res => {
-        this.setState({
-          vendors: res.data
-        });
-      })
-      .catch(err => console.log(err));
-  }
-
-  filterVendor(vendor) {
-    //If show all, "clear" state.filter, and set state.items to itself to trigger the state change.
-    if (vendor === "all")
-      this.setState({
-        filter: [],
-        items: this.state.items
-      });
-    else {
-      //Otherwise, create a new array with object.vendor equal to passed vendor variable.
-      let result = this.state.items.filter(item => item.vendor === vendor);
-      //If there are no vendors for that item, create a dummy object to display.
-      if (result.length === 0)
-        result = [
-          {
-            vendor: vendor,
-            error: true
-          }
-        ];
-      //Else, set filter state with the filtered array "result", which will trigger the ItemCard re-draw
-      this.setState({
-        filter: result
-      });
-    }
+  getVendorsFromFilter = (vendors) => {
+    // Set result to a filtered items array where only items that have the selected vendors will appear.
+    let result = this.state.items.filter(item => vendors.includes(item.vendor));
+    //If result is empty, add a dummy "item" to provide page feedback.
+    if (result.length === 0)
+      result = [{
+        error: true,
+        //If there are vendors selected, if not, change the message.
+        vendor: vendors.join(", ") || "No Vendors Selected"
+      }]
+    //Set filter state to re-draw the components.
+    this.setState({
+      filter: result,
+    });
   }
 
   render() {
     return (
       <div>
-        {/* Filter Section */}
-        <div className="dropdown">
-          <button
-            className="btn btn-secondary dropdown-toggle"
-            type="button"
-            id="dropdownMenu2"
-            data-toggle="dropdown"
-            aria-haspopup="true"
-            aria-expanded="false"
-          >
-            Vendor Filters
-          </button>
-          <div className="dropdown-menu" aria-labelledby="dropdownMenu2">
-            {this.state.vendors.map((vendor, i) => {
-              return (
-                <button
-                  className="dropdown-item"
-                  key={i}
-                  onClick={() => this.filterVendor(vendor)}
-                >
-                  Show only {vendor}
-                </button>
-              );
-            })}
-            <button
-              className="dropdown-item"
-              onClick={() => this.filterVendor("all")}
-            >
-              Show All
-            </button>
-          </div>
-        </div>
         {/* Display Category, and item cards */}
         <div>
           <div>
             <div className="row">
-              <div className="col-md-1"></div>
+              <div className="col-md-3">
+                {/* Vendor Filter Section */}
+                <Vendors
+                  vendorList={this.state.vendorList}
+                  filterVendors={this.getVendorsFromFilter}
+                />
+              </div>
               <div className="col-md-9">
                 <h2 className="categoryTitle">{this.category.toUpperCase()}</h2>
                 {//Check if state.filter has more than 0 elements.
