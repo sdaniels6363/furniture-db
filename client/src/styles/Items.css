@@ -2,3 +2,8 @@
     font-family: 'Roboto Slab', sans-serif;
     color: #ffffff;
 }
+
+.custom {
+    /* overflow: hidden; */
+    margin-bottom: 3rem;
+}

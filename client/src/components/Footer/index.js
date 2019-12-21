@@ -9,12 +9,9 @@ import "../../styles/Footer.css";
 class AppFooter extends React.Component {
     render() {
         return(
-            <div className="footer text-center" id="footer">&copy; 2020 The Custom Corner</div>
+            <footer className="footer text-center">&copy; 2020 The Custom Corner</footer>
         )
     }
 }
 
-
-
 export default AppFooter
-
