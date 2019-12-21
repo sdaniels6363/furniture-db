@@ -1,9 +1,11 @@
+import "./Vendors.css";
 import React, { Component } from "react";
 import Accordion from 'react-bootstrap/Accordion';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form'
 import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
 
 class Vendors extends Component {
     state = {
@@ -23,7 +25,7 @@ class Vendors extends Component {
 
     updateVendors = (e) => {
         //Initialize temp variable
-        if(this.temp[0] === "init"){
+        if (this.temp[0] === "init") {
             this.temp = [];
             this.props.vendorList.forEach(ele => this.temp.push(ele));
         }
@@ -48,18 +50,25 @@ class Vendors extends Component {
             <Accordion>
                 <Card>
                     <Card.Body>
-                        <Card.Title className="text-center">
-                            Vendors
-                            <Accordion.Toggle as={Button} variant="Link" eventkey='0' className="float-right" onClick={this.changeToggle}>
-                                <h5>{this.state.collapse}</h5>
-                            </Accordion.Toggle>
+                        <Row>
+
+                            <Col xs={6}>
+                                <Card.Title className="text-left">
+                                    <h3>Vendors</h3>
                         </Card.Title>
+                            </Col>
+                            <Col xs={6}>
+                                <Accordion.Toggle as={Col} variant="Link" eventkey='0' className="text-right" onClick={this.changeToggle}>
+                                    <h3>{this.state.collapse}</h3>
+                                </Accordion.Toggle>
+                            </Col>
+                        </Row>
                         <Accordion.Collapse>
                             <Form>
                                 <Form.Row>
                                     {this.props.vendorList.map((vendor, i) => {
                                         return (
-                                            <Col key={i} xs={6}>
+                                            <Col key={i} xs={12}>
                                                 <Form.Switch
                                                     id={vendor}
                                                     value={vendor}
