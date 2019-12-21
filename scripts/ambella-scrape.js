@@ -10,7 +10,7 @@ const db = require("../models");
 
 const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/furniture";
 
-mongoose.connect(MONGODB_URI, { useUnifiedTopology: true, useNewUrlParser: true });
+mongoose.connect(MONGODB_URI, { useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true });
 
 runExit = () => {
     console.log("Scraping Complete");
@@ -62,7 +62,7 @@ let scrapeAmbella = function (url, category) {
 }
 
 async function runScrapes() {
-
+    console.log("Scraping Ambella")
     await scrapeAmbella("https://www.ambellahome.com/Product/Bedroom/Beds", "beds");
 
     await scrapeAmbella("https://www.ambellahome.com/Product/Bedroom/Dressers", "dressers");
