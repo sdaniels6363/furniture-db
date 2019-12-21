@@ -20,4 +20,5 @@ a.navbar-brand:hover{
 	background-color: #002d39;
 	opacity: 75%;
 	background-blend-mode: multiply;
+	overflow: hidden;
 }
