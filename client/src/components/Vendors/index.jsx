@@ -11,19 +11,6 @@ class Vendors extends Component {
     };
 
     temp = ["init"];
-    componentDidMount() {
-        // this.getVendors();
-    }
-
-    // getVendors() {
-    //     API.getVendors()
-    //       .then(res => {
-    //         this.setState({
-    //           vendors: res.data
-    //         });
-    //       })
-    //       .catch(err => console.log(err));
-    //   }
 
     changeToggle = (e) => {
         if (this.state.collapse === "-") {
