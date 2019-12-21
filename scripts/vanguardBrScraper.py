@@ -82,7 +82,7 @@ category_url = [
         "category": "beds"
     },{
         "url": "https://vanguardfurniture.com/styles?PageSize=2000000000&Room=BR&ProdType=018",
-        "category": "benches"
+        "category": "benches-ottomans"
     },{
         "url": "https://vanguardfurniture.com/styles?PageSize=2000000000&Room=BR&ProdType=016",
         "category": "dressers"
@@ -97,7 +97,7 @@ category_url = [
 # create empty array
 details = []
 
-print("Scraping beginning for Vanguard")
+print("Scraping Vanguard")
 # over each category pull the page and parse the data
 for x in category_url:
     url = x['url']
