@@ -1,0 +1,21 @@
+
+a.navbar-brand{
+	font-family: 'Raleway', sans-serif;
+	text-decoration: none;
+	color: #ffffff;
+	font-weight: bold;
+}
+
+a.navbar-brand:hover{
+	transform: scale(1.10);
+	text-shadow: 2px 2px #000000;
+	font-weight: bold;
+}
+
+#catNavBar{
+	border-bottom: 8px solid #000000;
+	min-height: 40px;
+	max-height: 40px;
+	background-color: #002d39;
+	opacity: 0.75;
+}

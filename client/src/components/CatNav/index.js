@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
+import "../../styles/CatNav.css";
 
 class CatNav extends Component {
   state = {
@@ -14,7 +15,7 @@ class CatNav extends Component {
     API.getCategories()
       .then(res => {
         let data = res.data.sort()
-        console.log(res.data);
+        // console.log(res.data);
         this.setState({
           categories: data
         });
@@ -24,7 +25,7 @@ class CatNav extends Component {
 
   render() {
     return (
-      <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
+      <nav className="navbar navbar-expand-lg" id="catNavBar">
         {/* 
         All navigation links with the exception of the About page are derived from a database call.
         Which occurs via the getCategories function.
