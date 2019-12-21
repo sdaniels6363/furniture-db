@@ -13,9 +13,11 @@ a.navbar-brand:hover{
 }
 
 #catNavBar{
+	position: relative;
 	border-bottom: 8px solid #000000;
 	min-height: 40px;
 	max-height: 40px;
 	background-color: #002d39;
-	opacity: 0.75;
+	opacity: 75%;
+	background-blend-mode: multiply;
 }
