@@ -35,7 +35,7 @@ var searchPaladin = function (url, category) {
                 result.description = dataSplit[1] + " " + dataSplit[2]
             }
             result.sku = dataSplit[0]
-            result.vendor = "Paladin Furniture"
+            result.vendor = "Paladin"
 
             result.category = category;
 
