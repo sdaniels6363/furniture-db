@@ -6,6 +6,9 @@
 mongo localhost:27017/furniture --eval 'db.furniture.drop()'
 # we do this everytime the script runs, this way we don't have to worry about duplicates, and we don't have to deal with adding/removing items.
 
+# Python Scripts
+python ./vanguardBrScraper.py
+
 # Node Scripts
 node ./ambella-scrape.js
 node ./DR-Kinkaid-scrape.js
@@ -15,6 +18,3 @@ node ./lex-scrape.js
 node ./paladin-scrape.js
 node ./tayKing-scrape.js
 node ./uttermost-scrape.js
-
-# Python Scripts
-python3 ./vanguardBrScraper.py
