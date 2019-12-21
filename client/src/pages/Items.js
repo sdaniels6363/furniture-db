@@ -8,48 +8,49 @@ import "../styles/Items.css"
 class Items extends Component {
   state = {
     items: [],
-    filter: []
+    filter: [],
+    vendorList: []
   };
 
-  vendorList = [];
   //Grab "category" from url params
   category = this.props.match.params.item;
   componentDidMount() {
-    this.getVendors();
     this.loadItems();
   }
 
   loadItems = () => {
     API.getFurnitureByCategory(this.category)
       .then(res => {
-        this.setState({ items: res.data });
+        //Get vendors from retrieved items.
+        let tempData=[];
+        res.data.forEach(item => {
+          //If vendor doesn't exist in tempData, add it.
+          if (!tempData.includes(item.vendor)) {
+            tempData.push(item.vendor)
+          }
+        });
+        //Set states
+        this.setState({ 
+          items: res.data,
+          vendorList: tempData })
       })
       .catch(err => console.log(err));
   };
-
-  getVendors() {
-    API.getVendors()
-      .then(res => {
-        this.vendorList = res.data;
-      })
-      .catch(err => console.log(err));
-  }
 
   getVendorsFromFilter = (vendors) => {
     // Set result to a filtered items array where only items that have the selected vendors will appear.
     let result = this.state.items.filter(item => vendors.includes(item.vendor));
     //If result is empty, add a dummy "item" to provide page feedback.
-    if(result.length === 0)
-    result = [{
-      error: true,
-      //If there are vendors selected, if not, change the message.
-      vendor: vendors.join(", ") || "No Vendors Selected"
-    }]
+    if (result.length === 0)
+      result = [{
+        error: true,
+        //If there are vendors selected, if not, change the message.
+        vendor: vendors.join(", ") || "No Vendors Selected"
+      }]
     //Set filter state to re-draw the components.
     this.setState({
       filter: result,
     });
-
   }
 
   render() {
@@ -62,7 +63,7 @@ class Items extends Component {
               <div className="col-md-3">
                 {/* Vendor Filter Section */}
                 <Vendors
-                  vendorList={this.vendorList}
+                  vendorList={this.state.vendorList}
                   filterVendors={this.getVendorsFromFilter}
                 />
               </div>
