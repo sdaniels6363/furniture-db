@@ -1,7 +1,6 @@
 import "./Vendors.css";
 import React, { Component } from "react";
 import Accordion from 'react-bootstrap/Accordion';
-import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form'
 import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
