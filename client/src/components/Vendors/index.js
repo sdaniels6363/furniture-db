@@ -1,10 +1,10 @@
-import "./Vendors.css";
 import React, { Component } from "react";
 import Accordion from 'react-bootstrap/Accordion';
 import Form from 'react-bootstrap/Form'
 import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
+import "../../styles/Vendors.css";
 
 class Vendors extends Component {
     state = {
@@ -47,16 +47,16 @@ class Vendors extends Component {
     render() {
         return (
             <Accordion>
-                <Card>
+                <Card id="vendorCard">
                     <Card.Body>
                         <Row>
 
-                            <Col xs={6}>
+                            <Col xs={9}>
                                 <Card.Title className="text-left">
                                     <h3>Vendors</h3>
                         </Card.Title>
                             </Col>
-                            <Col xs={6}>
+                            <Col xs={1}>
                                 <Accordion.Toggle as={Col} variant="Link" eventkey='0' className="text-right" onClick={this.changeToggle}>
                                     <h3>{this.state.collapse}</h3>
                                 </Accordion.Toggle>

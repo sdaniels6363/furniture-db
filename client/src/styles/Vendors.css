@@ -10,3 +10,11 @@ h5 {
     font-family: 'Roboto Slab', sans-serif;
     color: #ffffff
 }
+
+#vendorCard{
+    max-width: 225px;
+    margin-left: 10px;
+    margin-top: 60px;
+    border: 1px solid #000000;
+    border-radius: 10px;
+}
