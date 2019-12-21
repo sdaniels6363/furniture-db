@@ -1,0 +1,12 @@
+.card {
+    background-color: #002d39;
+    font-family: 'Raleway', sans-serif;
+    color: #ffffff
+}
+
+.card-title,
+h5 {
+    background-color: #002d39;
+    font-family: 'Roboto Slab', sans-serif;
+    color: #ffffff
+}
