@@ -7,6 +7,8 @@ import requests
 from bs4 import BeautifulSoup
 # mongodb driver for python
 import pymongo
+# import os to access env variables
+import os
 
 # Functions
 def pageRequest(url):
@@ -30,7 +32,6 @@ def parseLinks(url, category):
     request = pageRequest(url)
     # separate returned object
     page = request['html']
-    statusCode = request['status']
     # pull out all anchor tags
     anchors = page.find_all('a')
     # loop over all of the links
@@ -96,7 +97,7 @@ category_url = [
 # create empty array
 details = []
 
-
+print("Scraping beginning for Vanguard")
 # over each category pull the page and parse the data
 for x in category_url:
     url = x['url']
@@ -104,10 +105,11 @@ for x in category_url:
     parseLinks(url,category)
 
 
-
+# import env variable, if not defined use localhost
+envVar = (os.getenv('MONGODB_URI', "localhost"))
 
 # connect to the mongo server
-mongo = pymongo.MongoClient("localhost", 27017)
+mongo = pymongo.MongoClient(envVar, 27017)
 
 # connect to the furniture database
 db = mongo.furniture
@@ -116,5 +118,6 @@ db = mongo.furniture
 furniture = db.furniture
 
 # use the pymongo insert_many function to add an array of values to the database
-result = furniture.insert_many(details)
+result = furniture.insert_many(details,ordered=True,bypass_document_validation=False,session=None)
 
+print("Scraping completed.")
