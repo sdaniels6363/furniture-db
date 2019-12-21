@@ -39,12 +39,12 @@ class Items extends Component {
     // Set result to a filtered items array where only items that have the selected vendors will appear.
     let result = this.state.items.filter(item => vendors.includes(item.vendor));
     //If result is empty, add a dummy "item" to provide page feedback.
-    if(result.length === 0)
-    result = [{
-      error: true,
-      //If there are vendors selected, if not, change the message.
-      vendor: vendors.join(", ") || "No Vendors Selected"
-    }]
+    if (result.length === 0)
+      result = [{
+        error: true,
+        //If there are vendors selected, if not, change the message.
+        vendor: vendors.join(", ") || "No Vendors Selected"
+      }]
     //Set filter state to re-draw the components.
     this.setState({
       filter: result,
