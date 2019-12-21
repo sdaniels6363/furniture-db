@@ -7,7 +7,7 @@ const db = require("../models");
 
 const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/furniture";
 
-mongoose.connect(MONGODB_URI);
+mongoose.connect(MONGODB_URI, { useUnifiedTopology: true, useNewUrlParser: true });
 
 runExit = () => {
     console.log("Scraping Complete");
@@ -58,7 +58,7 @@ var searchPaladin = function (url, category) {
             db.Furniture.create(result)
                 .then(function (dbFurniture) {
 
-                    console.log(dbFurniture);
+                    // console.log(dbFurniture);
                 })
                 .catch(function (err) {
 
@@ -71,7 +71,7 @@ var searchPaladin = function (url, category) {
 }
 
 async function runScrapes() {
-
+    console.log("Scraping Paladin")
     await searchPaladin("https://paladinfurniture.com/product-category/chairs/matching-chairs/", "chairs");
     await searchPaladin("https://paladinfurniture.com/product-category/chairs/accent-chairs/", "chairs");
     await searchPaladin("https://paladinfurniture.com/product-category/chairs/accent-chairs/page/2/", "chairs");
@@ -80,10 +80,10 @@ async function runScrapes() {
 
     await searchPaladin("https://paladinfurniture.com/product-category/headboards/", "beds");
 
-    await searchPaladin("https://paladinfurniture.com/product-category/ottomans/", "ottomans");
-    await searchPaladin("https://paladinfurniture.com/product-category/ottomans/page/2/", "ottomans");
+    await searchPaladin("https://paladinfurniture.com/product-category/ottomans/", "benches-ottomans");
+    await searchPaladin("https://paladinfurniture.com/product-category/ottomans/page/2/", "benches-ottomans");
 
-    await searchPaladin("https://paladinfurniture.com/product-category/accent-pieces/benches/", "benches");
+    await searchPaladin("https://paladinfurniture.com/product-category/accent-pieces/benches/", "benches-ottomans");
 
     setTimeout(function () { runExit(); }, 20000);
 };

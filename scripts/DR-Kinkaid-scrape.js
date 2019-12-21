@@ -7,7 +7,7 @@ const db = require("../models");
 
 const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/furniture";
 
-mongoose.connect(MONGODB_URI);
+mongoose.connect(MONGODB_URI, { useUnifiedTopology: true, useNewUrlParser: true });
 
 runExit = () => {
     console.log("Scraping Complete");
@@ -57,7 +57,7 @@ var searchDRKincaid = function (url, category) {
                 db.Furniture.create(result)
                     .then(function (dbFurniture) {
 
-                        console.log(dbFurniture);
+                        // console.log(dbFurniture);
                     })
                     .catch(function (err) {
 
@@ -70,7 +70,7 @@ var searchDRKincaid = function (url, category) {
 }
 
 async function runScrapes() {
-
+    console.log("Beginning scrape of DR Kincaid")
     await searchDRKincaid("http://www.drkincaidchair.com/ProductList.php?productCategory=Traditional", "chairs");
     await searchDRKincaid("http://www.drkincaidchair.com/ProductList.php?productCategory=Traditional&page=2", "chairs");
     await searchDRKincaid("http://www.drkincaidchair.com/ProductList.php?productCategory=Traditional&page=3", "chairs");
@@ -80,10 +80,10 @@ async function runScrapes() {
     await searchDRKincaid("http://www.drkincaidchair.com/ProductList.php?productCategory=Basic", "chairs");
     await searchDRKincaid("http://www.drkincaidchair.com/ProductList.php?productCategory=Basic&page=2", "chairs");
 
-    await searchDRKincaid("http://www.drkincaidchair.com/ProductList.php?productCategory=Bench_Ottoman", "benches");
-    await searchDRKincaid("http://www.drkincaidchair.com/ProductList.php?productCategory=Bench_Ottoman&page=2", "benches");
-    await searchDRKincaid("http://www.drkincaidchair.com/ProductList.php?productCategory=Bench_Ottoman&page=3", "benches");
-    await searchDRKincaid("http://www.drkincaidchair.com/ProductList.php?productCategory=Bench_Ottoman&page=4", "benches");
+    await searchDRKincaid("http://www.drkincaidchair.com/ProductList.php?productCategory=Bench_Ottoman", "benches-ottomans");
+    await searchDRKincaid("http://www.drkincaidchair.com/ProductList.php?productCategory=Bench_Ottoman&page=2", "benches-ottomans");
+    await searchDRKincaid("http://www.drkincaidchair.com/ProductList.php?productCategory=Bench_Ottoman&page=3", "benches-ottomans");
+    await searchDRKincaid("http://www.drkincaidchair.com/ProductList.php?productCategory=Bench_Ottoman&page=4", "benches-ottomans");
 
     await searchDRKincaid("http://www.drkincaidchair.com/ProductList.php?productCategory=Upholstered_Headboards", "beds");
 
