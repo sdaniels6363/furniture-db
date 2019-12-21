@@ -57,7 +57,7 @@ var searchLex = function (url, category) {
                     db.Furniture.create(result)
                         .then(function (dbFurniture) {
 
-                            console.log(dbFurniture);
+                            // console.log(dbFurniture);
                         })
                         .catch(function (err) {
 
@@ -74,13 +74,13 @@ var searchLex = function (url, category) {
 }
 
 async function runScrapes() {
-
+    console.log("Scraping Lexington")
     await searchLex("https://lexington.com/beds", "beds");
     await searchLex("https://lexington.com/dressers", "dressers");
     await searchLex("https://lexington.com/mirrors", "mirrors");
     await searchLex("https://lexington.com/chests", "chests");
     await searchLex("https://lexington.com/night-stands", "nightstands");
-    await searchLex("https://lexington.com/benches-ottomans1521", "benches");
+    await searchLex("https://lexington.com/benches-ottomans1521", "benches-ottomans");
 
     setTimeout(function () { runExit(); }, 20000);
 };

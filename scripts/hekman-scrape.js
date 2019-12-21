@@ -16,6 +16,7 @@ runExit = () => {
 }
 
 function hekmanScrape() {
+    console.log("Scraping Hekman")
     let sections = [{
             url: "beds",
             category: "beds"

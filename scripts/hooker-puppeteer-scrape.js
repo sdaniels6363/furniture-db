@@ -140,8 +140,9 @@ let scrapeHooker = function (url, category) {
 }
 
 async function runScrapes() {
+    console.log("Scraping Hooker")
     await scrapeHooker("https://www.hookerfurniture.com/bedroom/armoire-cabinets/room-type.aspx", "cabinets");
-    await scrapeHooker("https://www.hookerfurniture.com/bedroom/benches/room-type.aspx", "benches");
+    await scrapeHooker("https://www.hookerfurniture.com/bedroom/benches/room-type.aspx", "benches-ottomans");
     await scrapeHooker("https://www.hookerfurniture.com/bedroom/beds/room-type.aspx?brand=marq", "beds");
     // await HookerScrape("https://www.hookerfurniture.com/mattresses/department-type.aspx?brand=marq", "MARQ-mattresses");
     await HookerScrape("https://www.hookerfurniture.com/bedroom/mirrors/room-type.aspx", "mirrors");

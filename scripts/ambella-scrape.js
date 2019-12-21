@@ -62,7 +62,7 @@ let scrapeAmbella = function (url, category) {
 }
 
 async function runScrapes() {
-
+    console.log("Scraping Ambella")
     await scrapeAmbella("https://www.ambellahome.com/Product/Bedroom/Beds", "beds");
 
     await scrapeAmbella("https://www.ambellahome.com/Product/Bedroom/Dressers", "dressers");
