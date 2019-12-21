@@ -8,7 +8,7 @@ function TackBoard(props) {
     return (
         <div className="tackboard-container" data-vendor={props.vendor}>
       <img alt={props.description} src={props.image} />
-      <div className="item-description">
+      <div className="tackboard-description">
         <li>Vendor: {props.vendor}</li>
         <li className="scrollText">
           <span>Description: {props.description}</span>
