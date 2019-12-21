@@ -1,13 +1,17 @@
 .header{
-    height: 60px;
+    height: 130px;
     background: #002d39;
     color: white;
     opacity: 75%;
     background-blend-mode: multiply;
+    padding: 0px;
 }
 
-.header img{
-    position:absolute;
-    left:0;
-    top:0;
+#header-logo {
+    min-width: 350px;
+    position: relative;
+    margin-bottom: auto;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 0;
 }
