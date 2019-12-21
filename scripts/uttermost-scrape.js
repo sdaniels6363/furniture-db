@@ -7,6 +7,7 @@ const db = require("../models");
 const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/furniture";
 
 mongoose.connect(MONGODB_URI, { useUnifiedTopology: true, useNewUrlParser: true });
+mongoose.set('useCreateIndex', true);
 
 runExit = () => {
   console.log("Scraping Complete");
@@ -40,7 +41,7 @@ var searchUttermost = function (url, category) {
         .children("a")
         .attr("href");
 
-      console.log(`result`, result);
+      // console.log(`result`, result);
 
       axios.get(result.url).then(function (response) {
 
@@ -53,11 +54,16 @@ var searchUttermost = function (url, category) {
           db.Furniture.create(result)
             .then(function (dbFurniture) {
               // View the added result in the console
-              console.log(dbFurniture);
+              // console.log(dbFurniture);
             })
             .catch(function (err) {
-              // If an error occurred, log it
+
+              if (err.code === 11000){
+                console.log("Entry already exists.")
+              } else {
+                              // If an error occurred, log it
               console.log(err);
+              }
             });
 
 
@@ -72,7 +78,7 @@ var searchUttermost = function (url, category) {
 }
 
 async function runScrapes() {
-    
+  console.log("Scraping Uttermost")
   await searchUttermost("https://www.uttermost.com/Accent-Furniture-Shop-By-Room-Bedroom/", "Bedroom");
 
   setTimeout(function(){ runExit(); }, 15000);

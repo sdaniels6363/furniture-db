@@ -60,7 +60,7 @@ class Items extends Component {
         <div>
           <div>
             <div className="row">
-              <div className="col-md-3">
+              <div className="col-md-2">
                 {/* Vendor Filter Section */}
                 <Vendors
                   vendorList={this.state.vendorList}
