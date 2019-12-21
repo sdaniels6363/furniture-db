@@ -67,7 +67,7 @@ class Items extends Component {
                   filterVendors={this.getVendorsFromFilter}
                 />
               </div>
-              <div className="col-md-9">
+              <div className="col-md-9 custom">
                 <h2 className="categoryTitle">{this.category.toUpperCase()}</h2>
                 {//Check if state.filter has more than 0 elements.
                   this.state.filter.length > 0

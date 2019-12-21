@@ -18,7 +18,7 @@ function App() {
           <Route exact path="/about" component={About} />
           <Route exact path="/category/:item" render={(props) => <Items {...props} />} />
         </Switch>
-        <Footer />
+        {/* <Footer /> */}
       </div>
     </Router>
   );
