@@ -61,14 +61,14 @@ class Items extends Component {
         <div>
           <div>
             <div className="row">
-              <div className="col-md-3">
+              <div className="col-md-2">
                 {/* Vendor Filter Section */}
                 <Vendors
                   vendorList={this.state.vendorList}
                   filterVendors={this.getVendorsFromFilter}
                 />
               </div>
-              <div className="col-md-9">
+              <div className="col-md-9 custom">
                 <h2 className="categoryTitle">{this.category.toUpperCase()}</h2>
                 {//Check if state.filter has more than 0 elements.
                   this.state.filter.length > 0

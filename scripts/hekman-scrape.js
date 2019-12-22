@@ -7,7 +7,7 @@ mongoose.set('useCreateIndex', true);
 
 const db = require("../models");
 const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/furniture";
-mongoose.connect(MONGODB_URI, { useUnifiedTopology: true, useNewUrlParser: true });
+mongoose.connect(MONGODB_URI, { useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true });
 
 
 runExit = () => {
@@ -16,6 +16,7 @@ runExit = () => {
 }
 
 function hekmanScrape() {
+    console.log("Scraping Hekman")
     let sections = [{
             url: "beds",
             category: "beds"

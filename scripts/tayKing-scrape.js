@@ -7,7 +7,7 @@ const db = require("../models");
 
 const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/furniture";
 
-mongoose.connect(MONGODB_URI);
+mongoose.connect(MONGODB_URI, { useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true });
 
 runExit = () => {
     console.log("Scraping Complete");
@@ -49,7 +49,7 @@ var searchTK = function (url, category) {
             db.Furniture.create(result)
                 .then(function (dbFurniture) {
 
-                    console.log(dbFurniture);
+                    // console.log(dbFurniture);
                 })
                 .catch(function (err) {
 
@@ -62,7 +62,7 @@ var searchTK = function (url, category) {
 }
 
 async function runScrapes() {
-
+    console.log("Scraping Taylor King")
     await searchTK("https://taylorking.com/category.asp?CID=11", "beds");
 
     await searchTK("https://taylorking.com/category3columns.asp?CID=3", "sleepers");
@@ -73,12 +73,12 @@ async function runScrapes() {
     await searchTK("https://taylorking.com/category.asp?pageID=4&CID=26", "chairs");
     await searchTK("https://taylorking.com/category.asp?pageID=5&CID=26", "chairs");
 
-    await searchTK("https://taylorking.com/category.asp?CID=14", "benches");
-    await searchTK("https://taylorking.com/category.asp?pageID=2&CID=14", "benches");
-    await searchTK("https://taylorking.com/category.asp?pageID=3&CID=14", "benches");
-    await searchTK("https://taylorking.com/category.asp?pageID=4&CID=14", "benches");
-    await searchTK("https://taylorking.com/category.asp?pageID=5&CID=14", "benches");
-    await searchTK("https://taylorking.com/category.asp?pageID=6&CID=14", "benches");
+    await searchTK("https://taylorking.com/category.asp?CID=14", "benches-ottomans");
+    await searchTK("https://taylorking.com/category.asp?pageID=2&CID=14", "benches-ottomans");
+    await searchTK("https://taylorking.com/category.asp?pageID=3&CID=14", "benches-ottomans");
+    await searchTK("https://taylorking.com/category.asp?pageID=4&CID=14", "benches-ottomans");
+    await searchTK("https://taylorking.com/category.asp?pageID=5&CID=14", "benches-ottomans");
+    await searchTK("https://taylorking.com/category.asp?pageID=6&CID=14", "benches-ottomans");
 
     setTimeout(function () { runExit(); }, 20000);
 };
