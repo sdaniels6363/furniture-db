@@ -4,7 +4,7 @@ import CatNav from "./components/CatNav"
 import About from "./pages/About";
 import Items from "./pages/Items";
 import Header from "./components/Header";
-import Footer from "./components/Footer";
+// import Footer from "./components/Footer";
 
 
 function App() {

@@ -4,6 +4,7 @@ import ItemCard from "../components/ItemCard";
 import NoItemCard from "../components/NoItemCard";
 import Vendors from "../components/Vendors";
 import "../styles/Items.css"
+import "../styles/styles.css"
 
 class Items extends Component {
   state = {
