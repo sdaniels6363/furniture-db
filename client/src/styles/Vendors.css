@@ -17,4 +17,5 @@ h5 {
     margin-top: 60px;
     border: 1px solid #000000;
     border-radius: 10px;
+    box-shadow: 3px 3px 6px rgba(0,0,0,0.8);
 }

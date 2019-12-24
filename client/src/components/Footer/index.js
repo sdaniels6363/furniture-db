@@ -14,4 +14,4 @@ class AppFooter extends React.Component {
     }
 }
 
-export default AppFooter
+export default AppFooter;
