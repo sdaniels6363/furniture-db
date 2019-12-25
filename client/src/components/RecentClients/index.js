@@ -43,10 +43,7 @@ class RecentClients extends React.Component {
                             </div>
                         </div>
                     </div>
-
-                    {/* <p id="client-card-text">Recent Clients</p> */}
                 </div>
-
 
             </div>
         )

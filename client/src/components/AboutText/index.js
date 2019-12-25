@@ -1,7 +1,5 @@
 import React from "react";
 import "../../styles/About.css";
-// import FourUp from "./4up-nologo.png";
-
 
 class AboutText extends React.Component {
     render() {
