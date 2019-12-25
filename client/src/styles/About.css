@@ -6,3 +6,25 @@
     right: 0px;
     top: 0px;
 }
+
+#mycard {
+    background-color: white;
+}
+
+#mycard-title {
+    background-color: white;
+    color: #002d39;
+    text-align: center;
+    text-shadow: 2px 2px 4px #969696;
+}
+
+#mycard-text {
+    color: #002d39;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+#mycol {
+    margin-top: 3rem;
+}

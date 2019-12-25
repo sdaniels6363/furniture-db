@@ -8,10 +8,10 @@ class About extends Component {
   <div>
     <div className="container">
       <div className="row">
-        <div className="col-sm">
+        <div className="col-sm" id="mycol">
           <AboutPic />
         </div>
-        <div className="col-sm">
+        <div className="col-sm" id="mycol">
           
           <AboutText />
         </div>
