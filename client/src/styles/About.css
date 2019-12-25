@@ -5,6 +5,7 @@
     /* max-width: 786px; */
     right: 0px;
     top: 0px;
+    text-align: center;
 }
 
 #mycard {
@@ -50,6 +51,9 @@
     border-color: #002d39;
     border-width: 2px;
     box-shadow: 2px 2px 4px rgba(0,0,0,.6);
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    transition: all 0.5s;
 }
 
 #about-login-btn:hover {
@@ -75,10 +79,63 @@
     background-color: #002d39;
     border-width: 2px;
     box-shadow: none;
+    top: 2px;
 }
 
 .btn-wrapper {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.fade-in {
+    animation: fadeIn ease 2.5s;
+    -webkit-animation: fadeIn ease 2.5s;
+    -moz-animation: fadeIn ease 2.5s;
+    -o-animation: fadeIn ease 2.5s;
+    -ms-animation: fadeIn ease 2.5s;
+}
+
+@keyframes fadeIn {
+    0% {
+      opacity:0;
+    }
+    100% {
+      opacity:1;
+    }
+  }
+  @-moz-keyframes fadeIn {
+    0% {
+      opacity:0;
+    }
+    100% {
+      opacity:1;
+    }
+  }
+  
+  @-webkit-keyframes fadeIn {
+    0% {
+      opacity:0;
+    }
+    100% {
+      opacity:1;
+    }
+  }
+  
+  @-o-keyframes fadeIn {
+    0% {
+      opacity:0;
+    }
+    100% {
+      opacity:1;
+    }
+  }
+  
+  @-ms-keyframes fadeIn {
+    0% {
+      opacity:0;
+    }
+    100% {
+      opacity:1;
+  }
 }
