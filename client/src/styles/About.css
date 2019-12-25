@@ -33,3 +33,40 @@
     font-weight: 800;
     /* font-style: italic; */
 }
+
+#mycontainer {
+    margin-bottom: 3.5rem;
+}
+
+#about-login-btn {
+    font-family: "Raleway", sans-serif;
+    font-weight: bolder; 
+    font-size: 1.25rem;
+    color: #002d39;
+    cursor: pointer;
+    background-color: #a2b2b7;
+    padding: .4rem 1rem;
+    border-radius: .5rem;
+    border-color: #002d39;
+    border-width: 2px;
+    box-shadow: 2px 2px 4px rgba(0,0,0,.6);
+}
+
+#about-login-btn:hover {
+    font-family: "Raleway", sans-serif;
+    font-weight: bold; 
+    color: #a2b2b7;
+    cursor: pointer;
+    padding: .4rem 1rem;
+    border-radius: .5rem;
+    border-color: #a2b2b7;
+    background-color: #002d39;
+    border-width: 2px;
+}
+
+
+.btn-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
