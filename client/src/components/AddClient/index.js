@@ -10,7 +10,7 @@ class AddClient extends React.Component {
                 {/* <div className="card" id="client-card"> */}
                     {/* <div className="card-body"> */}
                         <div className="row" id="lr-margin">
-                            <div className="input-group mb-3">
+                            <div className="input-group ">
                                 <input type="text" className="form-control" placeholder="Add a new client" aria-label="Recipient's username" aria-describedby="basic-addon2" />
                                 <div className="input-group-append">
                                     <button className="btn btn-outline-secondary" type="button">Submit</button>

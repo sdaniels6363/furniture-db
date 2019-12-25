@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import RecentClients from "../components/RecentClients";
 import AddClient from "../components/AddClient";
+import SelectClient from "../components/SelectClient";
 
 class Clients extends Component {
     render() {
@@ -20,7 +21,12 @@ class Clients extends Component {
                     <div className="row">
                         <div className="col-md">
                             <AddClient />
-                </div>
+                        </div>
+                    </div>
+                    <div className="row">
+                        <div className="col-md">
+                            <SelectClient />
+                        </div>
                     </div>
                 </div>
             </div>
