@@ -6,15 +6,15 @@
 
 .card-title,
 h5 {
-    background-color: #002d39;
+    /* background-color: #002d39; */
     font-family: 'Roboto Slab', sans-serif;
-    color: #ffffff
+    color: #fff;
 }
 
 #vendorCard{
     max-width: 225px;
     margin-left: 10px;
-    margin-top: 60px;
+    margin-top: 4rem;
     border: 1px solid #000000;
     border-radius: 10px;
     box-shadow: 3px 3px 6px rgba(0,0,0,0.8);

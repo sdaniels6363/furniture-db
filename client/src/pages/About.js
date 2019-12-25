@@ -15,7 +15,6 @@ class About extends Component {
             <div className="col-md" id="mycol">
               <AboutText />
             </div>
-          
           </div>
           <div className="row">
               <div className="col-md" id="mycol">
@@ -23,11 +22,6 @@ class About extends Component {
               </div>
             </div>
         </div>
-
-
-
-
-
       </div>
     )
   }
