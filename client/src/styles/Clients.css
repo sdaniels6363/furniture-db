@@ -24,8 +24,18 @@
     color: #002d39;
     font-weight: 600;
     font-size: 1.25rem;
+    font-family: "Raleway";
 }
 
 #recent-row {
     margin-top: 1rem;
+}
+
+.top-spacer {
+    margin-top: 2rem;
+}
+
+#lr-margin {
+    margin-left: .1rem;
+    margin-right: .1rem;
 }

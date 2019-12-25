@@ -6,22 +6,19 @@ class AddClient extends React.Component {
         return (
             <div>
 
-                <h4 id="client-card-text">Recent Clients</h4>
-                <div className="card" id="client-card">
-                    <div className="card-body">
-                        <div className="row">
-                            <div className="col-md">
-                                <button type="button" class="btn btn-light btn-block">Recent Client 1</button>
+                <h4 id="client-card-text" className="top-spacer">Add Client</h4>
+                {/* <div className="card" id="client-card"> */}
+                    {/* <div className="card-body"> */}
+                        <div className="row" id="lr-margin">
+                            <div className="input-group mb-3">
+                                <input type="text" className="form-control" placeholder="Add a new client" aria-label="Recipient's username" aria-describedby="basic-addon2" />
+                                <div className="input-group-append">
+                                    <button className="btn btn-outline-secondary" type="button">Submit</button>
+                                </div>
                             </div>
-                            <div className="col-md">
-                                <button type="button" class="btn btn-light btn-block">Recent Client 2</button>
-                            </div>
-                            <div className="col-md">
-                                <button type="button" class="btn btn-light btn-block">Recent Client 3</button>
-                            </div>
-                        </div>
-                        
-                    </div>
+                        {/* </div> */}
+
+                    {/* </div> */}
 
                     {/* <p id="client-card-text">Recent Clients</p> */}
                 </div>
