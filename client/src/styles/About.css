@@ -64,6 +64,18 @@
     border-width: 2px;
 }
 
+#about-login-btn:active {
+    font-family: "Raleway", sans-serif;
+    font-weight: bold; 
+    color: #a2b2b7;
+    cursor: pointer;
+    padding: .4rem 1rem;
+    border-radius: .5rem;
+    border-color: #a2b2b7;
+    background-color: #002d39;
+    border-width: 2px;
+    box-shadow: none;
+}
 
 .btn-wrapper {
     display: flex;
