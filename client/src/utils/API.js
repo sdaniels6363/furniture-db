@@ -16,6 +16,12 @@ export default {
     // Get all unique Categories
     getCategories: function(){
         return axios.get("/api/categories");
+    },
+    validateUser: function(){
+        return axios.post("/api/auth/login")
+    },
+    newUser: function(){
+        return axios.post("/api/auth/create")
     }
 
 
