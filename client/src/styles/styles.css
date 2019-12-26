@@ -1,0 +1,27 @@
+body {
+    background: url(BG-1080.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    overflow-x: hidden;
+    /* min-height: 100%;
+    display: grid;
+    grid-template-rows: 1fr auto; */
+  }
+
+  .footer {
+    background-color: #002d39;
+    opacity: 50%;
+    background-blend-mode: multiply;
+    color: #fff;
+    height: 2.5rem;
+    padding-top: 6px;
+    text-align: center;
+    margin-top: -2.5rem;
+  }
+
+  #page-container {
+    position: relative;
+    min-height: 100vh;
+  }
