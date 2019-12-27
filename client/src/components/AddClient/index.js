@@ -1,20 +1,46 @@
 import React from "react";
 import "../../styles/Clients.css";
+import API from "../../utils/API"
 
 class AddClient extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = { newClient: '' };
+
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    handleChange(event) {
+        this.setState({ newClient: event.target.value });
+    }
+
+    handleSubmit(event) {
+        event.preventDefault();
+        const body = {name: this.state.newClient}
+        API.newClient(body).then((res,err) => {
+            if(err){
+                console.log(err)
+            }
+            console.log(res)
+        });
+    }
+
     render() {
         return (
             <div>
 
                 <h4 id="client-card-text" className="top-spacer">Add Client</h4>
-                <div className="row" id="lr-margin">
-                    <div className="input-group ">
-                        <input type="text" className="form-control" placeholder="Add a new client" aria-label="Recipient's username" aria-describedby="basic-addon2" />
-                        <div className="input-group-append">
-                            <button className="btn btn-outline-secondary" type="button">Submit</button>
+                <form>
+                    <div className="row" id="lr-margin">
+                        <div className="input-group">
+                            <input type="text" value={this.state.value} onChange={this.handleChange} className="form-control" placeholder="Add a new client" aria-label="Recipient's username" aria-describedby="basic-addon2" />
+                            <div className="input-group-append">
+                                <input className="btn btn-outline-secondary" type="submit" value="submit" onClick={this.handleSubmit} />
+                            </div>
                         </div>
                     </div>
-                </div>
+                </form>
 
             </div>
         )
