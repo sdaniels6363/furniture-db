@@ -31,10 +31,7 @@ class SelectClient extends React.Component {
 
   componentDidMount() {
     API.getClients().then(res => {
-      let clients = res.data;
-      console.log(res.data)
-      console.log(clients.sort((a, b) => a.name.localeCompare(b.name)));
-
+      let clients = res.data.sort((a, b) => a.name.localeCompare(b.name));
       this.setState({
         clients: clients,
         selected: res.data[0]._id
