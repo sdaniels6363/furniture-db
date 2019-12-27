@@ -3,9 +3,9 @@ const db = require("../models");
 // Defining methods for the vendorController
 module.exports = {
     create: function(req, res) {
-        let newClient = req.body.data.name;
+        let newClient = req.body.data.name.toUpperCase();
         db.Client
-            .create({name: newClient.toUpperCase()}, function(err, success) {
+            .create({name: newClient}, function(err, success) {
                 if (err){
                     if (err.code === 11000){
                         res.status(422)
@@ -27,9 +27,9 @@ module.exports = {
             })
     },
     delete: function(req, res){
-        
+        let id = req.body.data.id
         db.Client
-            .findByIdAndDelete({_id: req.body.data.id}, function(err,success){
+            .deleteOne({_id: id}, function(err,success){
                 if (err) {
                     console.log(err)
                 } else {
