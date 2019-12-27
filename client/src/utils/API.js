@@ -34,5 +34,14 @@ export default {
     },
     getClients: function () {
         return axios.get("/api/clients/list")
+    },
+    deleteClient: function(data){
+        console.log(data)
+        return axios.post("/api/clients/delete", {data}).then((res, err) => {
+            if (err){
+                console.log(err);
+            }
+            console.log(res);
+        })
     }
 };
