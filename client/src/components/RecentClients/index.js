@@ -11,35 +11,35 @@ class RecentClients extends React.Component {
                     <div className="card-body">
                         <div className="row">
                             <div className="col-md">
-                                <button type="button" class="btn btn-light btn-block">Recent Client 1</button>
+                                <button type="button" className="btn btn-light btn-block">Recent Client 1</button>
                             </div>
                             <div className="col-md">
-                                <button type="button" class="btn btn-light btn-block">Recent Client 2</button>
+                                <button type="button" className="btn btn-light btn-block">Recent Client 2</button>
                             </div>
                             <div className="col-md">
-                                <button type="button" class="btn btn-light btn-block">Recent Client 3</button>
-                            </div>
-                        </div>
-                        <div className="row" id="recent-row">
-                            <div className="col-md">
-                                <button type="button" class="btn btn-light btn-block" id="recent-btn">Recent Client 4</button>
-                            </div>
-                            <div className="col-md">
-                                <button type="button" class="btn btn-light btn-block" id="recent-btn">Recent Client 5</button>
-                            </div>
-                            <div className="col-md">
-                                <button type="button" class="btn btn-light btn-block" id="recent-btn">Recent Client 6</button>
+                                <button type="button" className="btn btn-light btn-block">Recent Client 3</button>
                             </div>
                         </div>
                         <div className="row" id="recent-row">
                             <div className="col-md">
-                                <button type="button" class="btn btn-light btn-block" id="recent-btn">Recent Client 7</button>
+                                <button type="button" className="btn btn-light btn-block" id="recent-btn">Recent Client 4</button>
                             </div>
                             <div className="col-md">
-                                <button type="button" class="btn btn-light btn-block" id="recent-btn">Recent Client 8</button>
+                                <button type="button" className="btn btn-light btn-block" id="recent-btn">Recent Client 5</button>
                             </div>
                             <div className="col-md">
-                                <button type="button" class="btn btn-light btn-block" id="recent-btn">Recent Client 9</button>
+                                <button type="button" className="btn btn-light btn-block" id="recent-btn">Recent Client 6</button>
+                            </div>
+                        </div>
+                        <div className="row" id="recent-row">
+                            <div className="col-md">
+                                <button type="button" className="btn btn-light btn-block" id="recent-btn">Recent Client 7</button>
+                            </div>
+                            <div className="col-md">
+                                <button type="button" className="btn btn-light btn-block" id="recent-btn">Recent Client 8</button>
+                            </div>
+                            <div className="col-md">
+                                <button type="button" className="btn btn-light btn-block" id="recent-btn">Recent Client 9</button>
                             </div>
                         </div>
                     </div>
