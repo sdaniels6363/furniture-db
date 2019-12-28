@@ -8,9 +8,9 @@ module.exports = {
             .create({name: newClient}, function(err, success) {
                 if (err){
                     if (err.code === 11000){
-                        res.status(422)
+                        res.status(422).json(err)
                     } else {
-                        res.status(500)
+                        res.status(500).json(err)
                     }
                 } else{
                     res.status(200).json(success)
