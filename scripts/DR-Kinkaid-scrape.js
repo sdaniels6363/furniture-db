@@ -25,8 +25,7 @@ var searchDRKincaid = function (url, category) {
             var result = {};
 
             let descriptionHtml = $(this)
-                .html()
-                .trim();
+                .html();
             let dataSplit = descriptionHtml.split("<br>", 2);
             result.sku = dataSplit[0];
 
@@ -61,7 +60,6 @@ var searchDRKincaid = function (url, category) {
                     })
                     .catch(function (err) {
 
-                        console.log("item was not added");
                     })
             }
         });
