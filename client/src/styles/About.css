@@ -1,0 +1,141 @@
+#myimg {
+    display: inline-block;
+    position: relative;
+    max-height: 100%;
+    /* max-width: 786px; */
+    right: 0px;
+    top: 0px;
+    text-align: center;
+}
+
+#mycard {
+    background-color: white;
+}
+
+#mycard-title {
+    background-color: white;
+    color: #002d39;
+    text-align: center;
+    text-shadow: 2px 2px 4px #969696;
+}
+
+#mycard-text {
+    color: #002d39;
+    text-align: center;
+    font-weight: 400;
+    font-size: 1.2rem;
+}
+
+#mycol {
+    margin-top: 3rem;
+}
+
+.custom-bold {
+    font-weight: 800;
+    /* font-style: italic; */
+}
+
+#mycontainer {
+    margin-bottom: 3.5rem;
+}
+
+#about-login-btn {
+    font-family: "Raleway", sans-serif;
+    font-weight: bolder; 
+    font-size: 1.25rem;
+    color: #002d39;
+    cursor: pointer;
+    background-color: #a2b2b7;
+    padding: .4rem 1rem;
+    border-radius: .5rem;
+    border-color: #002d39;
+    border-width: 2px;
+    box-shadow: 2px 2px 4px rgba(0,0,0,.6);
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    transition: all 0.5s;
+}
+
+#about-login-btn:hover {
+    font-family: "Raleway", sans-serif;
+    font-weight: bold; 
+    color: #a2b2b7;
+    cursor: pointer;
+    padding: .4rem 1rem;
+    border-radius: .5rem;
+    border-color: #a2b2b7;
+    background-color: #002d39;
+    border-width: 2px;
+}
+
+#about-login-btn:active {
+    font-family: "Raleway", sans-serif;
+    font-weight: bold; 
+    color: #a2b2b7;
+    cursor: pointer;
+    padding: .4rem 1rem;
+    border-radius: .5rem;
+    border-color: #a2b2b7;
+    background-color: #002d39;
+    border-width: 2px;
+    box-shadow: none;
+    top: 2px;
+}
+
+.btn-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fade-in {
+    animation: fadeIn ease 2.5s;
+    -webkit-animation: fadeIn ease 2.5s;
+    -moz-animation: fadeIn ease 2.5s;
+    -o-animation: fadeIn ease 2.5s;
+    -ms-animation: fadeIn ease 2.5s;
+}
+
+@keyframes fadeIn {
+    0% {
+      opacity:0;
+    }
+    100% {
+      opacity:1;
+    }
+  }
+  @-moz-keyframes fadeIn {
+    0% {
+      opacity:0;
+    }
+    100% {
+      opacity:1;
+    }
+  }
+  
+  @-webkit-keyframes fadeIn {
+    0% {
+      opacity:0;
+    }
+    100% {
+      opacity:1;
+    }
+  }
+  
+  @-o-keyframes fadeIn {
+    0% {
+      opacity:0;
+    }
+    100% {
+      opacity:1;
+    }
+  }
+  
+  @-ms-keyframes fadeIn {
+    0% {
+      opacity:0;
+    }
+    100% {
+      opacity:1;
+  }
+}

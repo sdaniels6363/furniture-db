@@ -8,12 +8,12 @@ img{
 }
 
 .item-container{
-	border: 1px solid #000000;
+	border: 1px solid #002d39;
 	width: 500px;
 	height: 200px;
 	border-radius: 25px;
 	margin: 15px;
-	box-shadow: 3px 3px #000000;
+	box-shadow: 3px 3px 6px rgba(0,0,0,0.8);
 	position: relative;
 	display: inline-flex;
 }

@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "name": "mern",
   "version": "1.0.0",
   "description": "",
@@ -33,3 +34,37 @@
     "yup": "^0.28.0"
   }
 }
+=======
+    "name": "custom-corner",
+    "version": "1.0.0",
+    "description": "",
+    "main": "server.js",
+    "scripts": {
+        "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
+        "start:prod": "node server.js",
+        "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
+        "client": "cd client && npm run start",
+        "seed": "node scripts/seedDB.js",
+        "install": "cd client && npm install",
+        "build": "cd client && npm run build",
+        "heroku-postbuild": "npm run build"
+    },
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "concurrently": "^4.1.0",
+        "nodemon": "^1.18.7"
+    },
+    "dependencies": {
+        "axios": "^0.18.0",
+        "bootstrap": "^4.4.1",
+        "express": "^4.16.3",
+        "if-env": "^1.0.4",
+        "mongoose": "^5.3.16",
+        "mongoose-bcrypt": "^1.6.0",
+        "react": "^16.12.0",
+        "react-bootstrap": "^1.0.0-beta.16",
+        "react-dom": "^16.12.0"
+    }
+}
+>>>>>>> d808ca2fe3839a3e55a6cf0b84369fa016e6348d
