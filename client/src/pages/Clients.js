@@ -2,8 +2,34 @@ import React, { Component } from "react";
 import RecentClients from "../components/RecentClients";
 import AddClient from "../components/AddClient";
 import SelectClient from "../components/SelectClient";
+import API from "../utils/API"
 
 class Clients extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            clients: []
+        };
+    }
+
+
+    componentDidMount() {
+        // when the component mounts, fetch all clients and sort them by alphabetical order
+        API.getClients().then(res => {
+            if (res.data.length === 0) {
+                this.setState({
+                    clients: [],
+                });
+            } else {
+                let clients = res.data.sort((a, b) => a.name.localeCompare(b.name));
+                this.setState({
+                    clients: clients,
+                });
+
+            }
+        });
+    }
+
     render() {
         return (
             <div>
@@ -25,7 +51,9 @@ class Clients extends Component {
                     </div>
                     <div className="row">
                         <div className="col-md">
-                            <SelectClient />
+                            <SelectClient
+                                clients={this.state.clients}
+                            />
                         </div>
                     </div>
                 </div>
