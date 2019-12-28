@@ -6,7 +6,7 @@ function NoItemCard(props) {
 		<div className="item-container" data-vendor={props.vendor}>
 			<div>
 				<br/><br/>
-				There are no {props.category} for {props.vendor}.  Please Select a different filter or category.
+				Please Select at least one vendor from the list.
 			</div>
 		</div>
 	);

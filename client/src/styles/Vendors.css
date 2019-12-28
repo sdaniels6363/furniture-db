@@ -11,11 +11,43 @@ h5 {
     color: #fff;
 }
 
-#vendorCard{
+#vendorCard {
     max-width: 225px;
     margin-left: 10px;
     margin-top: 4rem;
     border: 1px solid #000000;
     border-radius: 10px;
-    box-shadow: 3px 3px 6px rgba(0,0,0,0.8);
+    box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
+}
+
+
+/* switch background color/border color
+ While checked */
+
+.custom-control-input:checked~.custom-control-label::before {
+    background-color: #002d39;
+    border-color: #fff;
+}
+
+
+/* Unchecked */
+
+.custom-control-label::before {
+    background-color: #002d39;
+    border-color: grey;
+}
+
+
+/* switch "dot" color
+ While checked */
+
+.custom-switch .custom-control-input:checked~.custom-control-label::after {
+    /* background-color: #fff; */
+}
+
+
+/* Unchecked */
+
+.custom-switch .custom-control-label::after {
+    /* background-color: #fff; */
 }
