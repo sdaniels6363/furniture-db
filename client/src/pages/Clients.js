@@ -61,6 +61,7 @@ class Clients extends Component {
                     <div className="row">
                         <div className="col-md">
                             <SelectClient
+                                cb={this.selectClientCB}
                                 clients={this.state.clients}
                             />
                         </div>

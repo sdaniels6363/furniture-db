@@ -21,13 +21,11 @@ class AddClient extends React.Component {
         API.newClient(body)
             .then(res => {
                 console.log(res)
-                // we reload the page to fetch the updated list from the db
-                // I'm sure there's a better way to do this, if someone has
-                // any ideas please be my guest.
-                //window.location.reload()
+                // Clear the input field
                 this.setState({
                     newClient: ""
                 })
+                // Use the callback function to re-load the list of clients from the DB.
                 this.props.cb();
             })
             .catch(err => {

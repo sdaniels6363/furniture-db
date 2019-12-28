@@ -26,10 +26,8 @@ class SelectClient extends React.Component {
       .then(res => {
         console.log(res)
         alert(this.state.selected + " was deleted")
-        // we reload the page to fetch the update list from the db
-        // I'm sure there's a better way to do this, if someone has
-        // any ideas please be my guest.
-        window.location.reload()
+        //Use the provided callback function to reload the client list from the DB.
+        this.props.cb();
       })
       .catch(err => console.log(err));
   }
