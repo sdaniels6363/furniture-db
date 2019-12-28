@@ -22,3 +22,9 @@ a.navbar-brand:hover{
 	background-blend-mode: multiply;
 	overflow: hidden;
 }
+
+.admin-controls{
+	position: absolute;
+	right: 10px;
+	text-align: right;
+}
