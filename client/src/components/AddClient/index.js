@@ -18,12 +18,15 @@ class AddClient extends React.Component {
     newClient(event) {
         event.preventDefault();
         const body = {name: this.state.newClient}
-        API.newClient(body).then((res,err) => {
-            if(err){
-                console.log(err)
-            }
-            console.log(res)
-        });
+        API.newClient(body)
+            .then(res => {console.log(res)})
+            .catch(err => {
+                if (err.response.status === 422){
+                    alert("Duplicate client detected.  Failed to add client.")
+                } else {
+                    alert("Unknown error")
+                }
+            });
     }
 
     render() {
