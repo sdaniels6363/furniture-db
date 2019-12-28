@@ -13,21 +13,15 @@ class SelectedItems extends Component {
                             <h1 id="client-card-title">Selected Items for "client name"</h1>
                         </div>
                     </div>
-                    <div className="row">
-                        <div className="col-md">
                             <Selected />
-                        </div>
-                    </div>
-                    {/* <div className="row">
-                        <div className="col-md">
-                            <AddClient />
-                        </div>
-                    </div> */}
-                    {/* <div className="row">
-                        <div className="col-md">
-                            <SelectClient />
-                        </div>
-                    </div> */}
+
+                            {/* The "selected" component will be listed here only once. This is for demonstration purposes only. */}
+                            <Selected />
+                            <Selected />
+                            <Selected />
+                            <Selected />
+                            <Selected />
+                            <Selected />
                 </div>
             </div>
         )
