@@ -5,6 +5,8 @@ import About from "./pages/About";
 import Clients from "./pages/Clients";
 import Items from "./pages/Items";
 import Header from "./components/Header";
+import Form from "./components/Form";
+// import Footer from "./components/Footer";
 import Login from "./pages/Login";
 import NewUser from "./pages/NewUser";
 
