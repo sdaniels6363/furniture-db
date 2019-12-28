@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-import React from "react";
-
-function Login() {
-  return <div>Login</div>;
-}
-
-export default Login;
-=======
 import React, { Component } from "react";
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
@@ -70,4 +61,3 @@ class Login extends Component {
 }
 
 export default Login
->>>>>>> b413ceefdaea4078d1a16fb76c3b2fed660ce609
