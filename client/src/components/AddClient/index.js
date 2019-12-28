@@ -1,6 +1,6 @@
 import React from "react";
 import "../../styles/Clients.css";
-import API from "../../utils/API"
+import API from "../../utils/API";
 
 class AddClient extends React.Component {
     constructor(props) {
@@ -19,7 +19,13 @@ class AddClient extends React.Component {
         event.preventDefault();
         const body = {name: this.state.newClient}
         API.newClient(body)
-            .then(res => {console.log(res)})
+            .then(res => {
+                console.log(res)
+                // we reload the page to fetch the updated list from the db
+                // I'm sure there's a better way to do this, if someone has
+                // any ideas please be my guest.
+                window.location.reload()
+            })
             .catch(err => {
                 if (err.response.status === 422){
                     alert("Duplicate client detected.  Failed to add client.")
