@@ -6,7 +6,6 @@ class SelectClient extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      clients: [],
       selected: ""
     };
 
@@ -30,14 +29,22 @@ class SelectClient extends React.Component {
   }
 
   componentDidMount() {
+    // when the component mounts automatically define the first entry as the selected entry in state
     API.getClients().then(res => {
-      let clients = res.data.sort((a, b) => a.name.localeCompare(b.name));
-      this.setState({
-        clients: clients,
-        selected: res.data[0]._id
-      });
+        if (res.data.length === 0) {
+            this.setState({
+                selected: [],
+            });
+        } else {
+            let clients = res.data.sort((a, b) => a.name.localeCompare(b.name));
+            let firstEntry = clients[0]
+            this.setState({
+                selected: firstEntry._id
+            });
+
+        }
     });
-  }
+}
 
   render() {
     return (
@@ -52,7 +59,7 @@ class SelectClient extends React.Component {
             className="form-control"
             id="exampleFormControlSelect1"
           >
-            {this.state.clients.map(client => {
+            {this.props.clients.map(client => {
               return (
                 <option key={client.name} value={client._id}>
                   {client.name}
