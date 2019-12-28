@@ -31,20 +31,20 @@ class SelectClient extends React.Component {
   componentDidMount() {
     // when the component mounts automatically define the first entry as the selected entry in state
     API.getClients().then(res => {
-        if (res.data.length === 0) {
-            this.setState({
-                selected: [],
-            });
-        } else {
-            let clients = res.data.sort((a, b) => a.name.localeCompare(b.name));
-            let firstEntry = clients[0]
-            this.setState({
-                selected: firstEntry._id
-            });
+      if (res.data.length === 0) {
+        this.setState({
+          selected: [],
+        });
+      } else {
+        let clients = res.data.sort((a, b) => a.name.localeCompare(b.name));
+        let firstEntry = clients[0]
+        this.setState({
+          selected: firstEntry._id
+        });
 
-        }
+      }
     });
-}
+  }
 
   render() {
     return (
@@ -52,12 +52,11 @@ class SelectClient extends React.Component {
         <h4 id="client-card-text" className="top-spacer">
           Select Client
         </h4>
-        <div className="form-group">
+        <div className="input-group" id="client-select-dropdown">
           <select
             value={this.state.selected}
             onChange={this.handleChange}
             className="form-control"
-            id="exampleFormControlSelect1"
           >
             {this.props.clients.map(client => {
               return (
@@ -67,9 +66,11 @@ class SelectClient extends React.Component {
               );
             })}
           </select>
-          <button className="btn btn-danger" onClick={this.deleteClient}>
-            Delete Client
+          <div className="input-group-append">
+            <button className="btn btn-outline-danger" onClick={this.deleteClient}>
+              Delete
           </button>
+          </div>
         </div>
       </div>
     );
