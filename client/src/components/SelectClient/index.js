@@ -6,7 +6,7 @@ class SelectClient extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      selected: ""
+      selected: "",
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -14,18 +14,24 @@ class SelectClient extends React.Component {
   }
 
   handleChange(event) {
-    this.setState({ selected: event.target.value });
+    this.setState({
+      selected: event.target.value,
+    });
   }
 
   deleteClient(event) {
     event.preventDefault();
-    const body = { id: this.state.selected };
-    API.deleteClient(body).then((res, err) => {
-      if (err) {
-        console.log(err);
-      }
-      console.log(res);
-    });
+    const body = { name: this.state.selected };
+    API.deleteClient(body)
+      .then(res => {
+        console.log(res)
+        alert(this.state.selected + " was deleted")
+        // we reload the page to fetch the update list from the db
+        // I'm sure there's a better way to do this, if someone has
+        // any ideas please be my guest.
+        window.location.reload()
+      })
+      .catch(err => console.log(err));
   }
 
   componentDidMount() {
@@ -39,7 +45,7 @@ class SelectClient extends React.Component {
         let clients = res.data.sort((a, b) => a.name.localeCompare(b.name));
         let firstEntry = clients[0]
         this.setState({
-          selected: firstEntry._id
+          selected: firstEntry.name,
         });
 
       }
@@ -60,7 +66,10 @@ class SelectClient extends React.Component {
           >
             {this.props.clients.map(client => {
               return (
-                <option key={client.name} value={client._id}>
+                <option
+                  key={client.name}
+                  value={client.name}
+                >
                   {client.name}
                 </option>
               );

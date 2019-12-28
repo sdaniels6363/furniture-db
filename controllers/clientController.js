@@ -27,9 +27,9 @@ module.exports = {
             })
     },
     delete: function(req, res){
-        let id = req.body.data.id
+        let name = req.body.data.name
         db.Client
-            .deleteOne({_id: id}, function(err,success){
+            .deleteOne({name: name}, function(err,success){
                 if (err) {
                     console.log(err)
                 } else {
