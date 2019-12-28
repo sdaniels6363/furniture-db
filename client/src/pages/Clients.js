@@ -15,6 +15,10 @@ class Clients extends Component {
 
     componentDidMount() {
         // when the component mounts, fetch all clients and sort them by alphabetical order
+        this.fetchClients();
+    }
+
+    fetchClients = () => {
         API.getClients().then(res => {
             if (res.data.length === 0) {
                 this.setState({
@@ -30,6 +34,9 @@ class Clients extends Component {
         });
     }
 
+    selectClientCB = () => {
+        this.fetchClients();
+    }
     render() {
         return (
             <div>
@@ -46,7 +53,9 @@ class Clients extends Component {
                     </div>
                     <div className="row">
                         <div className="col-md">
-                            <AddClient />
+                            <AddClient
+                                cb={this.selectClientCB}
+                            />
                         </div>
                     </div>
                     <div className="row">

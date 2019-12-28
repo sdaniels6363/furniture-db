@@ -24,7 +24,11 @@ class AddClient extends React.Component {
                 // we reload the page to fetch the updated list from the db
                 // I'm sure there's a better way to do this, if someone has
                 // any ideas please be my guest.
-                window.location.reload()
+                //window.location.reload()
+                this.setState({
+                    newClient: ""
+                })
+                this.props.cb();
             })
             .catch(err => {
                 if (err.response.status === 422){
@@ -43,7 +47,7 @@ class AddClient extends React.Component {
                 <form>
                     <div className="row" id="lr-margin">
                         <div className="input-group">
-                            <input type="text" value={this.state.value} onChange={this.handleChange} className="form-control" placeholder="Add a new client" aria-label="Recipient's username" aria-describedby="basic-addon2" />
+                            <input type="text" value={this.state.newClient} onChange={this.handleChange} className="form-control" placeholder="Add a new client" aria-label="Recipient's username" aria-describedby="basic-addon2" />
                             <div className="input-group-append">
                                 <input className="btn btn-outline-success" type="submit" value="Create" onClick={this.newClient} />
                             </div>
