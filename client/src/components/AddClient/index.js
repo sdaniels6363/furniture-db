@@ -39,7 +39,7 @@ class AddClient extends React.Component {
                         <div className="input-group">
                             <input type="text" value={this.state.value} onChange={this.handleChange} className="form-control" placeholder="Add a new client" aria-label="Recipient's username" aria-describedby="basic-addon2" />
                             <div className="input-group-append">
-                                <input className="btn btn-outline-secondary" type="submit" value="submit" onClick={this.newClient} />
+                                <input className="btn btn-outline-success" type="submit" value="Create" onClick={this.newClient} />
                             </div>
                         </div>
                     </div>
