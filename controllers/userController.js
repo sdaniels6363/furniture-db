@@ -1,4 +1,4 @@
-const db = require("../models/User");
+const User = require("../models/User");
 
 function comparePassword(password, reqBodyPassword) {
   if (password === reqBodyPassword) {
@@ -27,7 +27,7 @@ module.exports = {
   },
   createUser: function (req, res) {
     let body = req.body.data;
-    db.User
+    User
       .create({
         username: body.username,
         password: body.password
