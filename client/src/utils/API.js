@@ -21,7 +21,7 @@ export default {
         return axios.post("/api/auth/login")
     },
     newUser: function (data) {
-        return axios.post("/api/auth/create", {data}).then((res,err)=> {
+        return axios.post("/api/auth/register", {data}).then((res,err)=> {
             if (err){
                 console.log(err)
             }
