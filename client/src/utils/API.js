@@ -20,8 +20,13 @@ export default {
     validateUser: function () {
         return axios.post("/api/auth/login")
     },
-    newUser: function () {
-        return axios.post("/api/auth/create")
+    newUser: function (data) {
+        return axios.post("/api/auth/create", {data}).then((res,err)=> {
+            if (err){
+                console.log(err)
+            }
+            console.log(res)
+        })
     },
     newClient: function (data) {
         console.log(data)

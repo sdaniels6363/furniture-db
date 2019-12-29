@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Bootstrap from "react-bootstrap";
+import API from "../utils/API"
 
 function passwordRequirements(password){
   const strongRegex = new RegExp(
@@ -27,9 +28,7 @@ class NewUser extends Component {
 
   validateForm() {
     return (
-      this.state.username.length > 6 &&
-      passwordRequirements(this.state.password)
-    );
+      this.state.username.length > 6     );
   }
 
   handleChange = event => {
@@ -38,8 +37,27 @@ class NewUser extends Component {
     });
   };
 
-  handleSubmit = event => {
+  createUser = event => {
     event.preventDefault();
+    console.log(event)
+    const body = {
+      username: this.state.username,
+      password: this.state.password
+    }
+
+
+    API.newUser(body)
+      .then(res => {
+        console.log(res)
+        
+        // clear state
+        this.setState({
+          username: "",
+          password: "",
+          password2: ""
+        })
+
+      })
   };
 
   render() {
@@ -68,7 +86,7 @@ class NewUser extends Component {
             placeholder="Re-enter Password"
               value={this.state.password2}
               onChange={this.handleChange}
-              type="password2"
+              type="password"
             />
           </Form.Group>
           <Button
@@ -76,6 +94,7 @@ class NewUser extends Component {
             bsSize="large"
             disabled={!this.validateForm()}
             type="submit"
+            onClick={this.createUser}
           >
             New User
           </Button>
