@@ -40,7 +40,7 @@ module.exports = {
           }
         }
         console.log(success)
-        res.status(200)
+        res.status(200).send("User successfully created.")
       })
 
   }
