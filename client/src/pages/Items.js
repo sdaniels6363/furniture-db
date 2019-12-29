@@ -5,6 +5,7 @@ import NoItemCard from "../components/NoItemCard";
 import Vendors from "../components/Vendors";
 import TackBoard from "../components/TacBoard";
 import "../styles/Items.css"
+import "../styles/styles.css"
 
 class Items extends Component {
   state = {

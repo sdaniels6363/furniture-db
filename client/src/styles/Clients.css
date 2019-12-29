@@ -1,0 +1,45 @@
+#client-container {
+    margin-top: 3rem;
+    margin-bottom: 3.5rem;
+    background-color: #fff;
+}
+
+#client-card {
+    background-color: #a2b2b7;
+    border-color: #002d39;
+
+}
+
+#client-card-title {
+    font-family: "Roboto Slab", serif;
+    font-size: 2.5rem;
+    line-height: 1.5;
+    background-color: white;
+    color: #002d39;
+    text-align: center;
+    text-shadow: 2px 2px 4px #969696;
+}
+
+#client-card-text {
+    color: #002d39;
+    font-weight: 600;
+    font-size: 1.25rem;
+    font-family: "Raleway";
+}
+
+#client-select-dropdown{
+    margin-bottom: 20px;
+}
+
+#recent-row {
+    margin-top: 1rem;
+}
+
+.top-spacer {
+    margin-top: 2rem;
+}
+
+#lr-margin {
+    margin-left: .1rem;
+    margin-right: .1rem;
+}

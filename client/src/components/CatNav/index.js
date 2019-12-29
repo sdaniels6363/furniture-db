@@ -41,6 +41,10 @@ class CatNav extends Component {
             </a>
           );
         })}
+        <div className="admin-controls">
+          <a className="navbar-brand" href="/clients">CLIENTS</a>
+          <a className="navbar-brand" href="/about">ABOUT</a>
+        </div>
       </nav>
     );
   }
