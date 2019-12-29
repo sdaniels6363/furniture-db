@@ -1,0 +1,22 @@
+#my-card-img {
+    display: inline-block;
+    position: relative;
+    max-height: 150px;
+    max-width: 150px;
+    right: 0px;
+    top: 0px;
+    text-align: center;
+}
+
+#sel-card {
+    background-color: white;
+}
+
+#sel-card-text {
+    color: #002d39;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+}
