@@ -21,11 +21,11 @@ export default {
         return axios.post("/api/auth/login")
     },
     newUser: function (data) {
-        return axios.post("/api/auth/register", {data}).then((res,err)=> {
-            if (err){
-                console.log(err)
+        return axios.post("/api/auth/register", { data }).then((res, err) => {
+            if (err) {
+                return err;
             }
-            console.log(res)
+            return res;
         })
     },
     newClient: function (data) {
@@ -40,10 +40,10 @@ export default {
     getClients: function () {
         return axios.get("/api/clients/list")
     },
-    deleteClient: function(data){
+    deleteClient: function (data) {
         console.log(data)
-        return axios.post("/api/clients/delete", {data}).then((res, err) => {
-            if (err){
+        return axios.post("/api/clients/delete", { data }).then((res, err) => {
+            if (err) {
                 console.log(err);
             }
             console.log(res);
