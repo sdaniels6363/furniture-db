@@ -33,11 +33,14 @@ module.exports = {
         password: body.password
       }, (err, success) => {
         if (err) {
-          console.log(err)
-          res.status(500).json(err)
+          if (err.code === 11000) {
+            res.status(422).json(err)
+          } else {
+            res.status(500).json(err)
+          }
         }
         console.log(success)
-        res.status(200).json(success)
+        res.status(200)
       })
 
   }
