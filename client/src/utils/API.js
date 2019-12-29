@@ -17,8 +17,13 @@ export default {
     getCategories: function () {
         return axios.get("/api/categories");
     },
-    validateUser: function () {
-        return axios.post("/api/auth/login")
+    validateUser: function (data) {
+        return axios.post("/api/auth/login", { data }).then((res, err) => {
+            if (err) {
+                return err;
+            }
+            return res;
+        })
     },
     newUser: function (data) {
         return axios.post("/api/auth/register", { data }).then((res, err) => {
