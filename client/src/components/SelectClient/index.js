@@ -9,47 +9,23 @@ class SelectClient extends React.Component {
       selected: "",
     };
 
-    this.handleChange = this.handleChange.bind(this);
     this.deleteClient = this.deleteClient.bind(this);
-  }
-
-  handleChange(event) {
-    this.setState({
-      selected: event.target.value,
-    });
   }
 
   deleteClient(event) {
     event.preventDefault();
-    const body = { name: this.state.selected };
+    // Get current selected value of Client dropdown.
+    let selected = document.querySelector("select").value;
+    // Create object to pass to API to delete client.
+    const body = { name: selected };
     API.deleteClient(body)
       .then(res => {
         console.log(res)
-        alert(this.state.selected + " was deleted")
-        // we reload the page to fetch the update list from the db
-        // I'm sure there's a better way to do this, if someone has
-        // any ideas please be my guest.
-        window.location.reload()
+        alert(selected + " was deleted")
+        //Use the provided callback function to reload the client list from the DB.
+        this.props.cb();
       })
       .catch(err => console.log(err));
-  }
-
-  componentDidMount() {
-    // when the component mounts automatically define the first entry as the selected entry in state
-    API.getClients().then(res => {
-      if (res.data.length === 0) {
-        this.setState({
-          selected: [],
-        });
-      } else {
-        let clients = res.data.sort((a, b) => a.name.localeCompare(b.name));
-        let firstEntry = clients[0]
-        this.setState({
-          selected: firstEntry.name,
-        });
-
-      }
-    });
   }
 
   render() {
@@ -60,8 +36,6 @@ class SelectClient extends React.Component {
         </h4>
         <div className="input-group" id="client-select-dropdown">
           <select
-            value={this.state.selected}
-            onChange={this.handleChange}
             className="form-control"
           >
             {this.props.clients.map(client => {
