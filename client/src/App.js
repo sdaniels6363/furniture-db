@@ -22,7 +22,7 @@ class App extends Component {
           <Header />
           <CatNav />
           <Switch>
-            <Route exact path="/" component={Login} />
+            <Route exact path="/" component={About} />
             <Route exact path="/about" component={About} />
             <Route exact path="/clients" component={Clients} />
             <Route
