@@ -3,7 +3,18 @@ const db = require("../models");
 // Defining methods for the vendorController
 module.exports = {
     create: function(req, res) {
-        let newClient = req.body.data.name.toUpperCase();
+
+        // used to capitlize first letter of client name.
+        function capitalize(arr){
+            let capitalized = []
+            for (let i = 0; i < arr.length; i++) {
+                let str = arr[i]
+                capitalized.push(str.charAt(0).toUpperCase() + str.slice(1));
+            }
+            return capitalized.join(" ");
+        }
+
+        let newClient = capitalize(req.body.data.name.split(" "))
         db.Client
             .create({name: newClient}, function(err, success) {
                 if (err){

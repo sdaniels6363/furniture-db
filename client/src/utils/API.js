@@ -17,11 +17,21 @@ export default {
     getCategories: function () {
         return axios.get("/api/categories");
     },
-    validateUser: function () {
-        return axios.post("/api/auth/login")
+    validateUser: function (data) {
+        return axios.post("/api/auth/login", { data }).then((res, err) => {
+            if (err) {
+                return err;
+            }
+            return res;
+        })
     },
-    newUser: function () {
-        return axios.post("/api/auth/create")
+    newUser: function (data) {
+        return axios.post("/api/auth/register", { data }).then((res, err) => {
+            if (err) {
+                return err;
+            }
+            return res;
+        })
     },
     newClient: function (data) {
         console.log(data)
@@ -35,10 +45,10 @@ export default {
     getClients: function () {
         return axios.get("/api/clients/list")
     },
-    deleteClient: function(data){
+    deleteClient: function (data) {
         console.log(data)
-        return axios.post("/api/clients/delete", {data}).then((res, err) => {
-            if (err){
+        return axios.post("/api/clients/delete", { data }).then((res, err) => {
+            if (err) {
                 console.log(err);
             }
             console.log(res);
