@@ -79,7 +79,7 @@ var searchUttermost = function (url, category) {
 
 async function runScrapes() {
   console.log("Scraping Uttermost")
-  await searchUttermost("https://www.uttermost.com/Accent-Furniture-Shop-By-Room-Bedroom/", "Bedroom");
+  await searchUttermost("https://www.uttermost.com/Accent-Furniture-Shop-By-Room-Bedroom/", "beds");
 
   setTimeout(function(){ runExit(); }, 15000);
 };
