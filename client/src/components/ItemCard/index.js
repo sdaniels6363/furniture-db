@@ -4,7 +4,7 @@ import tack from "./tack.svg";
 
 function ItemCard(props) {
   return (
-    <div className="item-container" data-vendor={props.vendor}>
+    <div className="item-container">
       <img alt={props.description} src={props.image} />
       <div className="item-description">
         <li>Vendor: {props.vendor}</li>
@@ -26,7 +26,7 @@ function ItemCard(props) {
         </li>
       </div>
       <div>
-        <a href="#">
+        <a href="#" data-object={JSON.stringify({"Vendor": props.vendor, "Description": props.description, "SKU": props.sku, "URL":props.url, "Tearsheet":props.tearsheet})}>
           <img className="tack" alt="thumbtack" src={tack} />
         </a>
       </div>
