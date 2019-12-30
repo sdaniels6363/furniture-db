@@ -17,4 +17,4 @@ node ./hooker-puppeteer-scrape.js
 node ./lex-scrape.js
 node ./paladin-scrape.js
 node ./tayKing-scrape.js
-node ./uttermost-scrape.js
+# node ./uttermost-scrape.js
