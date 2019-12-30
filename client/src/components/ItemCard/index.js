@@ -4,7 +4,7 @@ import tack from "./tack.svg";
 
 function ItemCard(props) {
   return (
-    <div className="item-container" data-vendor={props.vendor}>
+    <div className="item-container" data-object={JSON.stringify({"Vendor": props.vendor, "Description": props.description, "SKU": props.sku, "URL":props.url, "Tearsheet":props.tearsheet})}>
       <img alt={props.description} src={props.image} />
       <div className="item-description">
         <li>Vendor: {props.vendor}</li>
