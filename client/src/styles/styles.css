@@ -5,9 +5,6 @@ body {
     -o-background-size: cover;
     background-size: cover;
     overflow-x: hidden;
-    /* min-height: 100%;
-    display: grid;
-    grid-template-rows: 1fr auto; */
   }
 
   .footer {
@@ -25,19 +22,3 @@ body {
     position: relative;
     min-height: 100vh;
   }
-
-  /* .mydropup {
-    float: left;
-    margin-left: 5rem;
-  }
-
-  .theCC {
-    display: inline-block;
-  }
-
-  .spacer {
-    float: right;
-    width: 128px;
-    height: 10px;
-    display: hidden;
-  } */
