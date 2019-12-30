@@ -1,49 +1,81 @@
 import React, { Component } from "react";
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
-import Bootstrap from "react-bootstrap";
+import API from "../utils/API";
+// import Bootstrap from "react-bootstrap";
 
 class Login extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      email: "",
+      username: "",
       password: ""
     };
   }
 
   validateForm() {
-    return this.state.email.length > 0 && this.state.password.length > 0;
+    return this.state.username.length >= 6;
   }
 
   handleChange = event => {
     this.setState({
-      [event.target.id]: event.target.value
+      [event.target.name]: event.target.value
     });
   }
 
-  handleSubmit = event => {
+  login = event => {
     event.preventDefault();
+
+    const body = {
+      username: this.state.username,
+      password: this.state.password
+    }
+
+    API.validateUser(body)
+      .then(res => {
+        console.log(res)
+        alert(res.data)
+      })
+      .catch(err => {
+        switch (err.response.status){
+          case 401:
+            alert(err.response.data);
+            break;
+          case 500:
+            alert("Server error")
+            break;
+          default:
+            console.log("not sure.")
+        }
+      })
+
+      this.setState({
+        username: "",
+        password: ""  
+      })
+
   }
 
   render() {
     return (
       <div className="Login">
-        <Form onSubmit={this.handleSubmit}>
-          <Form.Group controlId="email" bsSize="large">
+        <Form onSubmit={this.login}>
+          <Form.Group bsSize="large">
             <Form.Control
               autoFocus
-              type="email"
+              type="username"
               value={this.state.email}
               onChange={this.handleChange}
+              name="username"
             />
           </Form.Group>
-          <Form.Group controlId="password" bsSize="large">
+          <Form.Group bsSize="large">
             <Form.Control
               value={this.state.password}
               onChange={this.handleChange}
               type="password"
+              name="password"
             />
           </Form.Group>
           <Button
