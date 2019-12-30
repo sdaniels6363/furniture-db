@@ -110,6 +110,13 @@ class Items extends Component {
                       );
                     })}
               </div>
+
+              <div className="col-md-1">
+                <TackBoard
+                
+                />
+
+              </div>
             </div>
           </div>
         </div>
