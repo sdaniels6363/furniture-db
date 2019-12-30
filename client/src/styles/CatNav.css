@@ -4,6 +4,10 @@ a.navbar-brand{
 	text-decoration: none;
 	color: #ffffff;
 	font-weight: bold;
+	-webkit-transition: all 0.25s;
+    -moz-transition: all 0.25s;
+    transition: all 0.25s;
+
 }
 
 a.navbar-brand:hover{
@@ -20,11 +24,34 @@ a.navbar-brand:hover{
 	background-color: #002d39;
 	opacity: 75%;
 	background-blend-mode: multiply;
-	overflow: hidden;
+	/* overflow: hidden; */
+	z-index: 10;
+
 }
 
 .admin-controls{
 	position: absolute;
 	right: 10px;
 	text-align: right;
+}
+
+#myicon {
+	color: white;
+	font-size: 1.5rem;
+}
+
+.dropdown-item {
+	color: #002d39;
+	font-weight: bold;
+	-webkit-transition: all 0.25s;
+    -moz-transition: all 0.25s;
+    transition: all 0.25s;
+}
+
+.dropdown-item:hover {
+	color: #002d39;
+	font-weight: bold;
+	transform: scale(1.10);
+	text-shadow: 2px 2px 3px #888888;
+	background: transparent;
 }

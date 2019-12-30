@@ -12,7 +12,7 @@ body {
 
   .footer {
     background-color: #002d39;
-    opacity: 50%;
+    opacity: 60%;
     background-blend-mode: multiply;
     color: #fff;
     height: 2.5rem;
@@ -25,3 +25,19 @@ body {
     position: relative;
     min-height: 100vh;
   }
+
+  /* .mydropup {
+    float: left;
+    margin-left: 5rem;
+  }
+
+  .theCC {
+    display: inline-block;
+  }
+
+  .spacer {
+    float: right;
+    width: 128px;
+    height: 10px;
+    display: hidden;
+  } */
