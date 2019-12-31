@@ -1,5 +1,5 @@
 import React from "react";
-import Modal from "../Modal";
+import LoginModal from "../Modal";
 import "../../styles/About.css";
 
 function goToLogin() {
@@ -10,7 +10,7 @@ class LoginButtonAbout extends React.Component {
   render() {
     return (
       <div className="btn-wrapper">
-        <button type="button" id="about-login-btn" onClick={handleShow}>
+        <button type="button" id="about-login-btn" onClick={<LoginModal />}>
           LOGIN
         </button>
       </div>

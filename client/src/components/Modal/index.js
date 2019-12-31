@@ -1,6 +1,7 @@
 import React from 'react';
 import Form from '../Form';
 import Button from 'react-bootstrap/Button'
+import Modal from 'react-bootstrap/Modal'
 import "../../styles/Form.css";
 
 
@@ -13,13 +14,14 @@ function LoginModal(props) {
 
     return (
 
-        <Modal
-            {...props}
-            size="lg"
-            aria-labelledby="contained-modal-title-vcenter"
-            centered
-        ></Modal>
         <>
+            <Modal
+                {...props}
+                size="lg"
+                aria-labelledby="contained-modal-title-vcenter"
+                centered>
+            </Modal>
+            {/* // <> */}
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
                     <Modal.Title>Login</Modal.Title>
@@ -40,4 +42,5 @@ function LoginModal(props) {
     );
 }
 
-render(<LoginModal />);
+// render(<LoginModal />);
+export default LoginModal
