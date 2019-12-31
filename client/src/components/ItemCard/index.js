@@ -2,6 +2,16 @@ import React from "react";
 import "../../styles/ItemCard.css";
 import tack from "./tack.svg";
 
+function toggleStatus(event) {
+  event.preventDefault();
+  if (window.location === "/tackboard"){
+    // remove from db
+  } else {
+    // adding to db
+    console.log(event)
+  }
+}
+
 function ItemCard(props) {
   return (
     <div className="item-container">
@@ -26,7 +36,7 @@ function ItemCard(props) {
         </li>
       </div>
       <div>
-        <a href="#" data-object={JSON.stringify({"Vendor": props.vendor, "Description": props.description, "SKU": props.sku, "URL":props.url, "Tearsheet":props.tearsheet})}>
+        <a onClick={toggleStatus} data-objectId={props._id} data-object={JSON.stringify({"Vendor": props.vendor, "Description": props.description, "SKU": props.sku, "URL":props.url, "Tearsheet":props.tearsheet})}>
           <img className="tack" alt="thumbtack" src={tack} />
         </a>
       </div>
