@@ -48,5 +48,30 @@ module.exports = {
                     res.status(200).json(success)
                 }
             })
-    }
+    },
+    stageAdd: function(req, res){
+        db.Tackboard.create({
+            client: req.body.data.client,
+            item:req.body.data.item
+        }, function(err, success){
+            if(err)
+                console.log(err)
+            else{
+                console.log(success)
+                res.status(200).json(success)
+            }
+        })
+    },
+    stageRemove: function(req, res){
+        console.log(req.body);
+        db.Tackboard.findOneAndDelete({_id: req.body.data._id}, function(err, success){
+            if(err)
+                console.log(err)
+            else{
+                console.log(success)
+                res.status(200).json(success)
+            }
+        })
+    },
+    
 }

@@ -10,4 +10,10 @@ router.route("/list")
 router.route("/delete")
   .post(clientController.delete)
 
+router.route("/stageAdd")
+  .post(clientController.stageAdd)
+
+router.route("/stageRemove")
+  .post(clientController.stageRemove)
+
 module.exports = router;
