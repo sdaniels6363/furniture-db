@@ -35,7 +35,7 @@ class App extends Component {
               render={props => <Items {...props} />}
             />
             <Route exact path="/register" component={NewUser} />
-            <Route exact path="/login" component={Login} />
+            <Route exact path="/login" component={Form} />
           </Switch>
         </div>
       </Router>
