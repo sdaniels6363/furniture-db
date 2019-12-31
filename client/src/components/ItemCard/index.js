@@ -1,14 +1,45 @@
 import React from "react";
 import "../../styles/ItemCard.css";
 import tack from "./tack.svg";
+import API from "../../utils/API"
 
 function toggleStatus(event) {
   event.preventDefault();
+
+  // define client based on the select dropdown in the CatNav bar
+  // it should have an id of #current-client
+  // once added remove this line of the comment and '|| "test"'
+  let client = document.querySelector("#current-client") || "test"
+
   if (window.location === "/tackboard"){
-    // remove from db
+    // if we are on the tackboard page and the tack is clicked
+    // on the ItemCard.  We are going to be removing an item 
+    // from the tackboard collection.
+    let itemId = event.currentTarget.dataset.objectId
+
+    const data = {
+      _id: itemId
+    }
+    
+    API.stageDelete(data)
+      .then(res => console.log(res))
+      .catch(err => console.log(err))
+    
   } else {
-    // adding to db
-    console.log(event)
+    // If we are on any other page and a tack is selected we
+    // will be adding an item to the tackboard collection.
+    console.log(event.currentTarget.dataset.object)
+
+    let itemDetails = JSON.parse(event.currentTarget.dataset.object)
+  
+    const data = {
+      client: client,
+      item: itemDetails
+    }
+
+    API.stageAdd(data)
+      .then(res => console.log(res))
+      .catch(err => console.log(err))
   }
 }
 
