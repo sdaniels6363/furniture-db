@@ -65,7 +65,7 @@ class CatNav extends Component {
         })}
         <div className="admin-controls dropdown">
           <button className="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-bars fa-1x" id="myicon"></i>
+          <i className="fas fa-bars fa-1x" id="myicon"></i>
           </button>
           <div className="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
             <a className="dropdown-item" href="/clients">CLIENTS</a>

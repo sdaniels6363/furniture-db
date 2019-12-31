@@ -1,55 +1,61 @@
 img {
-  max-height: 150px;
-  max-width: 150px;
+    max-height: 150px;
+    max-width: 150px;
 }
 
 li {
-  list-style-type: none;
-  line-height: 24px;
-  height: 24px;
+    list-style-type: none;
+    line-height: 24px;
+    height: 24px;
 }
 
 .item-container {
-  border: 1px solid #002d39;
-	min-width: 250px;
-	max-width: 250px;
-	min-height: 350px;
-	max-height: 350px;
-  border-radius: 25px;
-  margin: 15px;
-	box-shadow: 3px 3px 6px rgba(0,0,0,0.8);
-  display: inline-flex;
-  background-color: #ffffff;
+    border: 1px solid #002d39;
+    min-width: 250px;
+    max-width: 250px;
+    min-height: 350px;
+    max-height: 350px;
+    border-radius: 25px;
+    margin: 15px;
+    box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
+    display: inline-flex;
+    background-color: #ffffff;
 }
 
 .item-description {
-  bottom: 0;
-  left: 20px;
+    bottom: 0;
+    left: 20px;
 }
 
 .tack {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  height: 50px;
-  width: 50px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    height: 50px;
+    width: 50px;
+    background-image: url("../components/ItemCard/tack.svg");
+    background-size: 50px 50px;
+    background-repeat: no-repeat;
+    background-position: -10px 5px;
 }
 
-.tack:hover{
-  transform: scale(1.10);
-  cursor: pointer;
+.tack:hover {
+    transform: scale(1.10);
+    cursor: pointer;
 }
 
 .scrollText {
-  width: 200px;
-  overflow: hidden;
-  position: relative;
+    width: 200px;
+    overflow: hidden;
+    position: relative;
 }
+
 .scrollText span {
-  position: absolute;
-  white-space: nowrap;
-  transition: 3s;
+    position: absolute;
+    white-space: nowrap;
+    transition: 3s;
 }
+
 .scrollText:hover span {
-  transform: translateX(calc(100% - 200%));
+    transform: translateX(calc(100% - 200%));
 }
