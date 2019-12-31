@@ -63,9 +63,20 @@ class CatNav extends Component {
             </a>
           );
         })}
+        <div className="admin-controls-client dropdown">
+
+          <button className="btn dropdown-toggle" type="button" id="client-selector" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Select Client</button>
+          <div className="dropdown-menu dropdown-menu-right" aria-labelledby="client-selector">
+            <a className="dropdown-item" id="current-client">Client list goes here</a>
+
+          </div>
+        </div>
+
         <div className="admin-controls dropdown">
+
           <button className="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-bars fa-1x" id="myicon"></i>
+            <i class="fas fa-bars fa-1x" id="myicon"></i>
           </button>
           <div className="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
             <a className="dropdown-item" href="/clients">CLIENTS</a>

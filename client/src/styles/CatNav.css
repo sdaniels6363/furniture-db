@@ -35,6 +35,12 @@ a.navbar-brand:hover{
 	text-align: right;
 }
 
+.admin-controls-client {
+	position: absolute;
+	right: 80px;
+	text-align: right;
+}
+
 #myicon {
 	color: white;
 	font-size: 1.5rem;
