@@ -10,6 +10,8 @@ import Form from "./components/Form";
 // import Footer from "./components/Footer";
 import Login from "./pages/Login";
 import NewUser from "./pages/NewUser";
+// import Unauthorized from "./pages/Unauthorized"; // uncomment this later
+import FourOhFour from "./pages/FourOhFour"; // default 404 page.
 
 class App extends Component {
   state = {
@@ -34,6 +36,7 @@ class App extends Component {
             />
             <Route exact path="/register" component={NewUser} />
             <Route exact path="/login" component={Login} />
+            <Route component={FourOhFour} />
           </Switch>
         </div>
       </Router>
