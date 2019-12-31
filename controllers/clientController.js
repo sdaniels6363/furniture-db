@@ -48,5 +48,29 @@ module.exports = {
                     res.status(200).json(success)
                 }
             })
+    },
+    stageAdd: function(req, res){
+        db.Client.findOneAndUpdate({name: req.body.client}, {$push: {tackboard:req.body.item}}, function(err, success){
+            if(err)
+                console.log(err)
+            else{
+                console.log(success)
+                res.status(200).json(success)
+            }
+        })
+    },
+    stageRemove: function(req, res){
+        db.Client.findOneAndUpdate({name: req.body.client}, {$push: {tackboard:req.body.item}}, function(err, success){
+            if(err)
+                console.log(err)
+            else{
+                console.log(success)
+                res.status(200).json(success)
+            }
+        })
+    },
+    
+            
+
     }
 }
