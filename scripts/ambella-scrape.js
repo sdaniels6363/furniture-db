@@ -17,7 +17,7 @@ runExit = () => {
     process.exit();
 }
 
-let scrapeAmbella = function (url, category) {
+let scrapeAmbella = function (url, category, roomName) {
 
     axios.get(url).then(function (response) {
 
@@ -47,7 +47,7 @@ let scrapeAmbella = function (url, category) {
                 .children("a")
                 .attr("href");
             result.vendor = "Ambella";
-            result.roomName = "bedroom";
+            result.roomName = roomName;
 
             db.Furniture.create(result)
                 .then(function (dbFurniture) {
@@ -64,13 +64,13 @@ let scrapeAmbella = function (url, category) {
 
 async function runScrapes() {
     console.log("Scraping Ambella")
-    await scrapeAmbella("https://www.ambellahome.com/Product/Bedroom/Beds", "beds");
+    await scrapeAmbella("https://www.ambellahome.com/Product/Bedroom/Beds", "beds", "bedroom");
 
-    await scrapeAmbella("https://www.ambellahome.com/Product/Bedroom/Dressers", "dressers");
+    await scrapeAmbella("https://www.ambellahome.com/Product/Bedroom/Dressers", "dressers", "bedroom");
 
-    await scrapeAmbella("https://www.ambellahome.com/Product/Bedroom/Nightstands", "nightstands");
+    await scrapeAmbella("https://www.ambellahome.com/Product/Bedroom/Nightstands", "nightstands", "bedroom");
 
-    await scrapeAmbella("https://www.ambellahome.com/Product/Mirrors/Mirrors", "mirrors");
+    await scrapeAmbella("https://www.ambellahome.com/Product/Mirrors/Mirrors", "mirrors", "bedroom");
 
     setTimeout(function () { runExit(); }, 15000);
 };

@@ -22,7 +22,7 @@ async function scrollToBottom(page) {
 
 // Puppeteer scrape function - puppeteer scrolls to bottom of lazy-loaded page and then captures the site HTML. Site HTML is then passed into Cheerio to pull out the info we want.
 // change headless to 'false' if you want/need to see the browser in action.
-async function HookerScrape(URL, category) {
+async function HookerScrape(URL, category, roomName) {
 
     let browser = await puppeteer.launch({
         headless: true,
@@ -73,7 +73,7 @@ async function HookerScrape(URL, category) {
             .children("a")
             .attr("href");
         result.vendor = "Hooker";
-        result.roomName = "bedroom";
+        result.roomName = roomName;
 
         db.Furniture.create(result)
             .then(function (dbFurn) {
@@ -92,7 +92,7 @@ const config = {
     headers: { "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:70.0) Gecko/20100101 Firefox/70.0" }
   };
 
-let scrapeHooker = function (url, category) {
+let scrapeHooker = function (url, category, roomName) {
 
     axios.get(url, config).then(function (response) {
 
@@ -126,7 +126,7 @@ let scrapeHooker = function (url, category) {
                 .children("a")
                 .attr("href");
             result.vendor = "Hooker";
-            result.roomName = "bedroom";
+            result.roomName = roomName;
 
             db.Furniture.create(result)
                 .then(function (dbFurn) {
@@ -148,14 +148,14 @@ runExit = () => {
 
 async function runScrapes() {
     console.log("Scraping Hooker")
-    await scrapeHooker("https://www.hookerfurniture.com/bedroom/armoire-cabinets/room-type.aspx", "cabinets");
-    await scrapeHooker("https://www.hookerfurniture.com/bedroom/benches/room-type.aspx", "benches-ottomans");
-    await scrapeHooker("https://www.hookerfurniture.com/bedroom/beds/room-type.aspx?brand=marq", "beds");
+    await scrapeHooker("https://www.hookerfurniture.com/bedroom/armoire-cabinets/room-type.aspx", "cabinets", "bedroom");
+    await scrapeHooker("https://www.hookerfurniture.com/bedroom/benches/room-type.aspx", "benches-ottomans", "bedroom");
+    await scrapeHooker("https://www.hookerfurniture.com/bedroom/beds/room-type.aspx?brand=marq", "beds", "bedroom");
     // await HookerScrape("https://www.hookerfurniture.com/mattresses/department-type.aspx?brand=marq", "MARQ-mattresses");
-    await HookerScrape("https://www.hookerfurniture.com/bedroom/mirrors/room-type.aspx", "mirrors");
-    await HookerScrape("https://www.hookerfurniture.com/bedroom/nightstands/room-type.aspx", "nightstands");
-    await HookerScrape("https://www.hookerfurniture.com/bedroom/chests-and-dressers/room-type.aspx", "dressers");
-    await HookerScrape("https://www.hookerfurniture.com/bedroom/beds/room-type.aspx", "beds");
+    await HookerScrape("https://www.hookerfurniture.com/bedroom/mirrors/room-type.aspx", "mirrors", "bedroom");
+    await HookerScrape("https://www.hookerfurniture.com/bedroom/nightstands/room-type.aspx", "nightstands", "bedroom");
+    await HookerScrape("https://www.hookerfurniture.com/bedroom/chests-and-dressers/room-type.aspx", "dressers", "bedroom");
+    await HookerScrape("https://www.hookerfurniture.com/bedroom/beds/room-type.aspx", "beds", "bedroom");
     // the next line terminates this function in Node. Set to 10 second delay for now - definitely on the safe side. Can be reduced if needed. 
     setTimeout(function(){ runExit(); }, 10000);
 };

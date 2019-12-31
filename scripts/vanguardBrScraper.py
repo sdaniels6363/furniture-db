@@ -65,7 +65,7 @@ def parseLinks(url, category):
                     "image": image, 
                     "tearsheet": tearsheet,
                     "vendor": "Vanguard",
-                    "roomName": "bedroom"
+                    "roomName": roomName
                 }
 
                 # append a new object to the details array, we will pass this into Mongo later.
@@ -80,19 +80,24 @@ def parseLinks(url, category):
 category_url = [
     {
         "url": "https://vanguardfurniture.com/styles?PageSize=2000000000&Room=BR&ProdType=002",
-        "category": "beds"
+        "category": "beds",
+        "roomName": "bedroom"
     },{
         "url": "https://vanguardfurniture.com/styles?PageSize=2000000000&Room=BR&ProdType=018",
-        "category": "benches-ottomans"
+        "category": "benches-ottomans",
+        "roomName": "bedroom"
     },{
         "url": "https://vanguardfurniture.com/styles?PageSize=2000000000&Room=BR&ProdType=016",
-        "category": "dressers"
+        "category": "dressers",
+        "roomName": "bedroom"
     },{
         "url": "https://vanguardfurniture.com/styles?PageSize=2000000000&Room=BR&ProdType=008",
-        "category": "mirrors"
+        "category": "mirrors",
+        "roomName": "bedroom"
     },{
         "url": "https://vanguardfurniture.com/styles?PageSize=2000000000&Room=BR&ProdType=035",
-        "category": "nightstands"
+        "category": "nightstands",
+        "roomName": "bedroom"
     }
 ]
 # create empty array
