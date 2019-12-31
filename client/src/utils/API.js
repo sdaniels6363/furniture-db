@@ -54,19 +54,19 @@ export default {
             console.log(res);
         })
     },
-    stageAdd: function(data){
+    stageAdd: function (data) {
         // this function adds an item to the tackboard collection
-        return axios.post("/api/clients/stageAdd",{ data}).then((res, err) => {
-            if (err){
+        return axios.post("/api/clients/stageAdd", { data }).then((res, err) => {
+            if (err) {
                 console.log(err);
             }
             console.log(res)
         });
     },
-    stageDelete: function(data){
+    stageDelete: function (data) {
         // this function deletes an item from the tackboard collection
-        return axios.post("/api/clients/stageRemove",{ data }).then((res, err) => {
-            if (err){
+        return axios.post("/api/clients/stageRemove", { data }).then((res, err) => {
+            if (err) {
                 console.log(err);
             }
             console.log(res);

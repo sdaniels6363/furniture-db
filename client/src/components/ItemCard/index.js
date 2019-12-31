@@ -11,7 +11,7 @@ function toggleStatus(event) {
   // once added remove this line of the comment and '|| "test"'
   let client = document.querySelector("#current-client") || "test"
 
-  if (window.location === "/tackboard"){
+  if (window.location === "/tackboard") {
     // if we are on the tackboard page and the tack is clicked
     // on the ItemCard.  We are going to be removing an item 
     // from the tackboard collection.
@@ -20,18 +20,18 @@ function toggleStatus(event) {
     const data = {
       _id: itemId
     }
-    
+
     API.stageDelete(data)
       .then(res => console.log(res))
       .catch(err => console.log(err))
-    
+
   } else {
     // If we are on any other page and a tack is selected we
     // will be adding an item to the tackboard collection.
     console.log(event.currentTarget.dataset.object)
 
     let itemDetails = JSON.parse(event.currentTarget.dataset.object)
-  
+
     const data = {
       client: client,
       item: itemDetails
@@ -67,7 +67,7 @@ function ItemCard(props) {
         </li>
       </div>
       <div>
-        <a onClick={toggleStatus} data-objectId={props._id} data-object={JSON.stringify({"Vendor": props.vendor, "Description": props.description, "SKU": props.sku, "URL":props.url, "Tearsheet":props.tearsheet})}>
+        <a onClick={toggleStatus} data-objectId={props._id} data-object={JSON.stringify({ "Vendor": props.vendor, "Description": props.description, "SKU": props.sku, "URL": props.url, "Tearsheet": props.tearsheet })}>
           <img className="tack" alt="thumbtack" src={tack} />
         </a>
       </div>
