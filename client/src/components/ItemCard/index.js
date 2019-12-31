@@ -1,6 +1,5 @@
 import React from "react";
 import "../../styles/ItemCard.css";
-import tack from "./tack.svg";
 import API from "../../utils/API"
 
 function toggleStatus(event) {
@@ -66,11 +65,12 @@ function ItemCard(props) {
           </a>
         </li>
       </div>
-      <div>
-        <a onClick={toggleStatus} data-objectId={props._id} data-object={JSON.stringify({ "Vendor": props.vendor, "Description": props.description, "SKU": props.sku, "URL": props.url, "Tearsheet": props.tearsheet })}>
-          <img className="tack" alt="thumbtack" src={tack} />
-        </a>
-      </div>
+        <button 
+          onClick={toggleStatus} 
+          data-objectid={props._id} 
+          data-object={JSON.stringify({ "Vendor": props.vendor, "Description": props.description, "SKU": props.sku, "URL": props.url, "Tearsheet": props.tearsheet })}
+          className="btn btn-default tack">
+        </button>
     </div>
   );
 }
