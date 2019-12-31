@@ -50,7 +50,10 @@ module.exports = {
             })
     },
     stageAdd: function(req, res){
-        db.Client.findOneAndUpdate({name: req.body.client}, {$push: {tackboard:req.body.item}}, function(err, success){
+        db.Tackboard.create({
+            client: req.body.data.client,
+            item:req.body.data.item
+        }, function(err, success){
             if(err)
                 console.log(err)
             else{
@@ -60,7 +63,8 @@ module.exports = {
         })
     },
     stageRemove: function(req, res){
-        db.Client.findOneAndUpdate({name: req.body.client}, {$push: {tackboard:req.body.item}}, function(err, success){
+        console.log(req.body);
+        db.Tackboard.findOneAndDelete({_id: req.body.data._id}, function(err, success){
             if(err)
                 console.log(err)
             else{

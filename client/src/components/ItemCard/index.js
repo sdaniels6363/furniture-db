@@ -35,7 +35,7 @@ function toggleStatus(event) {
       client: client,
       item: itemDetails
     }
-
+    
     API.stageAdd(data)
       .then(res => console.log(res))
       .catch(err => console.log(err))
