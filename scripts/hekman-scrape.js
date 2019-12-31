@@ -11,7 +11,7 @@ mongoose.connect(MONGODB_URI, { useUnifiedTopology: true, useNewUrlParser: true,
 
 
 runExit = () => {
-    console.log("Scraping Complete");
+    console.log("Scraping Completed");
     process.exit();
 }
 

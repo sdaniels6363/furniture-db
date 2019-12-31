@@ -10,7 +10,7 @@ const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/furniture";
 mongoose.connect(MONGODB_URI, { useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true });
 
 runExit = () => {
-    console.log("Scraping Complete");
+    console.log("Scraping Completed");
     process.exit();
 }
 
@@ -69,7 +69,7 @@ var searchDRKincaid = function (url, category) {
 }
 
 async function runScrapes() {
-    console.log("Beginning scrape of DR Kincaid")
+    console.log("Scraping DR Kincaid")
     await searchDRKincaid("http://www.drkincaidchair.com/ProductList.php?productCategory=Traditional", "chairs");
     await searchDRKincaid("http://www.drkincaidchair.com/ProductList.php?productCategory=Traditional&page=2", "chairs");
     await searchDRKincaid("http://www.drkincaidchair.com/ProductList.php?productCategory=Traditional&page=3", "chairs");

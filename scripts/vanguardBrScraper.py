@@ -121,4 +121,4 @@ furniture = db.furniture
 # use the pymongo insert_many function to add an array of values to the database
 result = furniture.insert_many(details,ordered=True,bypass_document_validation=False,session=None)
 
-print("Scraping completed.")
+print("Vanguard completed.")

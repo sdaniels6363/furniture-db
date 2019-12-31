@@ -73,6 +73,7 @@ async function HookerScrape(URL, category) {
             .children("a")
             .attr("href");
         result.vendor = "Hooker";
+        result.roomName = "bedroom";
 
         db.Furniture.create(result)
             .then(function (dbFurn) {
@@ -140,6 +141,11 @@ let scrapeHooker = function (url, category) {
 
 }
 
+runExit = () => {
+    console.log("Hooker Completed");
+    process.exit();
+}
+
 async function runScrapes() {
     console.log("Scraping Hooker")
     await scrapeHooker("https://www.hookerfurniture.com/bedroom/armoire-cabinets/room-type.aspx", "cabinets");
@@ -151,7 +157,7 @@ async function runScrapes() {
     await HookerScrape("https://www.hookerfurniture.com/bedroom/chests-and-dressers/room-type.aspx", "dressers");
     await HookerScrape("https://www.hookerfurniture.com/bedroom/beds/room-type.aspx", "beds");
     // the next line terminates this function in Node. Set to 10 second delay for now - definitely on the safe side. Can be reduced if needed. 
-    setTimeout(function(){ process.exit(); }, 10000);
+    setTimeout(function(){ runExit(); }, 10000);
 };
 
 runScrapes();
