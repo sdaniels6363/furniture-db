@@ -47,6 +47,7 @@ let scrapeAmbella = function (url, category) {
                 .children("a")
                 .attr("href");
             result.vendor = "Ambella";
+            result.roomName = "bedroom";
 
             db.Furniture.create(result)
                 .then(function (dbFurniture) {

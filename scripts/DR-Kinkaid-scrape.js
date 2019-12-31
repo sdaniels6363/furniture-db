@@ -52,6 +52,7 @@ var searchDRKincaid = function (url, category) {
                     .children("p")
                     .children("img")
                     .attr("src");
+                result.roomName = "bedroom";
 
                 db.Furniture.create(result)
                     .then(function (dbFurniture) {

@@ -125,6 +125,7 @@ let scrapeHooker = function (url, category) {
                 .children("a")
                 .attr("href");
             result.vendor = "Hooker";
+            result.roomName = "bedroom";
 
             db.Furniture.create(result)
                 .then(function (dbFurn) {

@@ -45,6 +45,7 @@ var searchTK = function (url, category) {
                 .children()
                 .children("img")
                 .attr("src");
+            result.roomName = "bedroom";
 
             db.Furniture.create(result)
                 .then(function (dbFurniture) {

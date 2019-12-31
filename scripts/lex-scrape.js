@@ -43,6 +43,7 @@ var searchLex = function (url, category) {
                 .children()
                 .children()
                 .attr("src");
+            result.roomName = "bedroom";
 
             axios.get(result.url).then(function (response) {
 

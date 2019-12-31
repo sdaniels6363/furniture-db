@@ -64,7 +64,8 @@ def parseLinks(url, category):
                     "sku": sku, 
                     "image": image, 
                     "tearsheet": tearsheet,
-                    "vendor": "Vanguard"
+                    "vendor": "Vanguard",
+                    "roomName": "bedroom"
                 }
 
                 # append a new object to the details array, we will pass this into Mongo later.
