@@ -31,7 +31,7 @@ a.navbar-brand:hover{
 
 .admin-controls{
 	position: absolute;
-	right: 10px;
+	right: 15px;
 	text-align: right;
 }
 
@@ -41,9 +41,44 @@ a.navbar-brand:hover{
 	text-align: right;
 }
 
+#client-selector {
+	color: white;
+	font-family: "Raleway";
+	font-weight: bold;
+	background-color: transparent;
+	border-radius: .3rem;
+	-webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    transition: all 0.5s;
+}
+
+#client-selector:hover {
+	color: #002d39;
+	font-family: "Raleway";
+	font-weight: bold;
+	background-color: white;
+	border-radius: .3rem;
+	transform: scale(1.05);
+}
+
+#dropdownMenuButton {
+	color: white;
+	background-color: transparent;
+	border: none;
+	-webkit-transition: all 0.25s;
+    -moz-transition: all 0.25s;
+    transition: all 0.25s;
+}
+
+#dropdownMenuButton:hover {
+	color: white;
+	transform: scale(1.15);
+}
+
+
 #myicon {
 	color: white;
-	font-size: 1.5rem;
+	font-size: 1.25rem;
 }
 
 .dropdown-item {
@@ -51,13 +86,14 @@ a.navbar-brand:hover{
 	font-weight: bold;
 	-webkit-transition: all 0.25s;
     -moz-transition: all 0.25s;
-    transition: all 0.25s;
+	transition: all 0.25s;
+	cursor: pointer;
 }
 
 .dropdown-item:hover {
 	color: #002d39;
 	font-weight: bold;
-	transform: scale(1.10);
-	text-shadow: 2px 2px 3px #888888;
+	transform: scale(1.05);
+	text-shadow: 2px 2px 3px #999;
 	background: transparent;
 }
