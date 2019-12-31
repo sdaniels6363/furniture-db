@@ -103,13 +103,12 @@ class CatNav extends Component {
                 return (
                   <option 
                   className="my-option"
-                  key={j}>
+                  key={j}
+                  value={[client.name]}>
                     {[client.name]}
                   </option>
                 );
               })}
-
-              {/* <option className="my-option">Clients from db here</option> */}
             </select>
           </div>
 
