@@ -37,6 +37,7 @@ li {
 
 .tack:hover{
   transform: scale(1.10);
+  cursor: pointer;
 }
 
 .scrollText {
