@@ -11,7 +11,7 @@ mongoose.connect(MONGODB_URI, { useUnifiedTopology: true, useNewUrlParser: true,
 
 
 runExit = () => {
-    console.log("Scraping Complete");
+    console.log("Hekman Completed");
     process.exit();
 }
 
@@ -19,23 +19,28 @@ function hekmanScrape() {
     console.log("Scraping Hekman")
     let sections = [{
             url: "beds",
-            category: "beds"
+            category: "beds",
+            roomName: "bedroom"
         },
         {
             url: "night_stands",
-            category: "nightstands"
+            category: "nightstands",
+            roomName: "bedroom"
         },
         {
             url: "dressers_chests",
-            category: "dressers"
+            category: "dressers",
+            roomName: "bedroom"
         },
         {
             url: "media_chests",
-            category: "dressers"
+            category: "dressers",
+            roomName: "bedroom"
         },
         {
             url: "mirrors",
-            category: "mirrors"
+            category: "mirrors",
+            roomName: "bedroom"
         },
     ]
     sections.forEach((section, index) => {
@@ -62,6 +67,7 @@ function hekmanScrape() {
                     .find("a[id*='imgPopupcatBrowse'] img")
                     .attr("src");
                 result.tearsheet = `https://cms.howardmiller.com/products/sku/${result.sku.replace("-", "")}.pdf`;
+                result.roomName = section.roomName;
                 db.Furniture.create(result)
                     .then(() => {
                         if (index === sections.length - 1 && elemIndex === elemCount - 1) {

@@ -10,11 +10,11 @@ const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/furniture";
 mongoose.connect(MONGODB_URI, { useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true });
 
 runExit = () => {
-    console.log("Scraping Complete");
+    console.log("Paladin Completed");
     process.exit();
 }
 
-var searchPaladin = function (url, category) {
+var searchPaladin = function (url, category, roomName) {
 
     axios.get(url).then(function (response) {
 
@@ -54,6 +54,7 @@ var searchPaladin = function (url, category) {
                 .children()
                 .children("img")
                 .attr("src");
+            result.roomName = roomName;
 
             db.Furniture.create(result)
                 .then(function (dbFurniture) {
@@ -72,18 +73,18 @@ var searchPaladin = function (url, category) {
 
 async function runScrapes() {
     console.log("Scraping Paladin")
-    await searchPaladin("https://paladinfurniture.com/product-category/chairs/matching-chairs/", "chairs");
-    await searchPaladin("https://paladinfurniture.com/product-category/chairs/accent-chairs/", "chairs");
-    await searchPaladin("https://paladinfurniture.com/product-category/chairs/accent-chairs/page/2/", "chairs");
+    await searchPaladin("https://paladinfurniture.com/product-category/chairs/matching-chairs/", "chairs", "bedroom");
+    await searchPaladin("https://paladinfurniture.com/product-category/chairs/accent-chairs/", "chairs", "bedroom");
+    await searchPaladin("https://paladinfurniture.com/product-category/chairs/accent-chairs/page/2/", "chairs", "bedroom");
 
-    await searchPaladin("https://paladinfurniture.com/product-category/sofas/sleepers/", "sleepers");
+    await searchPaladin("https://paladinfurniture.com/product-category/sofas/sleepers/", "sleepers", "bedroom");
 
-    await searchPaladin("https://paladinfurniture.com/product-category/headboards/", "beds");
+    await searchPaladin("https://paladinfurniture.com/product-category/headboards/", "beds", "bedroom");
 
-    await searchPaladin("https://paladinfurniture.com/product-category/ottomans/", "benches-ottomans");
-    await searchPaladin("https://paladinfurniture.com/product-category/ottomans/page/2/", "benches-ottomans");
+    await searchPaladin("https://paladinfurniture.com/product-category/ottomans/", "benches-ottomans", "bedroom");
+    await searchPaladin("https://paladinfurniture.com/product-category/ottomans/page/2/", "benches-ottomans", "bedroom");
 
-    await searchPaladin("https://paladinfurniture.com/product-category/accent-pieces/benches/", "benches-ottomans");
+    await searchPaladin("https://paladinfurniture.com/product-category/accent-pieces/benches/", "benches-ottomans", "bedroom");
 
     setTimeout(function () { runExit(); }, 20000);
 };

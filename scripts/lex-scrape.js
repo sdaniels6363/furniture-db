@@ -9,11 +9,11 @@ const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/furniture";
 mongoose.connect(MONGODB_URI, { useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true });
 
 runExit = () => {
-    console.log("Scraping Complete");
+    console.log("Lexington Completed");
     process.exit();
 }
 
-var searchLex = function (url, category) {
+var searchLex = function (url, category, roomName) {
 
     axios.get(url).then(function (response) {
 
@@ -43,6 +43,7 @@ var searchLex = function (url, category) {
                 .children()
                 .children()
                 .attr("src");
+            result.roomName = roomName;
 
             axios.get(result.url).then(function (response) {
 
@@ -75,12 +76,12 @@ var searchLex = function (url, category) {
 
 async function runScrapes() {
     console.log("Scraping Lexington")
-    await searchLex("https://lexington.com/beds", "beds");
-    await searchLex("https://lexington.com/dressers", "dressers");
-    await searchLex("https://lexington.com/mirrors", "mirrors");
-    await searchLex("https://lexington.com/chests", "chests");
-    await searchLex("https://lexington.com/night-stands", "nightstands");
-    await searchLex("https://lexington.com/benches-ottomans1521", "benches-ottomans");
+    await searchLex("https://lexington.com/beds", "beds", "bedroom");
+    await searchLex("https://lexington.com/dressers", "dressers", "bedroom");
+    await searchLex("https://lexington.com/mirrors", "mirrors", "bedroom");
+    await searchLex("https://lexington.com/chests", "chests", "bedroom");
+    await searchLex("https://lexington.com/night-stands", "nightstands", "bedroom");
+    await searchLex("https://lexington.com/benches-ottomans1521", "benches-ottomans", "bedroom");
 
     setTimeout(function () { runExit(); }, 20000);
 };
