@@ -13,7 +13,7 @@ const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/furniture";
 mongoose.connect(MONGODB_URI, { useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true });
 
 runExit = () => {
-    console.log("Scraping Completed");
+    console.log("Ambella Completed");
     process.exit();
 }
 
