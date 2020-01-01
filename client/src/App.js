@@ -9,7 +9,7 @@ import SelectedItems from "./pages/SelectedItems";
 import Form from "./components/Form";
 // import Footer from "./components/Footer";
 
-import Login from "./pages/Login";
+// import Login from "./pages/Login";
 import NewUser from "./pages/NewUser";
 
 class App extends Component {
