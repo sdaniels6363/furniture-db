@@ -8,7 +8,11 @@ function toggleStatus(event) {
   // define client based on the select dropdown in the CatNav bar
   // it should have an id of #current-client
   // once added remove this line of the comment and '|| "test"'
-  let client = document.querySelector("#current-client") || "test"
+  let client = document.querySelector("#current-client").value 
+  if (client === ""){
+    alert("Please select a client first.")
+    return; // stop status toggle
+  }
 
   if (window.location === "/tackboard") {
     // if we are on the tackboard page and the tack is clicked
@@ -27,7 +31,6 @@ function toggleStatus(event) {
   } else {
     // If we are on any other page and a tack is selected we
     // will be adding an item to the tackboard collection.
-    console.log(event.currentTarget.dataset.object)
 
     let itemDetails = JSON.parse(event.currentTarget.dataset.object)
 
