@@ -2,7 +2,8 @@ import React from 'react';
 import Form from '../Form';
 import Button from 'react-bootstrap/Button'
 import Modal from 'react-bootstrap/Modal'
-import "../../styles/Form.css";
+import useState from 'react'
+import '../../styles/Form.css';
 
 
 function LoginModal(props) {
