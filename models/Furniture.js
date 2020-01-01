@@ -28,6 +28,9 @@ var FurnitureSchema = new Schema({
   },
   tearsheet: {
     type: String
+  },
+  roomName: {
+    type: String
   }
 });
 

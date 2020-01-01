@@ -10,11 +10,11 @@ const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/furniture";
 mongoose.connect(MONGODB_URI, { useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true });
 
 runExit = () => {
-    console.log("Scraping Complete");
+    console.log("DR Kinkaid Completed");
     process.exit();
 }
 
-var searchDRKincaid = function (url, category) {
+var searchDRKincaid = function (url, category, roomName) {
 
     axios.get(url).then(function (response) {
 
@@ -52,6 +52,7 @@ var searchDRKincaid = function (url, category) {
                     .children("p")
                     .children("img")
                     .attr("src");
+                result.roomName = roomName;
 
                 db.Furniture.create(result)
                     .then(function (dbFurniture) {
@@ -68,22 +69,22 @@ var searchDRKincaid = function (url, category) {
 }
 
 async function runScrapes() {
-    console.log("Beginning scrape of DR Kincaid")
-    await searchDRKincaid("http://www.drkincaidchair.com/ProductList.php?productCategory=Traditional", "chairs");
-    await searchDRKincaid("http://www.drkincaidchair.com/ProductList.php?productCategory=Traditional&page=2", "chairs");
-    await searchDRKincaid("http://www.drkincaidchair.com/ProductList.php?productCategory=Traditional&page=3", "chairs");
-    await searchDRKincaid("http://www.drkincaidchair.com/ProductList.php?productCategory=Traditional&page=4", "chairs");
-    await searchDRKincaid("http://www.drkincaidchair.com/ProductList.php?productCategory=Traditional&page=5", "chairs");
-    await searchDRKincaid("http://www.drkincaidchair.com/ProductList.php?productCategory=Traditional&page=6", "chairs");
-    await searchDRKincaid("http://www.drkincaidchair.com/ProductList.php?productCategory=Basic", "chairs");
-    await searchDRKincaid("http://www.drkincaidchair.com/ProductList.php?productCategory=Basic&page=2", "chairs");
+    console.log("Scraping DR Kincaid")
+    await searchDRKincaid("http://www.drkincaidchair.com/ProductList.php?productCategory=Traditional", "chairs", "bedroom");
+    await searchDRKincaid("http://www.drkincaidchair.com/ProductList.php?productCategory=Traditional&page=2", "chairs", "bedroom");
+    await searchDRKincaid("http://www.drkincaidchair.com/ProductList.php?productCategory=Traditional&page=3", "chairs", "bedroom");
+    await searchDRKincaid("http://www.drkincaidchair.com/ProductList.php?productCategory=Traditional&page=4", "chairs", "bedroom");
+    await searchDRKincaid("http://www.drkincaidchair.com/ProductList.php?productCategory=Traditional&page=5", "chairs", "bedroom");
+    await searchDRKincaid("http://www.drkincaidchair.com/ProductList.php?productCategory=Traditional&page=6", "chairs", "bedroom");
+    await searchDRKincaid("http://www.drkincaidchair.com/ProductList.php?productCategory=Basic", "chairs", "bedroom");
+    await searchDRKincaid("http://www.drkincaidchair.com/ProductList.php?productCategory=Basic&page=2", "chairs", "bedroom");
 
-    await searchDRKincaid("http://www.drkincaidchair.com/ProductList.php?productCategory=Bench_Ottoman", "benches-ottomans");
-    await searchDRKincaid("http://www.drkincaidchair.com/ProductList.php?productCategory=Bench_Ottoman&page=2", "benches-ottomans");
-    await searchDRKincaid("http://www.drkincaidchair.com/ProductList.php?productCategory=Bench_Ottoman&page=3", "benches-ottomans");
-    await searchDRKincaid("http://www.drkincaidchair.com/ProductList.php?productCategory=Bench_Ottoman&page=4", "benches-ottomans");
+    await searchDRKincaid("http://www.drkincaidchair.com/ProductList.php?productCategory=Bench_Ottoman", "benches-ottomans", "bedroom");
+    await searchDRKincaid("http://www.drkincaidchair.com/ProductList.php?productCategory=Bench_Ottoman&page=2", "benches-ottomans", "bedroom");
+    await searchDRKincaid("http://www.drkincaidchair.com/ProductList.php?productCategory=Bench_Ottoman&page=3", "benches-ottomans", "bedroom");
+    await searchDRKincaid("http://www.drkincaidchair.com/ProductList.php?productCategory=Bench_Ottoman&page=4", "benches-ottomans", "bedroom");
 
-    await searchDRKincaid("http://www.drkincaidchair.com/ProductList.php?productCategory=Upholstered_Headboards", "beds");
+    await searchDRKincaid("http://www.drkincaidchair.com/ProductList.php?productCategory=Upholstered_Headboards", "beds", "bedroom");
 
     setTimeout(function () { runExit(); }, 20000);
 };

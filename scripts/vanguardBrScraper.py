@@ -64,7 +64,8 @@ def parseLinks(url, category):
                     "sku": sku, 
                     "image": image, 
                     "tearsheet": tearsheet,
-                    "vendor": "Vanguard"
+                    "vendor": "Vanguard",
+                    "roomName": roomName
                 }
 
                 # append a new object to the details array, we will pass this into Mongo later.
@@ -79,19 +80,24 @@ def parseLinks(url, category):
 category_url = [
     {
         "url": "https://vanguardfurniture.com/styles?PageSize=2000000000&Room=BR&ProdType=002",
-        "category": "beds"
+        "category": "beds",
+        "roomName": "bedroom"
     },{
         "url": "https://vanguardfurniture.com/styles?PageSize=2000000000&Room=BR&ProdType=018",
-        "category": "benches-ottomans"
+        "category": "benches-ottomans",
+        "roomName": "bedroom"
     },{
         "url": "https://vanguardfurniture.com/styles?PageSize=2000000000&Room=BR&ProdType=016",
-        "category": "dressers"
+        "category": "dressers",
+        "roomName": "bedroom"
     },{
         "url": "https://vanguardfurniture.com/styles?PageSize=2000000000&Room=BR&ProdType=008",
-        "category": "mirrors"
+        "category": "mirrors",
+        "roomName": "bedroom"
     },{
         "url": "https://vanguardfurniture.com/styles?PageSize=2000000000&Room=BR&ProdType=035",
-        "category": "nightstands"
+        "category": "nightstands",
+        "roomName": "bedroom"
     }
 ]
 # create empty array
@@ -120,4 +126,4 @@ furniture = db.furniture
 # use the pymongo insert_many function to add an array of values to the database
 result = furniture.insert_many(details,ordered=True,bypass_document_validation=False,session=None)
 
-print("Scraping completed.")
+print("Vanguard completed.")
