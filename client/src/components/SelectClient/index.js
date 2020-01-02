@@ -15,7 +15,7 @@ class SelectClient extends React.Component {
   deleteClient(event) {
     event.preventDefault();
     // Get current selected value of Client dropdown.
-    let selected = document.querySelector("select").value;
+    let selected = document.querySelector("#admin-client-selector").value;
     // Create object to pass to API to delete client.
     const body = { name: selected };
     API.deleteClient(body)
@@ -37,6 +37,7 @@ class SelectClient extends React.Component {
         <div className="input-group" id="client-select-dropdown">
           <select
             className="form-control"
+            id="admin-client-selector"
           >
             {this.props.clients.map(client => {
               return (

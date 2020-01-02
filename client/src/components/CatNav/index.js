@@ -46,27 +46,6 @@ class CatNav extends Component {
 
     render() {
       return (
-        // <nav className="navbar navbar-expand-lg" id="catNavBar">
-
-        //   All navigation links with the exception of the About page are derived from a database call.
-        //   Which occurs via the getCategories function.
-        //   This will allow us to load links dynamically based on the category of furniture in the database.
-
-        //   {this.state.categories.map((category,i) => {
-        //     return (
-        //       <a 
-        //         key={i}
-        //         className="navbar-brand" 
-        //         href={`/category/${category}`}>
-        //         {category.toUpperCase()}
-        //       </a>
-        //     );
-        //   })}
-        //   <div className="admin-controls">
-        //     <a className="navbar-brand" href="/clients">CLIENTS</a>
-        //     <a className="navbar-brand" href="/about">ABOUT</a>
-        //   </div>
-        // </nav>
 
         <nav className="navbar navbar-expand-lg" id="catNavBar">
 
@@ -84,15 +63,6 @@ class CatNav extends Component {
               </a>
             );
           })}
-          {/* <div className="admin-controls-client dropdown">
-          <button className="dropdown-toggle" type="button" id="client-selector" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Select Client</button>
-          <div className="dropdown-menu dropdown-menu-right" aria-labelledby="client-selector">
-
-            <a className="dropdown-item" id="current-client">Client list goes here</a>
-
-          </div>
-        </div> */}
 
           <div className="admin-controls-client">
             <select className="my-select" name="clients" id="current-client">

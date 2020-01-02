@@ -73,5 +73,16 @@ module.exports = {
             }
         })
     },
+    getClientItems: function(req, res){
+        console.log(req.body);
+        db.Tackboard.find({client : req.body.client}, (err, success) => {
+            if (err){
+                console.log(err)
+            } else {
+                console.log(success);
+                res.status(200).json(success)
+            }
+        })
+    }
     
 }

@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import RecentClients from "../components/RecentClients";
 import AddClient from "../components/AddClient";
 import SelectClient from "../components/SelectClient";
 import API from "../utils/API"
@@ -44,11 +43,6 @@ class Clients extends Component {
                     <div className="row">
                         <div className="col-md">
                             <h1 id="client-card-title">Clients</h1>
-                        </div>
-                    </div>
-                    <div className="row">
-                        <div className="col-md">
-                            <RecentClients />
                         </div>
                     </div>
                     <div className="row">
