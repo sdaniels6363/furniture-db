@@ -1,8 +1,8 @@
-import React from "react";
-import "../../styles/TacBoard.css";
+import React, { Component } from "react";
+import "../styles/TacBoard.css";
 import ItemCard from "../components/ItemCard";
 
-class TackBoard extends React.Component {
+class TackBoard extends Component {
     render() {
         return (
 
@@ -14,13 +14,7 @@ class TackBoard extends React.Component {
 
                         <div className="tackboard-container1">
                         <ItemCard
-                            key={item._id}
-                            vendor={item.vendor}
-                            description={item.description}
-                            image={item.image}
-                            sku={item.sku}
-                            url={item.url}
-                            tearsheet={item.tearsheet}
+
                           />
                         </div>
                     </div>

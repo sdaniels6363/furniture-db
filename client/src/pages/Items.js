@@ -3,7 +3,7 @@ import API from "../utils/API";
 import ItemCard from "../components/ItemCard";
 import NoItemCard from "../components/NoItemCard";
 import Vendors from "../components/Vendors";
-import TackBoard from "../components/TacBoard";
+// import TackBoard from "../components/TacBoard";
 import "../styles/Items.css"
 import "../styles/styles.css"
 
@@ -111,12 +111,12 @@ class Items extends Component {
                     })}
               </div>
 
-              <div className="col-md-2">
+              {/* <div className="col-md-2">
                 <TackBoard
                 
                 />
 
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
