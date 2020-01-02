@@ -1,0 +1,15 @@
+#notfound{
+    background-color: #002d39;
+    color: #ffffff;
+    font-family: "Raleway", sans-serif;
+    border: 5px solid #000000;
+    border-radius: 0.5rem;
+    margin-top: 30px;
+    opacity: 0.75;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-shadow: 2px 2px #000000;
+}
+

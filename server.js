@@ -22,6 +22,6 @@ const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/furniture";
 mongoose.connect(MONGODB_URI, { useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true });
 
 // Start the API server
-app.listen(PORT, function() {
+app.listen(PORT, "0.0.0.0", function() {
   console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
 });

@@ -1,57 +1,124 @@
-
-a.navbar-brand{
-	font-family: 'Raleway', sans-serif;
-	text-decoration: none;
-	color: #ffffff;
-	font-weight: bold;
-	-webkit-transition: all 0.25s;
-    -moz-transition: all 0.25s;
-    transition: all 0.25s;
-
+a.navbar-brand {
+  font-family: "Raleway", sans-serif;
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: bold;
+  -webkit-transition: all 0.25s;
+  -moz-transition: all 0.25s;
+  transition: all 0.25s;
 }
 
-a.navbar-brand:hover{
-	transform: scale(1.10);
-	text-shadow: 2px 2px 3px #000000;
-	font-weight: bold;
+a.navbar-brand:hover {
+  transform: scale(1.1);
+  text-shadow: 2px 2px 3px #000000;
+  font-weight: bold;
 }
 
-#catNavBar{
-	position: relative;
-	border-bottom: 8px solid #000000;
-	min-height: 40px;
-	max-height: 40px;
-	background-color: #002d39;
-	opacity: 75%;
-	background-blend-mode: multiply;
-	/* overflow: hidden; */
-	z-index: 10;
-
+#catNavBar {
+  position: relative;
+  border-bottom: 8px solid #000000;
+  min-height: 40px;
+  max-height: 40px;
+  background-color: #002d39;
+  opacity: 75%;
+  background-blend-mode: multiply;
+  /* overflow: hidden; */
+  z-index: 10;
 }
 
-.admin-controls{
-	position: absolute;
-	right: 10px;
-	text-align: right;
+.admin-controls {
+  position: absolute;
+  right: 15px;
+  text-align: right;
+}
+
+.admin-controls-client {
+  position: absolute;
+  right: 80px;
+  text-align: right;
+}
+
+#client-selector {
+  color: white;
+  font-family: "Raleway";
+  font-weight: bold;
+  background-color: transparent;
+  border-radius: 0.3rem;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+#client-selector:hover {
+  color: #002d39;
+  font-family: "Raleway";
+  font-weight: bold;
+  background-color: white;
+  border-radius: 0.3rem;
+  transform: scale(1.05);
+}
+
+#dropdownMenuButton {
+  color: white;
+  background-color: transparent;
+  border: none;
+  -webkit-transition: all 0.25s;
+  -moz-transition: all 0.25s;
+  transition: all 0.25s;
+}
+
+#dropdownMenuButton:hover {
+  color: white;
+  transform: scale(1.15);
 }
 
 #myicon {
-	color: white;
-	font-size: 1.5rem;
+  color: white;
+  font-size: 1.25rem;
 }
 
 .dropdown-item {
-	color: #002d39;
-	font-weight: bold;
-	-webkit-transition: all 0.25s;
-    -moz-transition: all 0.25s;
-    transition: all 0.25s;
+  color: #002d39;
+  font-weight: bold;
+  -webkit-transition: all 0.25s;
+  -moz-transition: all 0.25s;
+  transition: all 0.25s;
+  cursor: pointer;
 }
 
 .dropdown-item:hover {
-	color: #002d39;
+  color: #002d39;
+  font-weight: bold;
+  transform: scale(1.05);
+  text-shadow: 2px 2px 3px #999;
+  background: transparent;
+}
+
+.my-select {
+  color: white;
+  font-family: "Raleway";
+  font-weight: bold;
+  background-color: transparent;
+  border-radius: 0.3rem;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  transition: all 0.5s;
+  padding: 3px 5px;  
+  cursor: pointer;
+}
+
+.my-select:hover {
+  color: #002d39;
+  font-family: "Raleway";
+  font-weight: bold;
+  background-color: white;
+  border-radius: 0.3rem;
+  transform: scale(1.05);
+  }
+
+.my-option {
+	font-family: "Raleway";
 	font-weight: bold;
-	transform: scale(1.10);
-	text-shadow: 2px 2px 3px #888888;
-	background: transparent;
+	color: #002d39;
+	font-size: 1rem;
 }
