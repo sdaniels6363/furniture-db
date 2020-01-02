@@ -92,6 +92,11 @@ async function runScrapes() {
     await searchTK("https://taylorking.com/category.asp?pageID=2&CID=10", "recliners", "living room");
     await searchTK("https://taylorking.com/category3columns.asp?CID=4", "couches", "living room");
 
+    await searchTK("https://taylorking.com/category.asp?CID=27", "chairs", "dining room");
+    await searchTK("https://taylorking.com/category.asp?pageID=2&CID=27", "chairs", "dining room");
+    await searchTK("https://taylorking.com/category.asp?pageID=3&CID=27", "chairs", "dining room");
+    await searchTK("https://taylorking.com/category.asp?pageID=4&CID=27", "chairs", "dining room");
+
     setTimeout(function () { runExit(); }, 20000);
 };
 
