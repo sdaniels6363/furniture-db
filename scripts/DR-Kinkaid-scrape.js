@@ -86,6 +86,15 @@ async function runScrapes() {
 
     await searchDRKincaid("http://www.drkincaidchair.com/ProductList.php?productCategory=Upholstered_Headboards", "beds", "bedroom");
 
+    await searchDRKincaid("http://www.drkincaidchair.com/ProductList.php?productCategory=Traditional", "chairs", "living room");
+    await searchDRKincaid("http://www.drkincaidchair.com/ProductList.php?productCategory=Traditional&page=2", "chairs", "living room");
+    await searchDRKincaid("http://www.drkincaidchair.com/ProductList.php?productCategory=Traditional&page=3", "chairs", "living room");
+    await searchDRKincaid("http://www.drkincaidchair.com/ProductList.php?productCategory=Traditional&page=4", "chairs", "living room");
+    await searchDRKincaid("http://www.drkincaidchair.com/ProductList.php?productCategory=Traditional&page=5", "chairs", "living room");
+    await searchDRKincaid("http://www.drkincaidchair.com/ProductList.php?productCategory=Traditional&page=6", "chairs", "living room");
+    await searchDRKincaid("http://www.drkincaidchair.com/ProductList.php?productCategory=Basic", "chairs", "living room");
+    await searchDRKincaid("http://www.drkincaidchair.com/ProductList.php?productCategory=Basic&page=2", "chairs", "living room");
+
     setTimeout(function () { runExit(); }, 20000);
 };
 

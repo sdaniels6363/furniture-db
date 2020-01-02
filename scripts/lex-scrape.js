@@ -103,6 +103,7 @@ async function runScrapes() {
     await searchLex("https://www.lexington.com/hall-chests", "chests", "living room");
     await searchLex("https://www.lexington.com/mirrors873", "mirrors", "living room");
     await searchLex("https://www.lexington.com/bar-cabinets", "cabinets", "living room");
+    await searchLex("https://www.lexington.com/accent-items", "accent items", "living room");
 
     setTimeout(function () { runExit(); }, 20000);
 };
