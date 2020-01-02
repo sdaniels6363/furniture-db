@@ -6,6 +6,7 @@ import Clients from "./pages/Clients";
 import Items from "./pages/Items";
 import Header from "./components/Header";
 import SelectedItems from "./pages/SelectedItems";
+import Tackboard from "./pages/TackBoard";
 import Login from "./pages/Login";
 import NewUser from "./pages/NewUser";
 // import Unauthorized from "./pages/Unauthorized"; // uncomment this later
@@ -39,6 +40,7 @@ function authenticatedPages() {
           <Route exact path="/about" component={About} />
           <Route exact path="/selected-items" component={SelectedItems} />
           <Route exact path="/clients" component={Clients} />
+          <Route exact path="/tackboard" component={Tackboard} />
           <Route
             exact
             path="/category/:item"
