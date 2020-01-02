@@ -3,6 +3,13 @@ import "../styles/TacBoard.css";
 import ItemCard from "../components/ItemCard";
 
 class TackBoard extends Component {
+
+    state = {
+        items: [],
+        filter: [],
+        vendorList: []
+      };
+
     render() {
         return (
 
