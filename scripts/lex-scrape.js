@@ -83,6 +83,17 @@ async function runScrapes() {
     await searchLex("https://lexington.com/night-stands", "nightstands", "bedroom");
     await searchLex("https://lexington.com/benches-ottomans1521", "benches-ottomans", "bedroom");
 
+    await searchLex("https://www.lexington.com/dining-tables", "tables", "dining room");
+    await searchLex("https://www.lexington.com/bistro-tables", "tables", "dining room");
+    await searchLex("https://www.lexington.com/dining-seating", "chairs", "dining room");
+    await searchLex("https://www.lexington.com/dining-seating?page=2", "chairs", "dining room");
+    await searchLex("https://www.lexington.com/dining-seating?page=3", "chairs", "dining room");
+    await searchLex("https://www.lexington.com/counter-bar-stools", "chairs", "dining room");
+    await searchLex("https://www.lexington.com/counter-bar-stools?page=2", "chairs", "dining room");
+    await searchLex("https://www.lexington.com/mirrors872", "mirrors", "dining room");
+    await searchLex("https://www.lexington.com/bar-cabinets3273", "cabinets", "dining room");
+    await searchLex("https://www.lexington.com/display-cabinets", "cabinets", "dining room");
+
     setTimeout(function () { runExit(); }, 20000);
 };
 
