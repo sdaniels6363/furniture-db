@@ -16,4 +16,7 @@ router.route("/stageAdd")
 router.route("/stageRemove")
   .post(clientController.stageRemove)
 
+router.route("/items")
+  .post(clientController.getClientItems);
+
 module.exports = router;

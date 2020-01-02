@@ -71,5 +71,14 @@ export default {
             }
             console.log(res);
         });
+    },
+    getClientItems: function (data){
+        // this function retrieves the items from the Tackboard collection
+        return axios.post("/api/clients/items", { data }).then((res, err) => {
+            if (err) {
+                console.log(err)
+            } 
+            console.log(res)
+        })
     }
 };
