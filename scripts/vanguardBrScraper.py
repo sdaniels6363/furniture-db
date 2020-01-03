@@ -27,7 +27,7 @@ def pageRequest(url):
     return parsedObject
 
 # function used to parse the links from scraping the full page.
-def parseLinks(url, category):
+def parseLinks(url, category, roomName):
     # Query Page
     request = pageRequest(url)
     # separate returned object
@@ -45,7 +45,7 @@ def parseLinks(url, category):
                 # first we extract the SKU out of itemLink:
                 # Ex: itemLink = '/styles/sku/W526Q-HF'
                 # strip removes "/styles/sku" and leaves us with W526Q-HF
-                sku = itemLink.strip("/styles/sku/")\
+                sku = itemLink.strip("/styles/sku/")
                 
                 # tearsheet
                 tearsheet = "https://www.vanguardfurniture.com/style/%s" % (sku)
@@ -60,7 +60,7 @@ def parseLinks(url, category):
                 newObject = {
                     "description": description, 
                     "category": category,
-                    "url": "https://www.vanguardfurniture.com/%s" % (itemLink), 
+                    "url": "https://www.vanguardfurniture.com%s" % (itemLink), 
                     "sku": sku, 
                     "image": image, 
                     "tearsheet": tearsheet,
@@ -108,7 +108,8 @@ print("Scraping Vanguard")
 for x in category_url:
     url = x['url']
     category = x['category']
-    parseLinks(url,category)
+    roomName = x['roomName']
+    parseLinks(url,category,roomName)
 
 
 # import env variable, if not defined use localhost
