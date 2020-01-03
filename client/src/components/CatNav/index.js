@@ -9,13 +9,13 @@ class CatNav extends Component {
     selectedClient: ""
   };
 
-  updateLocalStorage = () => {
+  updatesessionStorage = () => {
     let client = document.querySelector("#current-client").value;
-    localStorage.setItem("selectedClient", client);
+    sessionStorage.setItem("selectedClient", client);
   }
 
   loadSelectedClient = () => {
-    this.setState({selectedClient: localStorage.getItem("selectedClient")})
+    this.setState({selectedClient: sessionStorage.getItem("selectedClient") || "-Please select a client-"}) // retrieve selected client from session storage or use default
     setTimeout(() => {
       document.querySelector("#current-client").value = this.state.selectedClient
     }, 100)
@@ -79,7 +79,7 @@ class CatNav extends Component {
           })}
 
           <div className="admin-controls-client">
-            <select className="my-select" name="clients" id="current-client" onChange={this.updateLocalStorage}>
+            <select className="my-select" name="clients" id="current-client" onChange={this.updatesessionStorage}>
               <option className="my-option" value="-Please select a client-">-Please select a client-</option>
               {/* <option className="my-option">Clients from db here</option> */}
 
