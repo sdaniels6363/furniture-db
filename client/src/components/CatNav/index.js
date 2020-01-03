@@ -44,59 +44,59 @@ class CatNav extends Component {
     this.fetchClients();
   }
 
-    render() {
-      return (
+  render() {
+    return (
 
-        <nav className="navbar navbar-expand-lg" id="catNavBar">
+      <nav className="navbar navbar-expand-lg" id="catNavBar">
 
-          {/* All navigation links with the exception of the About page are derived from a database call.
+        {/* All navigation links with the exception of the About page are derived from a database call.
         Which occurs via the getCategories function.
         This will allow us to load links dynamically based on the category of furniture in the database. */}
 
-          {this.state.categories.map((category, i) => {
-            return (
-              <a
-                key={i}
-                className="navbar-brand"
-                href={`/category/${category}`}>
-                {category.toUpperCase()}
-              </a>
-            );
-          })}
+        {this.state.categories.map((category, i) => {
+          return (
+            <a
+              key={i}
+              className="navbar-brand"
+              href={`/category/${category}`}>
+              {category.toUpperCase()}
+            </a>
+          );
+        })}
 
-          <div className="admin-controls-client">
-            <select className="my-select" name="clients" id="current-client">
-              <option className="my-option" value="">-Please select a client-</option>
-              {/* <option className="my-option">Clients from db here</option> */}
+        <div className="admin-controls-client">
+          <select className="my-select" name="clients" id="current-client">
+            <option className="my-option" value="">-Please select a client-</option>
+            {/* <option className="my-option">Clients from db here</option> */}
 
-              {this.state.clients.map((client, j) => {
-                return (
-                  <option 
+            {this.state.clients.map((client, j) => {
+              return (
+                <option
                   className="my-option"
                   key={j}
                   value={[client.name]}>
-                    {[client.name]}
-                  </option>
-                );
-              })}
-            </select>
-          </div>
+                  {[client.name]}
+                </option>
+              );
+            })}
+          </select>
+        </div>
 
 
-          <div className="admin-controls dropdown">
-            <button className="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <i className="fas fa-bars fa-1x" id="myicon"></i>
-            </button>
-            <div className="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-              <a className="dropdown-item" href="/clients">CLIENTS</a>
-              <a className="dropdown-item" href="#">CHANGE PASSWORD</a>
-              <a className="dropdown-item" href="/about">ABOUT</a>
-              <a className="dropdown-item" href="#">LOGOUT</a>
-            </div>
+        <div className="admin-controls dropdown">
+          <button className="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i className="fas fa-bars fa-1x" id="myicon"></i>
+          </button>
+          <div className="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+            <a className="dropdown-item" href="/about">HOME</a>
+            <a className="dropdown-item" href="/clients">CLIENTS</a>
+            {/* <a className="dropdown-item" href="#">CHANGE PASSWORD</a> */}
+            <a className="dropdown-item" href="#">LOGOUT</a>
           </div>
-        </nav>
-      );
-    }
+        </div>
+      </nav>
+    );
   }
+}
 
-  export default CatNav;
+export default CatNav;
