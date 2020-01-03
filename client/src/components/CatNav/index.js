@@ -3,10 +3,26 @@ import API from "../../utils/API";
 import "../../styles/CatNav.css";
 
 class CatNav extends Component {
-  state = {
-    categories: [],
-    clients: []
-  };
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      categories: [],
+      clients: [],  
+    }
+
+    this.updatesessionStorage  = this.updatesessionStorage.bind(this);
+
+}
+
+
+  updatesessionStorage = () => {
+    let client = document.querySelector("#current-client").value;
+    sessionStorage.setItem("selectedClient", client);
+    // sends callback to update clientItemsList
+    this.props.updateTackboardCB();
+  }
+
 
   componentDidMount() {
     this.getCategories();
@@ -64,10 +80,10 @@ class CatNav extends Component {
           );
         })}
 
-        <div className="admin-controls-client">
-          <select className="my-select" name="clients" id="current-client">
-            <option className="my-option" value="">-Please select a client-</option>
-            {/* <option className="my-option">Clients from db here</option> */}
+          <div className="admin-controls-client">
+            <select className="my-select" name="clients" id="current-client" onChange={this.updatesessionStorage}>
+              <option className="my-option" value="-Please select a client-">-Please select a client-</option>
+              {/* <option className="my-option">Clients from db here</option> */}
 
             {this.state.clients.map((client, j) => {
               return (
@@ -91,7 +107,7 @@ class CatNav extends Component {
             <a className="dropdown-item" href="/clients">CLIENTS</a>
             <a className="dropdown-item" href="/tackboard">TACKBOARD</a>
             {/* <a className="dropdown-item" href="#">CHANGE PASSWORD</a> */}
-            <a className="dropdown-item" href="#">LOGOUT</a>
+            {/* <a className="dropdown-item" href="#">LOGOUT</a> */}
           </div>
         </div>
       </nav >

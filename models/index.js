@@ -4,5 +4,5 @@ module.exports = {
   Furniture: require("./Furniture"),
   User: require("./User"),
   Tackboard: require("./Tackboard"),
-
+  // ConnectionLog: require("./ConnectionLog")
 };
