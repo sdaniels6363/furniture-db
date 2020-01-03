@@ -3,28 +3,30 @@ import API from "../../utils/API";
 import "../../styles/CatNav.css";
 
 class CatNav extends Component {
-  state = {
-    categories: [],
-    clients: [],
-    selectedClient: ""
-  };
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      categories: [],
+      clients: [],  
+    }
+
+    this.updatesessionStorage  = this.updatesessionStorage.bind(this);
+
+}
+
 
   updatesessionStorage = () => {
     let client = document.querySelector("#current-client").value;
     sessionStorage.setItem("selectedClient", client);
+    // sends callback to update clientItemsList
+    this.props.updateTackboardCB();
   }
 
-  loadSelectedClient = () => {
-    this.setState({selectedClient: sessionStorage.getItem("selectedClient") || "-Please select a client-"}) // retrieve selected client from session storage or use default
-    setTimeout(() => {
-      document.querySelector("#current-client").value = this.state.selectedClient
-    }, 100)
-  }
 
   componentDidMount() {
     this.getCategories();
     this.fetchClients();
-    this.loadSelectedClient();
   }
 
   getCategories = () => {

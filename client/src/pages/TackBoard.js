@@ -1,37 +1,18 @@
 import React, { Component } from "react";
 import "../styles/TacBoard.css";
 import ItemCard from "../components/ItemCard";
-import API from "../utils/API";
 
 class TackBoard extends Component {
-  state = {
-    clientItems: [],
-    selectedClient: ""
-  };
 
-  componentDidMount() {
-    this.loadClientItems();
-  }
 
-  updateListCB = () => {
+  updateClientItemsCb = () => {
     // used to update the client items when one is deleted.
-    this.loadClientItems();
+    this.props.updateItemsCB();
   }
- 
-  loadClientItems = () => {
-    let client = sessionStorage.getItem("selectedClient");
 
-    if (client === "") {
-      alert("Please Select a Client");
-      return;
-    }
-    API.getClientItems({ client: client })
-      .then(res => {
-        this.setState({ clientItems: res.data });
-        this.props.updateListCB()
-      })
-      .catch(err => console.log(err));
-  };
+  // All information for the Tackboard for the client list and selected client is passed
+  // via props, from the App.js file, that's where the functions that existed here, were
+  // relocated to.
 
   render() {
     return (
@@ -41,25 +22,25 @@ class TackBoard extends Component {
         <div className="row">
           <div className="col-md">
             <div className="tackboard-container1">
-              {this.state.clientItems.length === 0 ? (
+              {this.props.clientItems.length === 0 ? (
                 <h3>Please select some items.</h3> // temp need to add a nicer placeholder
               ) : (
-                this.state.clientItems.map((itemList, i) => {
-                  return (
-                    <ItemCard
-                      key={i}
-                      updateListCB={this.updateListCB}
-                      _id={itemList._id}
-                      vendor={itemList.item.vendor}
-                      description={itemList.item.description}
-                      image={itemList.item.image}
-                      sku={itemList.item.sku}
-                      url={itemList.item.url}
-                      tearsheet={itemList.item.tearsheet}
-                    />
-                  );
-                })
-              )}
+                  this.props.clientItems.map((itemList, i) => {
+                    return (
+                      <ItemCard
+                        key={i}
+                        updateClientItemsCb={this.updateClientItemsCb}
+                        _id={itemList._id}
+                        vendor={itemList.item.vendor}
+                        description={itemList.item.description}
+                        image={itemList.item.image}
+                        sku={itemList.item.sku}
+                        url={itemList.item.url}
+                        tearsheet={itemList.item.tearsheet}
+                      />
+                    );
+                  })
+                )}
               ;
             </div>
           </div>
