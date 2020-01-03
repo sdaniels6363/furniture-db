@@ -80,7 +80,7 @@ class CatNav extends Component {
 
           <div className="admin-controls-client">
             <select className="my-select" name="clients" id="current-client" onChange={this.updateLocalStorage}>
-              <option className="my-option" value="">-Please select a client-</option>
+              <option className="my-option" value="-Please select a client-">-Please select a client-</option>
               {/* <option className="my-option">Clients from db here</option> */}
 
               {this.state.clients.map((client, j) => {
