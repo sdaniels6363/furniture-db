@@ -1,6 +1,6 @@
 import React from "react";
 import "../../styles/ItemCard.css";
-import API from "../../utils/API"
+import API from "../../utils/API";
 
 function toggleStatus(event) {
   event.preventDefault();
@@ -8,40 +8,39 @@ function toggleStatus(event) {
   // define client based on the select dropdown in the CatNav bar
   // it should have an id of #current-client
   // once added remove this line of the comment and '|| "test"'
-  let client = document.querySelector("#current-client").value 
-  if (client === ""){
-    alert("Please select a client first.")
+  let client = document.querySelector("#current-client").value;
+  if (client === "") {
+    alert("Please select a client first.");
     return; // stop status toggle
   }
 
   if (window.location === "/tackboard") {
     // if we are on the tackboard page and the tack is clicked
-    // on the ItemCard.  We are going to be removing an item 
+    // on the ItemCard.  We are going to be removing an item
     // from the tackboard collection.
-    let itemId = event.currentTarget.dataset.objectId
+    let itemId = event.currentTarget.dataset.objectId;
 
     const data = {
       _id: itemId
-    }
+    };
 
     API.stageDelete(data)
       .then(res => console.log(res))
-      .catch(err => console.log(err))
-
+      .catch(err => console.log(err));
   } else {
     // If we are on any other page and a tack is selected we
     // will be adding an item to the tackboard collection.
 
-    let itemDetails = JSON.parse(event.currentTarget.dataset.object)
+    let itemDetails = JSON.parse(event.currentTarget.dataset.object);
 
     const data = {
       client: client,
       item: itemDetails
-    }
-    
+    };
+
     API.stageAdd(data)
       .then(res => console.log(res))
-      .catch(err => console.log(err))
+      .catch(err => console.log(err));
   }
 }
 
@@ -68,12 +67,19 @@ function ItemCard(props) {
           </a>
         </li>
       </div>
-        <button 
-          onClick={toggleStatus} 
-          data-objectid={props._id} 
-          data-object={JSON.stringify({ "Vendor": props.vendor, "Description": props.description, "SKU": props.sku, "URL": props.url, "Tearsheet": props.tearsheet })}
-          className="btn btn-default tack">
-        </button>
+      <button
+        onClick={toggleStatus}
+        data-objectid={props._id}
+        data-object={JSON.stringify({
+          vendor: props.vendor,
+          description: props.description,
+          sku: props.sku,
+          url: props.url,
+          tearsheet: props.tearsheet,
+          image: props.image
+        })}
+        className="btn btn-default tack"
+      ></button>
     </div>
   );
 }
