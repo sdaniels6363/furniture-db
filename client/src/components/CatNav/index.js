@@ -89,6 +89,7 @@ class CatNav extends Component {
             </button>
             <div className="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
               <a className="dropdown-item" href="/clients">CLIENTS</a>
+              <a className="dropdown-item" href="/tackboard">TACKBOARD</a>
               <a className="dropdown-item" href="#">CHANGE PASSWORD</a>
               <a className="dropdown-item" href="/about">ABOUT</a>
               <a className="dropdown-item" href="#">LOGOUT</a>
