@@ -6,14 +6,15 @@ import API from "../utils/API";
 class TackBoard extends Component {
 
     state = {
-        clientItems: []
+        clientItems: [],
+        selectedClient: ""
     };
     componentDidMount() {
         this.loadclientList()
     }
 
     loadclientList = () => {
-        let client = document.querySelector("#current-client").value;
+        let client = localStorage.getItem("selectedClient");
         
         if (client === "") {
             alert("Please Select a Client");

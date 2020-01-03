@@ -5,12 +5,26 @@ import "../../styles/CatNav.css";
 class CatNav extends Component {
   state = {
     categories: [],
-    clients: []
+    clients: [],
+    selectedClient: ""
   };
+
+  updateLocalStorage = () => {
+    let client = document.querySelector("#current-client").value;
+    localStorage.setItem("selectedClient", client);
+  }
+
+  loadSelectedClient = () => {
+    this.setState({selectedClient: localStorage.getItem("selectedClient")})
+    setTimeout(() => {
+      document.querySelector("#current-client").value = this.state.selectedClient
+    }, 100)
+  }
 
   componentDidMount() {
     this.getCategories();
     this.fetchClients();
+    this.loadSelectedClient();
   }
 
   getCategories = () => {
@@ -65,7 +79,7 @@ class CatNav extends Component {
           })}
 
           <div className="admin-controls-client">
-            <select className="my-select" name="clients" id="current-client">
+            <select className="my-select" name="clients" id="current-client" onChange={this.updateLocalStorage}>
               <option className="my-option" value="">-Please select a client-</option>
               {/* <option className="my-option">Clients from db here</option> */}
 
