@@ -32,8 +32,8 @@ class LoginButtonAbout extends React.Component {
                 <Form />
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Go</button>
+                <button type="button" class="btn btn-secondary" id="btn-close" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="btn-go">Go</button>
               </div>
             </div>
           </div>
