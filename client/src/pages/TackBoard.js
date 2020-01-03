@@ -8,12 +8,18 @@ class TackBoard extends Component {
     clientItems: [],
     selectedClient: ""
   };
+
   componentDidMount() {
-    this.loadclientList();
+    this.loadClientItems();
   }
 
-  loadclientList = () => {
-    let client = localStorage.getItem("selectedClient");
+  updateListCB = () => {
+    // used to update the client items when one is deleted.
+    this.loadClientItems();
+  }
+ 
+  loadClientItems = () => {
+    let client = sessionStorage.getItem("selectedClient");
 
     if (client === "") {
       alert("Please Select a Client");
@@ -22,6 +28,7 @@ class TackBoard extends Component {
     API.getClientItems({ client: client })
       .then(res => {
         this.setState({ clientItems: res.data });
+        this.props.updateListCB()
       })
       .catch(err => console.log(err));
   };
@@ -41,6 +48,7 @@ class TackBoard extends Component {
                   return (
                     <ItemCard
                       key={i}
+                      updateListCB={this.updateListCB}
                       _id={itemList._id}
                       vendor={itemList.item.vendor}
                       description={itemList.item.description}
