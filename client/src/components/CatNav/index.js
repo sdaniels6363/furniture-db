@@ -105,7 +105,7 @@ class CatNav extends Component {
             <a className="dropdown-item" href="/clients">CLIENTS</a>
             <a className="dropdown-item" href="/tackboard">TACKBOARD</a>
             {/* <a className="dropdown-item" href="#">CHANGE PASSWORD</a> */}
-            <a className="dropdown-item" href="#">LOGOUT</a>
+            {/* <a className="dropdown-item" href="#">LOGOUT</a> */}
           </div>
         </div>
       </nav >
