@@ -3,6 +3,7 @@ import AboutPic from "../components/AboutPic";
 import AboutText from "../components/AboutText";
 import LoginButtonAbout from "../components/LoginButton";
 
+
 class About extends Component {
   render() {
     return (
@@ -22,6 +23,9 @@ class About extends Component {
               </div>
             </div>
         </div>
+
+
+        
       </div>
     )
   }

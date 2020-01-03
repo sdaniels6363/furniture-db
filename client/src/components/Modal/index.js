@@ -22,7 +22,7 @@ function LoginModal(props) {
                 aria-labelledby="contained-modal-title-vcenter"
                 centered>
             </Modal>
-    
+
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
                     <Modal.Title>Login</Modal.Title>
