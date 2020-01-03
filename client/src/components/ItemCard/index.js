@@ -15,7 +15,7 @@ class ItemCard extends React.Component {
     // it should have an id of #current-client
     // once added remove this line of the comment and '|| "test"'
     let client = document.querySelector("#current-client").value;
-    if (client === "") {
+    if (client === "-Please select a client-") {
       alert("Please select a client first.");
       return; // stop status toggle
     }
@@ -33,7 +33,7 @@ class ItemCard extends React.Component {
       API.stageDelete(data)
         .then(res => {
           console.log(res)
-          this.props.updateListCB();
+          this.props.updateClientItemsCb();
         })
         .catch(err => console.log(err));
     } else {
