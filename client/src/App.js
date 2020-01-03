@@ -7,7 +7,6 @@ import Items from "./pages/Items";
 import Header from "./components/Header";
 import SelectedItems from "./pages/SelectedItems";
 import Tackboard from "./pages/TackBoard";
-import Login from "./pages/Login";
 import NewUser from "./pages/NewUser";
 // import Unauthorized from "./pages/Unauthorized"; // uncomment this later
 import FourOhFour from "./pages/FourOhFour"; // default 404 page.
@@ -21,7 +20,6 @@ function unauthenticatedPages() {
         <Switch>
           <Route exact path="/" component={About} />
           <Route exact path="/about" component={About} />
-          <Route exact path="/login" component={Login} />
           <Route component={FourOhFour} />
         </Switch>
       </div>
@@ -47,7 +45,6 @@ function authenticatedPages() {
             render={props => <Items {...props} />}
           />
           <Route exact path="/register" component={NewUser} />
-          <Route exact path="/login" component={Login} />
           <Route component={FourOhFour} />
         </Switch>
       </div>
