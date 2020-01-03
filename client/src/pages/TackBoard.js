@@ -1,14 +1,28 @@
 import React, { Component } from "react";
 import "../styles/TacBoard.css";
 import ItemCard from "../components/ItemCard";
+import API from "../utils/API";
 
 class TackBoard extends Component {
 
     state = {
-        items: [],
-        filter: [],
-        vendorList: []
-      };
+        clientItems: []
+    };
+    componentDidMount() {
+        this.loadclientList()
+    }
+
+    loadclientList = () => {
+        let client = document.querySelector("#current-client").value;
+        
+        if (client === "") {
+            alert("Please Select a Client");
+            return
+        }
+        API.getClientItems({client: client}).then(res => {
+            this.setState({clientItems: res.data})
+        }).catch(err => console.log(err))
+    }
 
     render() {
         return (
@@ -20,9 +34,20 @@ class TackBoard extends Component {
                     <div className="col-md">
 
                         <div className="tackboard-container1">
-                        <ItemCard
-
-                          />
+                            {this.state.clientItems.map((itemList, i) => {
+                                return (
+                                    <ItemCard
+                                        key={i}
+                                        _id={itemList._id}
+                                        vendor={itemList.item.vendor}
+                                        description={itemList.item.description}
+                                        image={itemList.item.image}
+                                        sku={itemList.item.sku}
+                                        url={itemList.item.url}
+                                        tearsheet={itemList.item.tearsheet}
+                                    />
+                                )
+                            })};
                         </div>
                     </div>
                 </div>
