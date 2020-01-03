@@ -82,6 +82,34 @@
     top: 2px;
 }
 
+#btn-go {
+  font-family: "Raleway", sans-serif;
+  font-weight: bold; 
+  color: #002d39;
+  background-color: #a2b2b7;
+}
+
+#btn-go:hover {
+  font-family: "Raleway", sans-serif;
+  font-weight: bold; 
+  color: #a2b2b7;
+  background-color: #002d39;
+}
+
+#btn-close {
+  font-family: "Raleway", sans-serif;
+  font-weight: bold; 
+  color: #002d39;
+  background-color: #a2b2b7;
+}
+
+#btn-close:hover {
+  font-family: "Raleway", sans-serif;
+  font-weight: bold; 
+  color: #a2b2b7;
+  background-color: #002d39;
+}
+
 .btn-wrapper {
     display: flex;
     align-items: center;
