@@ -14,18 +14,21 @@ function toggleStatus(event) {
     return; // stop status toggle
   }
 
-  if (window.location === "/tackboard") {
+  if (window.location.pathname === "/tackboard") {
     // if we are on the tackboard page and the tack is clicked
     // on the ItemCard.  We are going to be removing an item
     // from the tackboard collection.
-    let itemId = event.currentTarget.dataset.objectId;
+    let itemId = event.currentTarget.dataset.objectid;
 
     const data = {
       _id: itemId
     };
 
     API.stageDelete(data)
-      .then(res => console.log(res))
+      .then(res => {
+        console.log(res)
+        alert(res.data.item.description+" was removed from "+res.data.client+"'s tackboard.")
+      })
       .catch(err => console.log(err));
   } else {
     // If we are on any other page and a tack is selected we
@@ -37,6 +40,11 @@ function toggleStatus(event) {
       client: client,
       item: itemDetails
     };
+
+    if (data.client === "-Please select a client-"){
+      alert("Select a client before adding items.")
+      return;
+    }
 
     API.stageAdd(data)
       .then(res => console.log(res))
