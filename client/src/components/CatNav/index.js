@@ -41,6 +41,18 @@ class CatNav extends Component {
       .catch(err => console.log(err));
   }
 
+  getRooms = () => {
+    API.getRooms()
+      .then(res => {
+        let data = res.data.sort()
+        // console.log(res.data);
+        this.setState({
+          rooms: data
+        });
+      })
+      .catch(err => console.log(err));
+  }
+
   fetchClients = () => {
     API.getClients().then(res => {
       if (res.data.length === 0) {
