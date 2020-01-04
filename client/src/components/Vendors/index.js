@@ -51,16 +51,16 @@ class Vendors extends Component {
                     <Card.Body>
                         <Row>
 
-                            <Col xs={9}>
+                            <Col xs={12}>
                                 <Card.Title className="text-left">
                                     <h3>Vendors</h3>
                         </Card.Title>
                             </Col>
-                            <Col xs={1}>
+                            {/* <Col xs={1}>
                                 <Accordion.Toggle as={Col} variant="Link" eventkey='0' className="text-right" onClick={this.changeToggle}>
                                     <h3>{this.state.collapse}</h3>
                                 </Accordion.Toggle>
-                            </Col>
+                            </Col> */}
                         </Row>
                         <Accordion.Collapse>
                             <Form>

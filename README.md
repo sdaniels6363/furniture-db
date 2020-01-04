@@ -1,4 +1,6 @@
-# furniture-db
+# The Custom Corner
+![alt screenshot](./readme_imgs/logoBG.png)
+
 Full Stack Web Development - Project 3
 Site Location - [custom-corner.com](https://custom-corner.com)
 
@@ -15,7 +17,11 @@ Requests is a http request library similar to that of Axios/AJAX in Javascript. 
 
 ![alt screenshot](./readme_imgs/vanguard.png)
 
-Aside from Python, we also made use of an additional library we didn't discuss in class.  The library is named puppetteer and it's a JavaScript library that assists with web page scraping, by emulating user clicks on pages that reject conventional scraping.
+Aside from Python, we also made use of an additional library we didn't discuss in class - Puppetteer - a JavaScript library that assists with web page scraping, by emulating user clicks on pages that reject conventional scrapes.
+
+For our design scheme, we used Figma.
+
+![alt screenshot](./readme_imgs/figma-scrshot.PNG)
 
 ## Hosting
 
@@ -26,3 +32,11 @@ The site has been hosted on Google Cloud, and is currently utilizing Docker to r
 - Alpine (Small Linux container that's responsible for running the scraping scripts.)
 - Node (Runs the react-app.)
 
+## Group Members
+
+* Scott Daniels
+* Greg Desmarais
+* Jeff Greco
+* Bradley Cordle
+* Toney Higgins
+* Jarkko Haarla
