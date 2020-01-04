@@ -1,9 +1,9 @@
 const db = require("../models");
 
-// Defining methods for the categoryController and roomName
+// Defining methods for the roomsController 
 module.exports = {
     findRooms: function(req, res) {
-        db.Furniture.distinct("rooms", (err, data) => {
+        db.Furniture.distinct("roomName", (err, data) => {
             if (err) {
                 console.log(err)
             } else {
