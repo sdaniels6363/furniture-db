@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
+import Dropdown from "react-bootstrap/Dropdown";
+import DropdownButton from "react-bootstrap/DropdownButton";
 import "../../styles/CatNav.css";
 
 class CatNav extends Component {
@@ -86,15 +88,20 @@ class CatNav extends Component {
         Which occurs via the getRooms function.
         This will allow us to load links dynamically based on the rooms in the database. */}
 
+        {/* New CatNav menu creation to hadle both rooms and categories for each room. */}
         {this.state.rooms.map((room, i) => {
-          return (
-            <a
-              key={i}
-              className="navbar-brand"
-              href={`/${room.name}`}>
-              {room.name.toUpperCase()}
-            </a>
-          );
+          return (<>
+            <DropdownButton title={room.name.toUpperCase()} className="roomMenu">
+              {room.categories.map((category, j) => {
+                return (
+                  <Dropdown.Item href={`/category/${category}`} className="categoryMenu">
+                    {category.toUpperCase()}
+                  </Dropdown.Item>
+                )
+              })}
+            </DropdownButton>
+          </>
+          )
         })}
 
         <div className="admin-controls-client">
