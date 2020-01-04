@@ -19,6 +19,8 @@ Aside from Python, we also made use of an additional library we didn't discuss i
 
 For our design scheme, we used Figma.
 
+![alt screenshot](./readme_imgs/figma-scrshot.PNG)
+
 ## Hosting
 
 The site has been hosted on Google Cloud, and is currently utilizing Docker to run the infrastructure of the web application.  There are 5 different containers running on the server.
