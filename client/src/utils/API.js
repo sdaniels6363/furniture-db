@@ -2,8 +2,8 @@ import axios from "axios";
 
 export default {
     // Gets furniture by Category
-    getFurnitureByCategory: function (category) {
-        return axios.get("/api/furniture/" + category);
+    getFurnitureByCategory: function (room, category) {
+        return axios.get(`/api/furniture/${room}/${category}`);
     },
     // Gets furniture by Vendor(s)
     getFurnitureByVendor: function (category, vendor) {

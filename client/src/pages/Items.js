@@ -14,14 +14,16 @@ class Items extends Component {
     vendorList: []
   };
 
+  // Grab "room" from url params
+  room = this.props.match.params.room
   //Grab "category" from url params
-  category = this.props.match.params.item;
+  category = this.props.match.params.category;
   componentDidMount() {
     this.loadItems();
   }
 
   loadItems = () => {
-    API.getFurnitureByCategory(this.category)
+    API.getFurnitureByCategory(this.room,this.category)
       .then(res => {
         //Get vendors from retrieved items.
         let tempData=[];
