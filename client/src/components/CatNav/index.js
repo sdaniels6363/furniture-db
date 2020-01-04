@@ -8,12 +8,13 @@ class CatNav extends Component {
 
     this.state = {
       categories: [],
-      clients: [],  
+      clients: [],
+      rooms: []
     }
 
-    this.updatesessionStorage  = this.updatesessionStorage.bind(this);
+    this.updatesessionStorage = this.updatesessionStorage.bind(this);
 
-}
+  }
 
 
   updatesessionStorage = () => {
@@ -81,7 +82,7 @@ class CatNav extends Component {
         Which occurs via the getCategories function.
         This will allow us to load links dynamically based on the category of furniture in the database. */}
 
-        {this.state.categories.map((category, i) => {
+        {/* {this.state.categories.map((category, i) => {
           return (
             <a
               key={i}
@@ -90,12 +91,23 @@ class CatNav extends Component {
               {category.toUpperCase()}
             </a>
           );
+        })} */}
+
+        {this.state.rooms.map((rooms, i) => {
+          return (
+            <a
+              key={i}
+              className="navbar-brand"
+              href={`/rooms/${rooms}`}>
+              {rooms.toUpperCase()}
+            </a>
+          );
         })}
 
-          <div className="admin-controls-client">
-            <select className="my-select" name="clients" id="current-client" onChange={this.updatesessionStorage}>
-              <option className="my-option" value="-Please select a client-">-Please select a client-</option>
-              {/* <option className="my-option">Clients from db here</option> */}
+        <div className="admin-controls-client">
+          <select className="my-select" name="clients" id="current-client" onChange={this.updatesessionStorage}>
+            <option className="my-option" value="-Please select a client-">-Please select a client-</option>
+            {/* <option className="my-option">Clients from db here</option> */}
 
             {this.state.clients.map((client, j) => {
               return (
