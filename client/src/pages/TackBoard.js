@@ -23,7 +23,9 @@ class TackBoard extends Component {
           <div className="col-md">
             <div className="tackboard-container1">
               {this.props.clientItems.length === 0 ? (
-                <h3>Please select some items.</h3> // temp need to add a nicer placeholder
+                <div className="h3-wrapper">
+                <h3 className="my-h3">Please select some items.</h3> 
+                </div> // temp need to add a nicer placeholder
               ) : (
                   this.props.clientItems.map((itemList, i) => {
                     return (

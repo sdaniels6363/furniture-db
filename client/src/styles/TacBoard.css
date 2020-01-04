@@ -16,7 +16,7 @@ li {
   border-radius: 25px;
   margin: 15px;
   box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
-  /* display: inline-flex; */
+  display: block;
   background-image: url("../components/TacBoard/Tackboard.jpeg");
   margin-bottom: 3.5rem;
 }
@@ -66,4 +66,17 @@ li {
 }
 .scrollText:hover span {
   transform: translateX(calc(100% - 200%));
+}
+
+.my-h3 {
+  background-color: rgba(256, 256, 256, .5);
+  color: #002d39;
+  padding: 1rem 2rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.h3-wrapper {
+  display: flex;
+  justify-content: center;
 }
