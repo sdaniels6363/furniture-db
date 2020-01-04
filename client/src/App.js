@@ -12,8 +12,6 @@ import NewUser from "./pages/NewUser";
 import FourOhFour from "./pages/FourOhFour"; // default 404 page.
 import API from "./utils/API";
 
-
-
 function unauthenticatedPages() {
   return (
     <Router>
@@ -40,10 +38,10 @@ function authenticatedPages(
     <Router>
       <div>
         <Header />
-        <CatNav 
-          client={selectedClient} 
-          updateCb={clientUpdateCB} 
-          updateTackboardCB={updateClientListTackboardCB} 
+        <CatNav
+          client={selectedClient}
+          updateCb={clientUpdateCB}
+          updateTackboardCB={updateClientListTackboardCB}
         />
         <Switch>
           <Route exact path="/" component={About} />
@@ -53,11 +51,14 @@ function authenticatedPages(
           <Route
             exact
             path="/tackboard"
-            render={props => <Tackboard {...props}
-              client={selectedClient}
-              clientItems={selectedClientTackboard}
-              updateItemsCB={updateClientItemList}
-            />}
+            render={props => (
+              <Tackboard
+                {...props}
+                client={selectedClient}
+                clientItems={selectedClientTackboard}
+                updateItemsCB={updateClientItemList}
+              />
+            )}
           />
           <Route
             exact
@@ -74,7 +75,7 @@ function authenticatedPages(
 
 class App extends Component {
   state = {
-    loggedIn: true,  // set to false by default, leaving as true for dev.
+    loggedIn: true, // set to false by default, leaving as true for dev.
     selectedClient: "",
     selectedClientTackboard: []
   };
@@ -85,18 +86,20 @@ class App extends Component {
   }
 
   loadSelectedClient = () => {
-    let client = sessionStorage.getItem("selectedClient") || "-Please select a client-" // retrieve selected client from sessionStorage or use default
-    this.setState({ selectedClient: client }) // update the state.
+    let client = sessionStorage.getItem("selectedClient") || "-Please select a client-";
+    this.setState({ selectedClient: client }); // update the state.
     setTimeout(() => {
-      document.querySelector("#current-client").value = client
-    }, 100)
-  }
-
+      document.querySelector("#current-client").value = client;
+    }, 100);
+  };
 
   loadClientItems = () => {
     let client = sessionStorage.getItem("selectedClient");
 
-    if (window.location.pathname === "/tackboard" && (!client || client === "-Please select a client-")) {
+    if (
+      window.location.pathname === "/tackboard" &&
+      (!client || client === "-Please select a client-")
+    ) {
       // only throws the alert if the user is on the tackboard and hasn't selected a client yet.
       alert("Please Select a Client");
       return;
@@ -111,12 +114,12 @@ class App extends Component {
   // **** callback functions *****
 
   clientUpdateCB = () => {
-    this.loadSelectedClient()
-  }
+    this.loadSelectedClient();
+  };
 
   updateClientListTackboardCB = () => {
     this.loadClientItems();
-  }
+  };
 
   render() {
     if (this.state.loggedIn) {
@@ -131,7 +134,6 @@ class App extends Component {
     } else {
       return unauthenticatedPages();
     }
-
   }
 }
 
