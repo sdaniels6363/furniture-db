@@ -81,6 +81,22 @@ async function runScrapes() {
     await searchTK("https://taylorking.com/category.asp?pageID=5&CID=14", "benches-ottomans", "bedroom");
     await searchTK("https://taylorking.com/category.asp?pageID=6&CID=14", "benches-ottomans", "bedroom");
 
+    await searchTK("https://taylorking.com/category3columns.asp?CID=1", "couches", "living room");
+    await searchTK("https://taylorking.com/category3columns.asp?pageID=2&CID=1", "couches", "living room");
+    await searchTK("https://taylorking.com/category3columns.asp?pageID=3&CID=1", "couches", "living room");
+    await searchTK("https://taylorking.com/category3columns.asp?pageID=4&CID=1", "couches", "living room");
+    await searchTK("https://taylorking.com/category3columns.asp?pageID=5&CID=1", "couches", "living room");
+    await searchTK("https://taylorking.com/category3columns.asp?pageID=6&CID=1", "couches", "living room");
+    await searchTK("https://taylorking.com/category3columns.asp?pageID=7&CID=1", "couches", "living room");
+    await searchTK("https://taylorking.com/category.asp?CID=10", "recliners", "living room");
+    await searchTK("https://taylorking.com/category.asp?pageID=2&CID=10", "recliners", "living room");
+    await searchTK("https://taylorking.com/category3columns.asp?CID=4", "couches", "living room");
+
+    await searchTK("https://taylorking.com/category.asp?CID=27", "chairs", "dining room");
+    await searchTK("https://taylorking.com/category.asp?pageID=2&CID=27", "chairs", "dining room");
+    await searchTK("https://taylorking.com/category.asp?pageID=3&CID=27", "chairs", "dining room");
+    await searchTK("https://taylorking.com/category.asp?pageID=4&CID=27", "chairs", "dining room");
+
     setTimeout(function () { runExit(); }, 20000);
 };
 

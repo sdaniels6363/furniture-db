@@ -83,6 +83,28 @@ async function runScrapes() {
     await searchLex("https://lexington.com/night-stands", "nightstands", "bedroom");
     await searchLex("https://lexington.com/benches-ottomans1521", "benches-ottomans", "bedroom");
 
+    await searchLex("https://www.lexington.com/dining-tables", "tables", "dining room");
+    await searchLex("https://www.lexington.com/bistro-tables", "tables", "dining room");
+    await searchLex("https://www.lexington.com/dining-seating", "chairs", "dining room");
+    await searchLex("https://www.lexington.com/dining-seating?page=2", "chairs", "dining room");
+    await searchLex("https://www.lexington.com/dining-seating?page=3", "chairs", "dining room");
+    await searchLex("https://www.lexington.com/counter-bar-stools", "chairs", "dining room");
+    await searchLex("https://www.lexington.com/counter-bar-stools?page=2", "chairs", "dining room");
+    await searchLex("https://www.lexington.com/mirrors872", "mirrors", "dining room");
+    await searchLex("https://www.lexington.com/bar-cabinets3273", "cabinets", "dining room");
+    await searchLex("https://www.lexington.com/display-cabinets", "cabinets", "dining room");
+
+    await searchLex("https://www.lexington.com/cocktail-tables", "tables", "living room");
+    await searchLex("https://www.lexington.com/cocktail-tables?page=2", "tables", "living room");
+    await searchLex("https://www.lexington.com/end-lamp-tables", "tables", "living room");
+    await searchLex("https://www.lexington.com/end-lamp-tables?page=2", "tables", "living room");
+    await searchLex("https://www.lexington.com/sofa-tables-consoles", "tables", "living room");
+    await searchLex("https://www.lexington.com/bookcases-etageres", "bookcases", "living room");
+    await searchLex("https://www.lexington.com/hall-chests", "chests", "living room");
+    await searchLex("https://www.lexington.com/mirrors873", "mirrors", "living room");
+    await searchLex("https://www.lexington.com/bar-cabinets", "cabinets", "living room");
+    await searchLex("https://www.lexington.com/accent-items", "accent items", "living room");
+
     setTimeout(function () { runExit(); }, 20000);
 };
 

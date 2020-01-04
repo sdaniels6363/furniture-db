@@ -37,6 +37,9 @@ li {
     background-size: 50px 50px;
     background-repeat: no-repeat;
     background-position: -10px 5px;
+    -webkit-transition: all 0.35s;
+    -moz-transition: all 0.35s;
+    transition: all 0.35s;
 }
 
 .tack:hover {

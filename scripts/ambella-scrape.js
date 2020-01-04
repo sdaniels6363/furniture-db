@@ -72,6 +72,14 @@ async function runScrapes() {
 
     await scrapeAmbella("https://www.ambellahome.com/Product/Mirrors/Mirrors", "mirrors", "bedroom");
 
+    await scrapeAmbella("https://www.ambellahome.com/Product/Dining%20%26%20Serving/Arm%20%26%20Side%20Chairs", "chairs", "dining room");
+    await scrapeAmbella("https://www.ambellahome.com/Product/Dining%20%26%20Serving/Barstools", "chairs", "dining room");
+    await scrapeAmbella("https://www.ambellahome.com/Product/Dining%20%26%20Serving/Bistro%20%26%20Bar%20Tables", "tables", "dining room");
+    await scrapeAmbella("https://www.ambellahome.com/Product/Dining%20%26%20Serving/Dining%20Tables", "tables", "dining room");
+    await scrapeAmbella("https://www.ambellahome.com/Product/Dining%20%26%20Serving/Counter%20Stools", "stools", "dining room");
+    await scrapeAmbella("https://www.ambellahome.com/Product/Dining%20%26%20Serving/Sideboards", "cabinets", "dining room");
+    await scrapeAmbella("https://www.ambellahome.com/Product/Chests%20%26%20Cabinets/Cabinets", "cabinets", "dining room");
+
     setTimeout(function () { runExit(); }, 15000);
 };
 

@@ -74,8 +74,7 @@ module.exports = {
         })
     },
     getClientItems: function(req, res){
-        console.log(req.body);
-        db.Tackboard.find({client : req.body.client}, (err, success) => {
+        db.Tackboard.find({client : req.body.data.client}, (err, success) => {
             if (err){
                 console.log(err)
             } else {
