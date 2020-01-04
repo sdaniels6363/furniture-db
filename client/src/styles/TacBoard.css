@@ -1,65 +1,82 @@
 img {
-    max-height: 150px;
-    max-width: 150px;
-  }
-  
-  li {
-    list-style-type: none;
-    line-height: 24px;
-    height: 24px;
-  }
+  max-height: 150px;
+  max-width: 150px;
+}
 
-  .tackboard-container1 {
-    border: 1px solid #002d39;
-      max-width: 100%;
-      max-height: 100%;
-    border-radius: 25px;
-    margin: 15px;
-      box-shadow: 3px 3px 6px rgba(0,0,0,0.8);
-    display: inline-flex;
-    background-image: url("../components/TacBoard/Tackboard.jpeg");
-  }
-  
-  .tackboard-container2 {
-    border: 1px solid #002d39;
-      min-width: 250px;
-      max-width: 250px;
-      min-height: 350px;
-      max-height: 350px;
-    border-radius: 25px;
-    margin: 15px;
-      box-shadow: 3px 3px 6px rgba(0,0,0,0.8);
-    display: inline-flex;
-    background-color: #ffffff;
-  }
-  
-  .tackboard-description {
-    bottom: 0;
-    left: 20px;
-  }
-  
-  .tack {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    height: 50px;
-    width: 50px;
-  }
-  
-  .tack:hover{
-    transform: scale(1.10);
-  }
-  
-  .scrollText {
-    width: 200px;
-    overflow: hidden;
-    position: relative;
-  }
-  .scrollText span {
-    position: absolute;
-    white-space: nowrap;
-    transition: 3s;
-  }
-  .scrollText:hover span {
-    transform: translateX(calc(100% - 200%));
-  }
+li {
+  list-style-type: none;
+  line-height: 24px;
+  height: 24px;
+}
+
+.tackboard-container1 {
+  border: 1px solid #002d39;
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 25px;
+  margin: 15px;
+  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
+  display: block;
+  background-image: url("../components/TacBoard/Tackboard.jpeg");
+  margin-bottom: 3.5rem;
+}
+
+.tackboard-container2 {
+  border: 1px solid #002d39;
+  min-width: 250px;
+  max-width: 250px;
+  min-height: 350px;
+  max-height: 350px;
+  border-radius: 25px;
+  margin: 15px;
+  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
+  display: inline-flex;
+  background-color: #ffffff;
+}
+
+.tackboard-description {
+  bottom: 0;
+  left: 20px;
+}
+
+.tack {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  height: 50px;
+  width: 50px;
+  -webkit-transition: all 0.35s;
+  -moz-transition: all 0.35s;
+  transition: all 0.35s;
+}
+
+.tack:hover {
+  transform: scale(1.1);
+}
+
+.scrollText {
+  width: 200px;
+  overflow: hidden;
+  position: relative;
+}
+.scrollText span {
+  position: absolute;
+  white-space: nowrap;
+  transition: 3s;
+}
+.scrollText:hover span {
+  transform: translateX(calc(100% - 200%));
+}
+
+.my-h3 {
+  background-color: rgba(256, 256, 256, .5);
+  color: #002d39;
+  padding: 1rem 2rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.h3-wrapper {
+  display: flex;
+  justify-content: center;
+}
