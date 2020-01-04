@@ -17,6 +17,10 @@ export default {
     getCategories: function () {
         return axios.get("/api/categories");
     },
+    // Get all unique Rooms
+    getRooms: function () {
+        return axios.get("/api/rooms");
+    },
     validateUser: function (data) {
         return axios.post("/api/auth/login", { data }).then((res, err) => {
             if (err) {

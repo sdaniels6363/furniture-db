@@ -1,5 +1,4 @@
 import React from "react";
-// import LoginModal from "../Modal";
 import "../../styles/About.css";
 // import Form from "../Form";
 import API from "../../utils/API";
