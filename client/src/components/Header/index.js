@@ -10,11 +10,13 @@ class Header extends React.Component {
         return (
             <Navbar fixedTop className="header">
                 {/* <Navbar.Brand href="#home"> */}
+                <a className="my-a" href="/about">
                     <img
                         src={logoBG}
                         alt="The Custom Corner"
                         id="header-logo"
                     />
+                </a>
                 {/* </Navbar.Brand> */}
             </Navbar>
         )
