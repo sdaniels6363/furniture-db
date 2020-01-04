@@ -13,10 +13,10 @@ export default {
     getVendors: function () {
         return axios.get(`/api/vendor`);
     },
-    // Get all unique Categories
-    getCategories: function () {
-        return axios.get("/api/categories");
-    },
+    // // Get all unique Categories
+    // getCategories: function () {
+    //     return axios.get("/api/categories");
+    // },
     // Get all unique Rooms
     getRooms: function () {
         return axios.get("/api/rooms");
