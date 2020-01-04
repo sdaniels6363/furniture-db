@@ -94,12 +94,16 @@ class CatNav extends Component {
           );
         })} */}
 
+        {/* All navigation links with the exception of the About page are derived from a database call.
+        Which occurs via the getRooms function.
+        This will allow us to load links dynamically based on the rooms in the database. */}
+
         {this.state.rooms.map((rooms, i) => {
           return (
             <a
               key={i}
               className="navbar-brand"
-              href={`/rooms/${rooms}`}>
+              href={`/category/${rooms}`}>
               {rooms.toUpperCase()}
             </a>
           );
