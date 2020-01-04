@@ -5,7 +5,7 @@ const categoryRoutes = require("./category")
 const clientRoutes = require("./clients")
 const authRoutes = require("./auth")
 const roomRoutes = require("./rooms")
-// Furniture routes
+// Furniture and Room routes
 router.use("/furniture", furnitureRoutes);
 router.use("/vendor", vendorRoutes);
 router.use("/categories", categoryRoutes);
