@@ -86,6 +86,10 @@ async function runScrapes() {
 
     await searchPaladin("https://paladinfurniture.com/product-category/accent-pieces/benches/", "benches-ottomans", "bedroom");
 
+    await searchPaladin("https://paladinfurniture.com/product-category/chairs/dining-chairs/", "chairs", "dining room");
+    await searchPaladin("https://paladinfurniture.com/product-category/sectionals/", "couches", "living room");
+    await searchPaladin("https://paladinfurniture.com/product-category/accent-pieces/settees/", "couches", "living room");
+
     setTimeout(function () { runExit(); }, 20000);
 };
 
