@@ -26,22 +26,10 @@ class CatNav extends Component {
 
 
   componentDidMount() {
-    this.getCategories();
     this.fetchClients();
     this.getRooms();
   }
 
-  getCategories = () => {
-    API.getCategories()
-      .then(res => {
-        let data = res.data.sort()
-        // console.log(res.data);
-        this.setState({
-          categories: data
-        });
-      })
-      .catch(err => console.log(err));
-  }
 
   getRooms = () => {
     API.getRooms()
@@ -98,13 +86,13 @@ class CatNav extends Component {
         Which occurs via the getRooms function.
         This will allow us to load links dynamically based on the rooms in the database. */}
 
-        {this.state.rooms.map((rooms, i) => {
+        {this.state.rooms.map((room, i) => {
           return (
             <a
               key={i}
               className="navbar-brand"
-              href={`/category/${rooms}`}>
-              {rooms.toUpperCase()}
+              href={`/${room.name}`}>
+              {room.name.toUpperCase()}
             </a>
           );
         })}
