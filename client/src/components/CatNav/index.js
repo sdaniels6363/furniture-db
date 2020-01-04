@@ -90,17 +90,17 @@ class CatNav extends Component {
 
         {/* New CatNav menu creation to hadle both rooms and categories for each room. */}
         {this.state.rooms.map((room, i) => {
-          return (<>
-            <DropdownButton title={room.name.toUpperCase()} className="roomMenu">
+          return (<React.Fragment key={i}>
+            <DropdownButton title={room.name.toUpperCase()} className="roomMenu" >
               {room.categories.map((category, j) => {
                 return (
-                  <Dropdown.Item href={`/category/${category}`} className="categoryMenu">
+                  <Dropdown.Item href={`/${room.name}/${category}`} className="categoryMenu" key={j}>
                     {category.toUpperCase()}
                   </Dropdown.Item>
                 )
               })}
             </DropdownButton>
-          </>
+          </React.Fragment>
           )
         })}
 
