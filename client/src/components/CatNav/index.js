@@ -91,7 +91,8 @@ class CatNav extends Component {
         {/* New CatNav menu creation to hadle both rooms and categories for each room. */}
         {this.state.rooms.map((room, i) => {
           return (<>
-            <DropdownButton title={room.name.toUpperCase()} className="roomMenu">
+            <DropdownButton title={room.name.toUpperCase()} 
+            bsPrefix="roomMenu">
               {room.categories.map((category, j) => {
                 return (
                   <Dropdown.Item href={`/category/${category}`} className="categoryMenu">
