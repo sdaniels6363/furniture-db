@@ -1,4 +1,6 @@
-# furniture-db
+# The Custom Corner
+![alt screenshot](./readme_imgs/logoBG.png)
+
 Full Stack Web Development - Project 3
 Site Location - [custom-corner.com](https://custom-corner.com)
 
@@ -30,3 +32,11 @@ The site has been hosted on Google Cloud, and is currently utilizing Docker to r
 - Alpine (Small Linux container that's responsible for running the scraping scripts.)
 - Node (Runs the react-app.)
 
+## Group Members
+
+* Scott Daniels
+* Greg Desmarais
+* Jeff Greco
+* Bradley Cordle
+* Toney Higgins
+* Jarkko Haarla
