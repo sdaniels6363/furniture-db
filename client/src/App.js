@@ -62,7 +62,7 @@ function authenticatedPages(
           />
           <Route
             exact
-            path="/category/:item"
+            path="/:room/:category" // sets the path for a specific room/category combo
             render={props => <Items {...props} />}
           />
           <Route exact path="/register" component={NewUser} />
