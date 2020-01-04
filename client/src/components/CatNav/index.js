@@ -94,7 +94,7 @@ class CatNav extends Component {
             <DropdownButton title={room.name.toUpperCase()} className="roomMenu">
               {room.categories.map((category, j) => {
                 return (
-                  <Dropdown.Item href={`/category/${category}`} className="categoryMenu">
+                  <Dropdown.Item href={`/${room.name}/${category}`} className="categoryMenu">
                     {category.toUpperCase()}
                   </Dropdown.Item>
                 )
