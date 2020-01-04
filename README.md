@@ -15,7 +15,11 @@ Requests is a http request library similar to that of Axios/AJAX in Javascript. 
 
 ![alt screenshot](./readme_imgs/vanguard.png)
 
-Aside from Python, we also made use of an additional library we didn't discuss in class.  The library is named puppetteer and it's a JavaScript library that assists with web page scraping, by emulating user clicks on pages that reject conventional scraping.
+Aside from Python, we also made use of an additional library we didn't discuss in class - Puppetteer - a JavaScript library that assists with web page scraping, by emulating user clicks on pages that reject conventional scrapes.
+
+For our design scheme, we used Figma.
+
+![alt screenshot](./readme_imgs/figma-scrshot.PNG)
 
 ## Hosting
 
