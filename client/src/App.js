@@ -85,8 +85,8 @@ class App extends Component {
   }
 
   loadSelectedClient = () => {
-    let client = sessionStorage.getItem("selectedClient")
-    this.setState({ selectedClient: client || "-Please select a client-" }) // retrieve selected client from session storage or use default
+    let client = sessionStorage.getItem("selectedClient") || "-Please select a client-" // retrieve selected client from sessionStorage or use default
+    this.setState({ selectedClient: client }) // update the state.
     setTimeout(() => {
       document.querySelector("#current-client").value = client
     }, 100)
@@ -96,7 +96,8 @@ class App extends Component {
   loadClientItems = () => {
     let client = sessionStorage.getItem("selectedClient");
 
-    if (client === "") {
+    if (window.location.pathname === "/tackboard" && (!client || client === "-Please select a client-")) {
+      // only throws the alert if the user is on the tackboard and hasn't selected a client yet.
       alert("Please Select a Client");
       return;
     }
