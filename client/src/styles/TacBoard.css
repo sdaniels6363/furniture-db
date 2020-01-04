@@ -69,11 +69,13 @@ li {
 }
 
 .my-h3 {
-  background-color: rgba(256, 256, 256, .5);
+  background-color: rgba(256, 256, 256, .6);
   color: #002d39;
   padding: 1rem 2rem;
   margin-top: 2rem;
   margin-bottom: 2rem;
+  border-radius: 1rem;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.7);
 }
 
 .h3-wrapper {

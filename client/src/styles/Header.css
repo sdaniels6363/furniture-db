@@ -14,5 +14,11 @@
     margin-right: auto;
     margin-left: auto;
     padding: 0;
-    right: 0px;
+    right: 100px;
+    top: 0px;
+}
+
+.my-a {
+    /* display: inline-block; */
+    margin: 0 auto;
 }
