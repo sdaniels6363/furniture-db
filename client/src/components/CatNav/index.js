@@ -28,6 +28,7 @@ class CatNav extends Component {
   componentDidMount() {
     this.getCategories();
     this.fetchClients();
+    this.getRooms();
   }
 
   getCategories = () => {
