@@ -31,9 +31,11 @@ class TackBoard extends Component {
                   <button onClick={e => this.makePDF(this.props.clientItems, this.props.client)}>Create PDF</button>
                 </div>
               </div>
+              <a href="https://www.pinterest.com/pin/create/button/" data-pin-do="buttonPin" data-pin-tall="true">
+              </a>
               {this.props.clientItems.length === 0 ? (
                 <div className="h3-wrapper">
-                <h3 className="my-h3">Please select some items.</h3> 
+                  <h3 className="my-h3">Please select some items.</h3>
                 </div> // temp need to add a nicer placeholder
               ) : (
                   this.props.clientItems.map((itemList, i) => {

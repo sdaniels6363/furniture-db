@@ -10,26 +10,14 @@ import "../../styles/Form.css";
 class LoginButtonAbout extends React.Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      username: "",
-      password: ""
-    };
-  }
-
-  handleChange = event => {
-    console.log(event.target.value);
-    this.setState({
-      [event.target.name]: event.target.value
-    });
   }
 
   login = event => {
     event.preventDefault();
 
     const body = {
-      username: this.state.username,
-      password: this.state.password
+      username: document.querySelector("#formBasicLogin").value,
+      password: document.querySelector("#formBasicPassword").value
     }
 
     API.validateUser(body)
@@ -46,6 +34,7 @@ class LoginButtonAbout extends React.Component {
         switch (err.response.status) {
           case 401:
             alert(err.response.data);
+            document.querySelector("#formBasicPassword").value = ""
             break;
           case 500:
             alert("Server error")
@@ -55,10 +44,6 @@ class LoginButtonAbout extends React.Component {
         }
       })
 
-    this.setState({
-      username: "",
-      password: ""
-    })
 
   }
 
@@ -84,11 +69,11 @@ class LoginButtonAbout extends React.Component {
                 <Container>
                   <Form onSubmit={this.login}>
                     <Form.Group controlId="formBasicLogin">
-                      <Form.Control type="text" placeholder="Enter Login" name="username" onChange={this.handleChange} />
+                      <Form.Control type="text" placeholder="Enter Login" name="username" />
                     </Form.Group>
 
                     <Form.Group controlId="formBasicPassword">
-                      <Form.Control type="password" placeholder="Enter Password" name="password" onChange={this.handleChange} />
+                      <Form.Control type="password" placeholder="Enter Password" name="password" />
                     </Form.Group>
                     <div className="modal-footer">
                       <button type="submit" className="btn btn-primary" id="btn-go" onClick={this.login}>Login</button>
