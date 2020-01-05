@@ -19,9 +19,9 @@ class LoginButtonAbout extends React.Component {
 
     API.validateUser(body)
       .then(res => {
-        console.log(res)
+        // console.log(res)
         //Data returned from login is now an array, first element is the return message.  The second is the JWT generated with the logged in username.
-        console.log(res.data[0]);
+        // console.log(res.data[0]);
         //Store the token to sessionStorage.token
         sessionStorage.token = res.data[1];
         //Redirect to "Home" page.  Logged in users will see the Rooms/Categories and Client Dropdown.
@@ -53,7 +53,7 @@ class LoginButtonAbout extends React.Component {
         </button>
         </div>
 
-        <div className="modal fade" id="LoginModal" tabindex="-1" role="dialog" aria-labelledby="LoginModalLabel" aria-hidden="true">
+        <div className="modal fade" id="LoginModal" role="dialog" aria-labelledby="LoginModalLabel" aria-hidden="true">
           <div className="modal-dialog" role="document">
             <div className="modal-content">
               <div className="modal-header">

@@ -26,7 +26,7 @@ module.exports = {
 
         Promise.all(roomPromises)
             .then(results => {
-                console.log(results)
+                // console.log(results)
                 res.status(200).json(results)
             })
       }
