@@ -8,9 +8,6 @@ import "../../styles/Form.css";
 
 
 class LoginButtonAbout extends React.Component {
-  constructor(props) {
-    super(props);
-  }
 
   login = event => {
     event.preventDefault();
