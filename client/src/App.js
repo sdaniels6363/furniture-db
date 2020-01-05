@@ -7,7 +7,7 @@ import Items from "./pages/Items";
 import Header from "./components/Header";
 import SelectedItems from "./pages/SelectedItems";
 import Tackboard from "./pages/TackBoard";
-import NewUser from "./pages/NewUser";
+// import NewUser from "./pages/NewUser"; // disabled for now, may open in up in the future.
 // import Unauthorized from "./pages/Unauthorized"; // uncomment this later
 import FourOhFour from "./pages/FourOhFour"; // default 404 page.
 import API from "./utils/API";
@@ -71,13 +71,12 @@ function authenticatedPages(
             exact
             path="/:room/:category" // sets the path for a specific room/category combo
             render={props => (
-              <Items 
-                {...props} 
+              <Items
+                {...props}
                 toastCB={notify} // callback function for toast notification
               />
             )}
           />
-          <Route exact path="/register" component={NewUser} />
           <Route component={FourOhFour} />
         </Switch>
       </div>
