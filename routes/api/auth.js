@@ -7,4 +7,7 @@ router.route("/login")
 router.route("/register")
   .post(userController.createUser);
 
+router.route("/verify")
+  .post(userController.verifyToken);
+
 module.exports = router;

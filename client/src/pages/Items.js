@@ -8,6 +8,7 @@ import "../styles/Items.css"
 import "../styles/styles.css"
 
 class Items extends Component {
+
   state = {
     items: [],
     filter: [],
@@ -57,6 +58,10 @@ class Items extends Component {
     });
   }
 
+  toastCB=(message)=>{
+    this.props.toastCB(message);
+  }
+
   render() {
     return (
       <div>
@@ -94,6 +99,7 @@ class Items extends Component {
                             sku={item.sku}
                             url={item.url}
                             tearsheet={item.tearsheet}
+                            toastCB={this.props.toastCB} // callback function for toast notification
                           />
                         );
                     })
@@ -108,6 +114,7 @@ class Items extends Component {
                           sku={item.sku}
                           url={item.url}
                           tearsheet={item.tearsheet}
+                          toastCB={this.props.toastCB} // callback function for toast notification
                         />
                       );
                     })}

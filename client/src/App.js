@@ -11,6 +11,11 @@ import NewUser from "./pages/NewUser";
 // import Unauthorized from "./pages/Unauthorized"; // uncomment this later
 import FourOhFour from "./pages/FourOhFour"; // default 404 page.
 import API from "./utils/API";
+import { ToastContainer, Flip, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import "./styles/Toast.css";
+
+
 
 function unauthenticatedPages() {
   return (
@@ -32,7 +37,8 @@ function authenticatedPages(
   clientUpdateCB,
   selectedClientTackboard,
   updateClientListTackboardCB,
-  updateClientItemList
+  updateClientItemList,
+  notify
 ) {
   return (
     <Router>
@@ -43,6 +49,7 @@ function authenticatedPages(
           updateCb={clientUpdateCB}
           updateTackboardCB={updateClientListTackboardCB}
         />
+        <ToastContainer transition={Flip}/>
         <Switch>
           <Route exact path="/" component={About} />
           <Route exact path="/about" component={About} />
@@ -63,7 +70,12 @@ function authenticatedPages(
           <Route
             exact
             path="/:room/:category" // sets the path for a specific room/category combo
-            render={props => <Items {...props} />}
+            render={props => (
+              <Items 
+                {...props} 
+                toastCB={notify} // callback function for toast notification
+              />
+            )}
           />
           <Route exact path="/register" component={NewUser} />
           <Route component={FourOhFour} />
@@ -75,14 +87,14 @@ function authenticatedPages(
 
 class App extends Component {
   state = {
-    loggedIn: true, // set to false by default, leaving as true for dev.
+    loggedIn: false, // set to false by default, leaving as true for dev.
     selectedClient: "",
     selectedClientTackboard: []
   };
 
   componentDidMount() {
-    this.loadSelectedClient();
-    this.loadClientItems();
+    //First, check if there is a token/verify token.  loadClientItems/loadSelectClient will run once a token is determined to exist or not.
+    this.checkToken();
   }
 
   loadSelectedClient = () => {
@@ -111,7 +123,10 @@ class App extends Component {
       .catch(err => console.log(err));
   };
 
-  // **** callback functions *****
+  // toast popup
+  notify = (message) => toast.info(message,{
+    className: 'custom-toast'
+  })
 
   clientUpdateCB = () => {
     this.loadSelectedClient();
@@ -121,6 +136,36 @@ class App extends Component {
     this.loadClientItems();
   };
 
+  //Check session token, and set up the rest of the page.
+  checkToken = () => {
+    //Check if token exists in sessionStorage.
+    if (!sessionStorage.token) {
+      //Set loggedIn state to false
+      this.setState({
+        loggedIn: false
+      });
+    } else {
+      //Make an API call, passing the token.  This will verify the token, then, verify the data passed in the token.
+      API.verifyToken(sessionStorage.token).then(res => {
+        //If response is Token Verified, then load the other functions for CatNav
+        if (res.data === "Token Verified!") {
+          this.setState({
+            loggedIn: true
+          });
+          this.loadSelectedClient();
+          this.loadClientItems();
+        }else{
+          //Token fails verification
+          this.setState({
+            loggedIn: false
+          });
+          sessionStorage.removeItem("token");
+          window.location.href = "/"
+        }
+      });
+    }
+  }
+
   render() {
     if (this.state.loggedIn) {
       // if logged in
@@ -129,7 +174,8 @@ class App extends Component {
         this.clientUpdateCB,
         this.state.selectedClientTackboard,
         this.updateClientListTackboardCB,
-        this.loadClientItems
+        this.loadClientItems,
+        this.notify
       );
     } else {
       return unauthenticatedPages();

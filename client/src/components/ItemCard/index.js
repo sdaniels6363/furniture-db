@@ -53,7 +53,12 @@ class ItemCard extends React.Component {
       }
   
       API.stageAdd(data)
-        .then(res => console.log(res))
+        .then(res => {
+          console.log(res)
+          // pops up a message indicating the addition of the item
+          // was a success
+          this.props.toastCB(`${data.item.description} added to ${data.client} tackboard.`)
+        })
         .catch(err => console.log(err));
     }
   }
