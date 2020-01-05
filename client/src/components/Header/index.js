@@ -8,7 +8,7 @@ import logoBG from "./CClogo-white.svg";
 class Header extends React.Component {
     render() {
         return (
-            <Navbar fixedTop className="header">
+            <Navbar className="header">
                 {/* <Navbar.Brand href="#home"> */}
                 <a className="my-a" href="/about">
                     <img
@@ -24,4 +24,4 @@ class Header extends React.Component {
 }
 
 
-export default Header 
+export default Header
