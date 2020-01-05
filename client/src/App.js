@@ -11,6 +11,10 @@ import NewUser from "./pages/NewUser";
 // import Unauthorized from "./pages/Unauthorized"; // uncomment this later
 import FourOhFour from "./pages/FourOhFour"; // default 404 page.
 import API from "./utils/API";
+import { ToastContainer, Flip, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import "./styles/Toast.css";
+
 
 
 function unauthenticatedPages() {
@@ -33,7 +37,8 @@ function authenticatedPages(
   clientUpdateCB,
   selectedClientTackboard,
   updateClientListTackboardCB,
-  updateClientItemList
+  updateClientItemList,
+  notify
 ) {
   return (
     <Router>
@@ -44,6 +49,7 @@ function authenticatedPages(
           updateCb={clientUpdateCB}
           updateTackboardCB={updateClientListTackboardCB}
         />
+        <ToastContainer transition={Flip}/>
         <Switch>
           <Route exact path="/" component={About} />
           <Route exact path="/about" component={About} />
@@ -64,7 +70,12 @@ function authenticatedPages(
           <Route
             exact
             path="/:room/:category" // sets the path for a specific room/category combo
-            render={props => <Items {...props} />}
+            render={props => (
+              <Items 
+                {...props} 
+                toastCB={notify} // callback function for toast notification
+              />
+            )}
           />
           <Route exact path="/register" component={NewUser} />
           <Route component={FourOhFour} />
@@ -112,7 +123,10 @@ class App extends Component {
       .catch(err => console.log(err));
   };
 
-  // **** callback functions *****
+  // toast popup
+  notify = (message) => toast.info(message,{
+    className: 'custom-toast'
+  })
 
   clientUpdateCB = () => {
     this.loadSelectedClient();
@@ -160,7 +174,8 @@ class App extends Component {
         this.clientUpdateCB,
         this.state.selectedClientTackboard,
         this.updateClientListTackboardCB,
-        this.loadClientItems
+        this.loadClientItems,
+        this.notify
       );
     } else {
       return unauthenticatedPages();

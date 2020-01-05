@@ -36,7 +36,7 @@ class LoginButtonAbout extends React.Component {
       .then(res => {
         console.log(res)
         //Data returned from login is now an array, first element is the return message.  The second is the JWT generated with the logged in username.
-        alert(res.data[0]);
+        console.log(res.data[0]);
         //Store the token to sessionStorage.token
         sessionStorage.token = res.data[1];
         //Redirect to "Home" page.  Logged in users will see the Rooms/Categories and Client Dropdown.
