@@ -10,7 +10,7 @@ class ItemCard extends React.Component {
 
   toggleStatus = (event) => {
     event.preventDefault();
-  
+
     // define client based on the select dropdown in the CatNav bar
     // it should have an id of #current-client
     // once added remove this line of the comment and '|| "test"'
@@ -19,42 +19,40 @@ class ItemCard extends React.Component {
       alert("Please select a client first.");
       return; // stop status toggle
     }
-  
+
     if (window.location.pathname === "/tackboard") {
       // if we are on the tackboard page and the tack is clicked
       // on the ItemCard.  We are going to be removing an item
       // from the tackboard collection.
       let itemId = event.currentTarget.dataset.objectid;
-  
+
       const data = {
         _id: itemId
       };
-  
+
       API.stageDelete(data)
         .then(res => {
-          console.log(res)
           this.props.updateClientItemsCb();
         })
         .catch(err => console.log(err));
     } else {
       // If we are on any other page and a tack is selected we
       // will be adding an item to the tackboard collection.
-  
+
       let itemDetails = JSON.parse(event.currentTarget.dataset.object);
-  
+
       const data = {
         client: client,
         item: itemDetails
       };
-  
+
       if (data.client === "-Please select a client-"){
         alert("Select a client before adding items.")
         return;
       }
-  
+
       API.stageAdd(data)
         .then(res => {
-          console.log(res)
           // pops up a message indicating the addition of the item
           // was a success
           this.props.toastCB(`${data.item.description} added to ${data.client} tackboard.`)
@@ -102,7 +100,7 @@ class ItemCard extends React.Component {
       </div>
     );
   }
-  
+
   }
 
 export default ItemCard;
