@@ -35,7 +35,12 @@ class LoginButtonAbout extends React.Component {
     API.validateUser(body)
       .then(res => {
         console.log(res)
-        alert(res.data)
+        //Data returned from login is now an array, first element is the return message.  The second is the JWT generated with the logged in username.
+        alert(res.data[0]);
+        //Store the token to sessionStorage.token
+        sessionStorage.token = res.data[1];
+        //Redirect to "Home" page.  Logged in users will see the Rooms/Categories and Client Dropdown.
+        window.location.href = "/"
       })
       .catch(err => {
         switch (err.response.status) {
@@ -85,12 +90,11 @@ class LoginButtonAbout extends React.Component {
                     <Form.Group controlId="formBasicPassword">
                       <Form.Control type="password" placeholder="Enter Password" name="password" onChange={this.handleChange} />
                     </Form.Group>
+                    <div className="modal-footer">
+                      <button type="submit" className="btn btn-primary" id="btn-go" onClick={this.login}>Login</button>
+                    </div>
                   </Form>
                 </Container>
-              </div>
-              <div className="modal-footer">
-                <button type="button" className="btn btn-secondary" id="btn-close" data-dismiss="modal">Close</button>
-                <button type="button" className="btn btn-primary" id="btn-go" onClick={this.login}>Login</button>
               </div>
             </div>
           </div>

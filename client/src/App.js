@@ -16,6 +16,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import "./styles/Toast.css";
 
 
+
 function unauthenticatedPages() {
   return (
     <Router>
@@ -86,14 +87,14 @@ function authenticatedPages(
 
 class App extends Component {
   state = {
-    loggedIn: true, // set to false by default, leaving as true for dev.
+    loggedIn: false, // set to false by default, leaving as true for dev.
     selectedClient: "",
     selectedClientTackboard: []
   };
 
   componentDidMount() {
-    this.loadSelectedClient();
-    this.loadClientItems();
+    //First, check if there is a token/verify token.  loadClientItems/loadSelectClient will run once a token is determined to exist or not.
+    this.checkToken();
   }
 
   loadSelectedClient = () => {
@@ -134,6 +135,36 @@ class App extends Component {
   updateClientListTackboardCB = () => {
     this.loadClientItems();
   };
+
+  //Check session token, and set up the rest of the page.
+  checkToken = () => {
+    //Check if token exists in sessionStorage.
+    if (!sessionStorage.token) {
+      //Set loggedIn state to false
+      this.setState({
+        loggedIn: false
+      });
+    } else {
+      //Make an API call, passing the token.  This will verify the token, then, verify the data passed in the token.
+      API.verifyToken(sessionStorage.token).then(res => {
+        //If response is Token Verified, then load the other functions for CatNav
+        if (res.data === "Token Verified!") {
+          this.setState({
+            loggedIn: true
+          });
+          this.loadSelectedClient();
+          this.loadClientItems();
+        }else{
+          //Token fails verification
+          this.setState({
+            loggedIn: false
+          });
+          sessionStorage.removeItem("token");
+          window.location.href = "/"
+        }
+      });
+    }
+  }
 
   render() {
     if (this.state.loggedIn) {
