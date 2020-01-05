@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import "../styles/TacBoard.css";
 import ItemCard from "../components/ItemCard";
+import makePDF from "../components/DocDef"
 
 class TackBoard extends Component {
-
 
   updateClientItemsCb = () => {
     // used to update the client items when one is deleted.
@@ -14,6 +14,10 @@ class TackBoard extends Component {
   // via props, from the App.js file, that's where the functions that existed here, were
   // relocated to.
 
+  makePDF(data, client){
+    makePDF(data, client);
+  }
+
   render() {
     return (
       // This component will pull in all items selected for the client and create the horizontal cards for display.
@@ -22,6 +26,11 @@ class TackBoard extends Component {
         <div className="row">
           <div className="col-md">
             <div className="tackboard-container1">
+              <div className="row">
+                <div className="col">
+                  <button onClick={e => this.makePDF(this.props.clientItems, this.props.client)}>Create PDF</button>
+                </div>
+              </div>
               {this.props.clientItems.length === 0 ? (
                 <div className="h3-wrapper">
                 <h3 className="my-h3">Please select some items.</h3> 
