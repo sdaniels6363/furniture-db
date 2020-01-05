@@ -29,6 +29,15 @@ export default {
             return res;
         })
     },
+    //method to verify stored session token.
+    verifyToken: (data) => {
+        return axios.post("/api/auth/verify", { data }).then((res, err) => {
+            if (err) {
+                return err;
+            }
+            return res;
+        })
+    },
     newUser: function (data) {
         return axios.post("/api/auth/register", { data }).then((res, err) => {
             if (err) {
@@ -76,12 +85,12 @@ export default {
             return res;
         });
     },
-    getClientItems: function (data){
+    getClientItems: function (data) {
         // this function retrieves the items from the Tackboard collection
         return axios.post("/api/clients/items", { data }).then((res, err) => {
             if (err) {
                 return err
-            } 
+            }
             return res
         })
     }

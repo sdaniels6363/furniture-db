@@ -64,26 +64,16 @@ class CatNav extends Component {
     this.fetchClients();
   }
 
+  //Add logOff method to clear the session token, then redirect to the Home page.
+  logOff = () => {
+    sessionStorage.removeItem("token");
+    window.location.href = "/";
+  }
+
   render() {
     return (
 
       <nav className="navbar navbar-expand-lg" id="catNavBar">
-
-        {/* All navigation links with the exception of the About page are derived from a database call.
-        Which occurs via the getCategories function.
-        This will allow us to load links dynamically based on the category of furniture in the database. */}
-
-        {/* {this.state.categories.map((category, i) => {
-          return (
-            <a
-              key={i}
-              className="navbar-brand"
-              href={`/category/${category}`}>
-              {category.toUpperCase()}
-            </a>
-          );
-        })} */}
-
         {/* All navigation links with the exception of the About page are derived from a database call.
         Which occurs via the getRooms function.
         This will allow us to load links dynamically based on the rooms in the database. */}
@@ -107,8 +97,6 @@ class CatNav extends Component {
         <div className="admin-controls-client">
           <select className="my-select" name="clients" id="current-client" onChange={this.updatesessionStorage}>
             <option className="my-option" value="-Please select a client-">-Please select a client-</option>
-            {/* <option className="my-option">Clients from db here</option> */}
-
             {this.state.clients.map((client, j) => {
               return (
                 <option
@@ -131,7 +119,7 @@ class CatNav extends Component {
             <a className="dropdown-item" href="/clients">CLIENTS</a>
             <a className="dropdown-item" href="/tackboard">TACKBOARD</a>
             {/* <a className="dropdown-item" href="#">CHANGE PASSWORD</a> */}
-            {/* <a className="dropdown-item" href="#">LOGOUT</a> */}
+            <a className="dropdown-item" href="#null" onClick={this.logOff}>LOGOUT</a>
           </div>
         </div>
       </nav >

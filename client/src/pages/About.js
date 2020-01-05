@@ -17,9 +17,10 @@ class About extends Component {
               <AboutText />
             </div>
           </div>
+          
           <div className="row">
               <div className="col-md" id="mycol">
-                <LoginButtonAbout />
+              {sessionStorage.token ?  "" : <LoginButtonAbout />}
               </div>
             </div>
         </div>

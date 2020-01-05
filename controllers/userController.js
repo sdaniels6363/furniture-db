@@ -1,22 +1,27 @@
 const User = require("../models/User");
+const jwt = require("jsonwebtoken");
+require("dotenv").config();
 
 // Defining methods for the furnitureController
 module.exports = {
   validateUser: function (req, res) {
     let username = req.body.data.username;
     let password = req.body.data.password;
-    console.log(username+ " - "+password)
+    console.log(username + " - " + password)
 
     User.findOne({ username: username }).then(dbEntry => {
       console.log(dbEntry)
 
       dbEntry.verifyPassword(password, (err, valid) => {
-        if(err){
+        if (err) {
           console.log(err);
           res.status(500).send("Error")
-        } else if(valid){
-          console.log(valid)
-          res.status(200).send("Login Successful.")
+        } else if (valid) {
+          console.log(valid);
+          //Create JSON Web Token with username as the payload.
+          let token = jwt.sign({ user: username }, process.env.TOKEN_SECRET);
+          //Respond with an array with success message, and the token.
+          res.status(200).send(["Login Successful", token]);
         } else {
           console.log("not valid")
           res.status(401).send("Authentication failed.")
@@ -41,7 +46,30 @@ module.exports = {
         console.log(success)
         res.status(200).send("User successfully created.")
       })
-
+  },
+  //Back-end method to verify token.
+  verifyToken: (req, res) => {
+    //Store jwt.verify to check.  This will be an object that contains the payload, in this case, the username.
+    jwt.verify(req.body.data, process.env.TOKEN_SECRET, (err, check) => {
+      if(err){
+        //Send Invalid message.
+        res.send("Invalid Token")
+      }
+      if(check){
+        //Then, using the verified token, check to see if the user exists in the User collection.
+        User.findOne({ username: check.user }).then((data, err) => {
+          if (err) {
+            console.log(err)
+            //Send invalid message.
+            res.send("Invalid Token")
+          }
+          if (data) {
+            //If good, pass 200 status
+            res.status(200).send("Token Verified!");
+          }
+        })
+      }
+    });
   }
 
 };
