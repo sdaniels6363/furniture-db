@@ -61,7 +61,7 @@ class ItemCard extends React.Component {
   render(){
     return (
       <div className="item-container">
-        <img alt={this.props.description} src={this.props.image} />
+        <img alt={this.props.description} src={this.props.image} data-pin-url={this.props.url} data-pin-description={this.props.description} />
         <div className="item-description">
           <li>Vendor: {this.props.vendor}</li>
           <li className="scrollText">
