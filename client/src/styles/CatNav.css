@@ -104,7 +104,7 @@ a.navbar-brand:hover {
   -webkit-transition: all 0.5s;
   -moz-transition: all 0.5s;
   transition: all 0.5s;
-  padding: 3px 5px;  
+  padding: 3px 5px;
   cursor: pointer;
 }
 
@@ -115,13 +115,13 @@ a.navbar-brand:hover {
   background-color: white;
   border-radius: 0.3rem;
   transform: scale(1.05);
-  }
+}
 
 .my-option {
-	font-family: "Raleway";
-	font-weight: bold;
-	color: #002d39;
-	font-size: 1rem;
+  font-family: "Raleway";
+  font-weight: bold;
+  color: #002d39;
+  font-size: 1rem;
 }
 
 .roomMenu {
