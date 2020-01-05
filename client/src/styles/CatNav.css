@@ -123,10 +123,13 @@ a.navbar-brand:hover {
 	font-size: 1rem;
 }
 
-/* .roomMenu btn {
+.roomMenu {
   all: unset;
+  font-family: "Raleway";
+  color: white;
+  background-color: transparent;
+  border: none;
+  padding: 0px 10px;
+  font-size: 1rem;
+  font-weight: bold;
 }
-
-.roomMenu btn-primary {
-
-} */
