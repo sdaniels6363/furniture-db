@@ -19,8 +19,9 @@ a.navbar-brand:hover {
   border-bottom: 8px solid #000000;
   min-height: 40px;
   max-height: 40px;
-  background-color: #002d39;
-  opacity: 75%;
+  background-color: rgba(0, 45, 57, 0.75);
+  /* background-color: #002d39; */
+  /* opacity: 75%; */
   background-blend-mode: multiply;
   /* overflow: hidden; */
   z-index: 10;
@@ -103,7 +104,7 @@ a.navbar-brand:hover {
   -webkit-transition: all 0.5s;
   -moz-transition: all 0.5s;
   transition: all 0.5s;
-  padding: 3px 5px;  
+  padding: 3px 5px;
   cursor: pointer;
 }
 
@@ -114,11 +115,33 @@ a.navbar-brand:hover {
   background-color: white;
   border-radius: 0.3rem;
   transform: scale(1.05);
-  }
+}
 
 .my-option {
-	font-family: "Raleway";
-	font-weight: bold;
-	color: #002d39;
-	font-size: 1rem;
+  font-family: "Raleway";
+  font-weight: bold;
+  color: #002d39;
+  font-size: 1rem;
+}
+
+.roomMenu {
+  font-family: "Raleway";
+  color: white;
+  background-color: transparent;
+  border: none;
+  padding: 0px 10px;
+  font-size: 1rem;
+  font-weight: bold;
+  -webkit-transition: all 0.25s;
+  -moz-transition: all 0.25s;
+  transition: all 0.25s;
+}
+
+.roomMenu:hover {
+  transform: scale(1.1);
+  text-shadow: 2px 2px 3px #000000;
+}
+
+.categoryMenu {
+  opacity: 100%;
 }
