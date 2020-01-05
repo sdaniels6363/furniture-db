@@ -19,8 +19,9 @@ a.navbar-brand:hover {
   border-bottom: 8px solid #000000;
   min-height: 40px;
   max-height: 40px;
-  background-color: #002d39;
-  opacity: 75%;
+  background-color: rgba(0, 45, 57, 0.75);
+  /* background-color: #002d39; */
+  /* opacity: 75%; */
   background-blend-mode: multiply;
   /* overflow: hidden; */
   z-index: 10;
@@ -124,7 +125,6 @@ a.navbar-brand:hover {
 }
 
 .roomMenu {
-  /* all: unset; */
   font-family: "Raleway";
   color: white;
   background-color: transparent;
@@ -140,4 +140,8 @@ a.navbar-brand:hover {
 .roomMenu:hover {
   transform: scale(1.1);
   text-shadow: 2px 2px 3px #000000;
+}
+
+.categoryMenu {
+  opacity: 100%;
 }
