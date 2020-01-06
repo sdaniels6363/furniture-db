@@ -21,7 +21,7 @@ a.navbar-brand:hover {
   max-height: 40px;
   background-color: rgba(0, 45, 57, 0.75);
   /* background-color: #002d39; */
-  /* opacity: 75%; */
+  /* opacity: 0.75; */
   background-blend-mode: multiply;
   /* overflow: hidden; */
   z-index: 10;
@@ -143,5 +143,5 @@ a.navbar-brand:hover {
 }
 
 .categoryMenu {
-  opacity: 100%;
+  opacity: 1;
 }
