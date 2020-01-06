@@ -2,7 +2,7 @@
     height: 130px;
     background: #002d39;
     color: white;
-    opacity: 75%;
+    opacity: .75;
     background-blend-mode: multiply;
     padding: 0px;
 }
