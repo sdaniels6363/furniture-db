@@ -13,10 +13,6 @@ export default {
     getVendors: function () {
         return axios.get(`/api/vendor`);
     },
-    // // Get all unique Categories
-    // getCategories: function () {
-    //     return axios.get("/api/categories");
-    // },
     // Get all unique Rooms
     getRooms: function () {
         return axios.get("/api/rooms");
@@ -47,19 +43,16 @@ export default {
         })
     },
     newClient: function (data) {
-        console.log(data)
         return axios.post("/api/clients/create", { data }).then((res, err) => {
             if (err) {
                 console.log(err);
             }
-            console.log(res)
         })
     },
     getClients: function () {
         return axios.get("/api/clients/list")
     },
     deleteClient: function (data) {
-        console.log(data)
         return axios.post("/api/clients/delete", { data }).then((res, err) => {
             if (err) {
                 return err;
