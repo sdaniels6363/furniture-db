@@ -40,7 +40,7 @@ COPY DR-Kinkaid-scrape.js .
 COPY hekman-scrape.js .
 COPY hooker-puppeteer-scrape.js .
 COPY lex-scrape.js .
-COPY package.json .
+COPY package.json /app/package.json
 COPY paladin-scrape.js .
 COPY revelation-scrape.js .
 COPY scrapeAll.sh .
@@ -52,8 +52,10 @@ COPY vanguardBrScraper.py .
 COPY models /app/models
 
 # install node dependencies 
+WORKDIR /app
 RUN npm install
 
+WORKDIR /app/scripts
 # when container is started, run scrapeAll.sh file
 CMD ["sh","scrapeAll.sh"]
 
