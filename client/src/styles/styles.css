@@ -22,3 +22,11 @@ body {
     position: relative;
     min-height: 100vh;
   }
+
+  span[class^="PIN"] {
+    position: absolute;
+    top: 25px;
+    right: 40px;
+    z-index: 10; 
+    box-shadow: 3px 3px 5px rgba(0,0,0,.6);
+  }
