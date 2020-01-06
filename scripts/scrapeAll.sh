@@ -3,7 +3,8 @@
 # the purpose of this bash script is to orchestrate the running of all of the scrapes.
 
 # drop the current collection if it exists
-[ -z "$MONGODB_URI" ] && mongo localhost:27017/furniture --eval 'db.furniture.drop()' || mongo $MONGODB_URI --eval 'db.furniture.drop()'
+#[ -z "$MONGODB_URI" ] && mongo localhost:27017/furniture --eval 'db.furniture.drop()' || mongo $MONGODB_URI --eval 'db.furniture.drop()'
+mongo localhost/furniture --eval 'db.furniture.drop()'
 # we do this everytime the script runs, this way we don't have to worry about duplicates, and we don't have to deal with adding/removing items.
 
 # Python Scripts

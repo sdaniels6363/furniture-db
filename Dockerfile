@@ -15,13 +15,9 @@ COPY models models
 COPY routes routes
 COPY package.json package.json
 COPY server.js server.js
+COPY node_modules node_modules
 COPY .env .env
 
-# install dependencies
-RUN npm install
-
-# run the following commands before wrapping up the container
-RUN npm run build
 
 # expose the following ports
 EXPOSE 3000
