@@ -25,11 +25,10 @@ For our design scheme, we used Figma.
 
 ## Hosting
 
-The site has been hosted on Google Cloud, and is currently utilizing Docker to run the infrastructure of the web application.  There are 5 different containers running on the server:
+The site has been hosted on Google Cloud, and is currently utilizing Docker to run the infrastructure of the web application.  There are 4 different containers running on the server:
 - Mongo (Houses the database of the application.)
 - NGINX (Performs reverse proxy, and handles SSL.  It also redirects traditional http connections to https)
 - Certbot (Automates keeping SSL Cert with LetsEncrypt Valid.)
-- Alpine (Small Linux container that's responsible for running the scraping scripts.)
 - Node (Runs the react-app.)
 
 ## Group Members
