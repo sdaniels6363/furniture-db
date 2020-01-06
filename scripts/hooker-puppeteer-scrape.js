@@ -27,7 +27,7 @@ async function HookerScrape(URL, category, roomName) {
     let browser = await puppeteer.launch({
         headless: true,
         defaultViewport: null,
-        args: ['--window-size=1100,650']
+        args: ['--window-size=1100,650','--no-sandbox']
     });
     let page = await browser.newPage();
 
