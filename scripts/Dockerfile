@@ -31,8 +31,15 @@ RUN mkdir app
 # cd to /app
 WORKDIR /app
 
+# make directories for scripts and models
+RUN mkdir models scripts
+
 # Copies all of the scripts to the container
-COPY . .
+COPY ../models/ /app/models/
+COPY . /app/scripts/
+
+# cd to /app/scripts
+WORKDIR /app/scripts
 
 # install node dependencies
 RUN npm install
