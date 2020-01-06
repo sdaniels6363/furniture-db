@@ -1,6 +1,12 @@
 # This dockerfile generates the container that executes the scripts.
 FROM alpine:latest
 
+# set the ENV
+ENV MONGODB_URI="mongodb://mongoCC/furniture"
+
+# install mongo
+RUN apk add --update mongodb
+
 # install nodejs and npm 
 RUN apk add --update nodejs npm
 
