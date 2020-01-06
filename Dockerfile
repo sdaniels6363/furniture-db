@@ -9,12 +9,13 @@ ENV MONGODB_URI="mongodb://mongoCC/furniture"
 WORKDIR /app
 
 # copy all files to  container
-COPY client/ .
-COPY controllers/ .
-COPY models/ .
-COPY routes/ .
-COPY package.json .
-COPY server.js .
+COPY client client
+COPY controllers controllers
+COPY models models
+COPY routes routes
+COPY package.json package.json
+COPY server.js server.js
+COPY .env .env
 
 # install dependencies
 RUN npm install
