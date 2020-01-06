@@ -5,7 +5,10 @@ FROM alpine:latest
 ENV MONGODB_URI="mongodb://mongoCC/furniture"
 
 # install mongo
-RUN apk add --update mongodb
+RUN echo 'http://dl-cdn.alpinelinux.org/alpine/v3.6/main' >> /etc/apk/repositories
+RUN echo 'http://dl-cdn.alpinelinux.org/alpine/v3.6/community' >> /etc/apk/repositories
+RUN apk update
+RUN apk add mongodb=3.4.4-r0
 
 # install nodejs and npm 
 RUN apk add --update nodejs npm
@@ -26,22 +29,29 @@ RUN pip3 install bs4
 RUN pip3 install pymongo
 
 # creates app dir
-RUN mkdir app
+RUN mkdir app app/scripts
 
 # cd to /app
-WORKDIR /app
-
-# make directories for scripts and models
-RUN mkdir models scripts
-
-# Copies all of the scripts to the container
-COPY ../models/ /app/models/
-COPY . /app/scripts/
-
-# cd to /app/scripts
 WORKDIR /app/scripts
 
-# install node dependencies
+# Copies all of the scripts to the container
+COPY ambella-scrape.js .
+COPY DR-Kinkaid-scrape.js .
+COPY hekman-scrape.js .
+COPY hooker-puppeteer-scrape.js .
+COPY lex-scrape.js .
+COPY package.json .
+COPY paladin-scrape.js .
+COPY revelation-scrape.js .
+COPY scrapeAll.sh .
+COPY tayKing-scrape.js .
+COPY uttermost-scrape.js .
+COPY vanguardBrScraper.py .
+
+# copy models to container
+COPY models /app/models
+
+# install node dependencies 
 RUN npm install
 
 # when container is started, run scrapeAll.sh file
