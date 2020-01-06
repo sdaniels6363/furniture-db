@@ -70,7 +70,7 @@ function hekmanScrape() {
                 result.roomName = section.roomName;
                 db.Furniture.create(result)
                     .then(() => {
-                        if (index === sections.length - 1 && elemIndex === elemCount - 1) {
+                            if (index === sections.length - 1 && elemIndex === elemCount - 1) {
                             runExit();
                         }
                     })

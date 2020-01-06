@@ -11,11 +11,7 @@ WORKDIR /app
 # copy all files to  container
 COPY . .
 
-# run the following commands before wrapping up the container
-RUN npm run build
-
 # expose the following ports
-EXPOSE 3000
 EXPOSE 3001
 
 # when container starts, run this command

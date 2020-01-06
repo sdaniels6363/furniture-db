@@ -20,7 +20,6 @@ class SelectClient extends React.Component {
     const body = { name: selected };
     API.deleteClient(body)
       .then(res => {
-        console.log(res)
         alert(selected + " was deleted")
         //Use the provided callback function to reload the client list from the DB.
         this.props.cb();

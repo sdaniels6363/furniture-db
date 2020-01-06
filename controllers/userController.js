@@ -7,17 +7,16 @@ module.exports = {
   validateUser: function (req, res) {
     let username = req.body.data.username;
     let password = req.body.data.password;
-    console.log(username + " - " + password)
 
     User.findOne({ username: username }).then(dbEntry => {
-      console.log(dbEntry)
+      // console.log(dbEntry)
 
       dbEntry.verifyPassword(password, (err, valid) => {
         if (err) {
           console.log(err);
           res.status(500).send("Error")
         } else if (valid) {
-          console.log(valid);
+          // console.log(valid);
           //Create JSON Web Token with username as the payload.
           let token = jwt.sign({ user: username }, process.env.TOKEN_SECRET);
           //Respond with an array with success message, and the token.
@@ -43,7 +42,7 @@ module.exports = {
             res.status(500).json(err)
           }
         }
-        console.log(success)
+        // console.log(success)
         res.status(200).send("User successfully created.")
       })
   },
