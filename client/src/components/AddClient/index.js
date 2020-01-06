@@ -20,7 +20,6 @@ class AddClient extends React.Component {
         const body = {name: this.state.newClient}
         API.newClient(body)
             .then(res => {
-                console.log(res)
                 // Clear the input field
                 this.setState({
                     newClient: ""
