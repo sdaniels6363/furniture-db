@@ -49,7 +49,7 @@ function authenticatedPages(
           updateCb={clientUpdateCB}
           updateTackboardCB={updateClientListTackboardCB}
         />
-        <ToastContainer transition={Flip}/>
+        <ToastContainer transition={Flip} />
         <Switch>
           <Route exact path="/" component={About} />
           <Route exact path="/about" component={About} />
@@ -97,9 +97,23 @@ class App extends Component {
   }
 
   loadSelectedClient = () => {
-    let client = sessionStorage.getItem("selectedClient") || "-Please select a client-";
-    this.setState({ selectedClient: client }); // update the state.
+    let client;
+    //Check if on clients page, if so, return, as Clients dropdown doesn't exist on this page.
+    if (window.location.pathname === "/clients")
+      return;
+    //Wrap this entire block in a setTimeout
     setTimeout(() => {
+      // Check if sessionStorage variable exists as a value in the Clients dropdown (length will be 1, which makes the statement true.) 
+      if (document.querySelectorAll(`#current-client option[value='${sessionStorage.selectedClient}']`).length > 0) {
+        client = sessionStorage.getItem("selectedClient")
+      }
+      // Otherwise, remove the sessionStorage variable, and set client to default option.
+      else {
+        sessionStorage.removeItem("selectedClient");
+        client = "-Please select a client-";
+      }
+      this.setState({ selectedClient: client }); // update the state.
+      //Set the Client dropdown option.
       document.querySelector("#current-client").value = client;
     }, 100);
   };
@@ -123,7 +137,7 @@ class App extends Component {
   };
 
   // toast popup
-  notify = (message) => toast.info(message,{
+  notify = (message) => toast.info(message, {
     className: 'custom-toast'
   })
 
@@ -153,7 +167,7 @@ class App extends Component {
           });
           this.loadSelectedClient();
           this.loadClientItems();
-        }else{
+        } else {
           //Token fails verification
           this.setState({
             loggedIn: false

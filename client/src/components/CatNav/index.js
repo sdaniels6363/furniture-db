@@ -70,6 +70,27 @@ class CatNav extends Component {
     window.location.href = "/";
   }
 
+  displayClients = () => {
+    return (<>
+      <div className="admin-controls-client">
+        <select className="my-select" name="clients" id="current-client" onChange={this.updatesessionStorage}>
+          <option className="my-option" value="-Please select a client-">-Please select a client-</option>
+          {this.state.clients.map((client, j) => {
+            return (
+              <option
+                className="my-option"
+                key={j}
+                value={[client.name]}>
+                {[client.name]}
+              </option>
+            );
+          })}
+        </select>
+      </div>
+      </>
+    )
+  }
+
   render() {
     return (
 
@@ -94,21 +115,7 @@ class CatNav extends Component {
           )
         })}
 
-        <div className="admin-controls-client">
-          <select className="my-select" name="clients" id="current-client" onChange={this.updatesessionStorage}>
-            <option className="my-option" value="-Please select a client-">-Please select a client-</option>
-            {this.state.clients.map((client, j) => {
-              return (
-                <option
-                  className="my-option"
-                  key={j}
-                  value={[client.name]}>
-                  {[client.name]}
-                </option>
-              );
-            })}
-          </select>
-        </div>
+        {window.location.pathname === "/clients" ? "" : <this.displayClients/>}
 
         <div className="admin-controls dropdown">
           <button className="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
