@@ -5,7 +5,7 @@ Full Stack Web Development - Project 3
 Site Location - [custom-corner.com](https://custom-corner.com)
 
 ## Purpose
-This purpose of this site is to give interior designers the ability to search the inventory of multiple vendors from one page - giving them a single pane of glass experience.  This allows the user to not have to search multiple websites when looking for the perfect piece of furniture for their client.
+The purpose of this site is to give interior designers the ability to search the inventory of multiple vendors from one page - giving them a single pane of glass experience.  
 
 ## New Technologies
 For one of the vendors, we are utilizing python to complete the web scraping.  Python is making use of the following modules:
@@ -13,11 +13,11 @@ For one of the vendors, we are utilizing python to complete the web scraping.  P
 - bs4
 - pymongo
 
-Requests is an http request library similar to that of Axios/AJAX in Javascript.  BS4 (otherwise known as BeautifulSoup) is an HTML/XML parsing library similar to the cheerio module in JavaScript.  Finally, pymongo is the mongodb driver for python, allowing us to add records to the database.
+Requests is an http request library similar to that of Axios/AJAX in JavaScript.  BS4 (otherwise known as BeautifulSoup) is an HTML/XML parsing library similar to the Cheerio module in JavaScript.  Finally, pymongo is the mongodb driver for python, allowing us to add records to the database.
 
 ![alt screenshot](./readme_imgs/vanguard.png)
 
-Aside from python, we also made use of an additional library we didn't discuss in class - Puppetteer - a JavaScript library that assists with web page scraping by emulating user clicks on pages that reject conventional scrapes.
+Aside from python, we also made use of an additional library we didn't discuss in class - Puppeteer - a JavaScript library that assists with web page scraping by emulating user clicks on pages that reject conventional scrapes.
 
 For our design scheme, we used Figma.
 
