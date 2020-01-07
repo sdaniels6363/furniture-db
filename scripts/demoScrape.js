@@ -19,43 +19,37 @@ function hekmanScrape() {
     console.log("Scraping Hekman")
     //Defining sections.
     let sections = [
-        {
-            urlCategory: "bedroom", //Site Category
-            urlSection: "beds", //Site Section
-            category: "beds", //Category to pass to DB
-            roomName: "bedroom" //Room name to pass to DB
-        },
-        {
-            urlCategory: "bedroom",
-            urlSection: "night_stands",
-            category: "nightstands",
-            roomName: "bedroom"
-        },
-        {
-            urlCategory: "bedroom",
-            urlSection: "dressers_chests",
-            category: "dressers",
-            roomName: "bedroom"
-        },
-        {
-            urlCategory: "bedroom",
-            urlSection: "media_chests",
-            category: "dressers",
-            roomName: "bedroom"
-        },
-        {
-            urlCategory: "bedroom",
-            urlSection: "mirrors",
-            category: "mirrors",
-            roomName: "bedroom"
-        },
         // Additional section to scrape.  To be uncommented after project completion.
-        // {
-        //     urlCategory: "home_office",
-        //     urlSection: "office_chairs",
-        //     category: "chairs",
-        //     roomName: "office"
-        // },
+        {
+            urlCategory: "home_office",
+            urlSection: "office_chairs",
+            category: "chairs",
+            roomName: "office"
+        },
+        {
+            urlCategory: "home_office",
+            urlSection: "executive_desks",
+            category: "desks",
+            roomName: "office"
+        },
+        {
+            urlCategory: "home_office",
+            urlSection: "writing_accent_desks",
+            category: "desks",
+            roomName: "office"
+        },
+        {
+            urlCategory: "home_office",
+            urlSection: "file_units",
+            category: "file units",
+            roomName: "office"
+        },
+        {
+            urlCategory: "home_office",
+            urlSection: "bookcases",
+            category: "bookcases",
+            roomName: "office"
+        },
     ];
     //Initialize Promises array.
     let promises = [];
@@ -72,8 +66,9 @@ function hekmanScrape() {
                 //Create result object.
                 let result = {};
                 var $ = cheerio.load(res.data);
+                let elemCount = $("table tr:first-child").length;
                 $ = cheerio.load($("#resultJSONDiv").val())
-                $("table tr:first-child").each(function (elemCount) {
+                $("table tr:first-child").each(function (elemIndex) {
                     result.description = $(this)
                         .find(".popup_productname")
                         .text().replace(/\w-?\w+/, "").trim();
