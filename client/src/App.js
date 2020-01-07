@@ -104,7 +104,7 @@ class App extends Component {
     //Wrap this entire block in a setTimeout
     setTimeout(() => {
       // Check if sessionStorage variable exists as a value in the Clients dropdown (length will be 1, which makes the statement true.) 
-      if (document.querySelectorAll(`#current-client option[value='${sessionStorage.selectedClient}']`).length > 0) {
+      if (document.querySelectorAll(`#current-client option[value="${sessionStorage.selectedClient}"]`).length > 0) {
         client = sessionStorage.getItem("selectedClient")
       }
       // Otherwise, remove the sessionStorage variable, and set client to default option.
