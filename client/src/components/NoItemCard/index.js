@@ -3,12 +3,9 @@ import "../../styles/NoItemCard.css";
 
 function NoItemCard(props) {
 	return (
-		<div className="item-container" data-vendor={props.vendor}>
-			<div>
-				<br/><br/>
-				Please Select at least one vendor from the list.
+			<div className="h3-wrapper">
+				<h3 className="my-h3">Please select at least one vendor.</h3>
 			</div>
-		</div>
 	);
 }
 

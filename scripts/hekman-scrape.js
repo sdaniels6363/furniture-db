@@ -72,8 +72,9 @@ function hekmanScrape() {
                 //Create result object.
                 let result = {};
                 var $ = cheerio.load(res.data);
+                let elemCount = $("table tr:first-child").length;
                 $ = cheerio.load($("#resultJSONDiv").val())
-                $("table tr:first-child").each(function (elemCount) {
+                $("table tr:first-child").each(function (elemIndex) {
                     result.description = $(this)
                         .find(".popup_productname")
                         .text().replace(/\w-?\w+/, "").trim();
