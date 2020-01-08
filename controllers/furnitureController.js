@@ -7,6 +7,7 @@ module.exports = {
     let category = req.params.category;
     db.Furniture
       .find({roomName: room ,category: category})
+      .sort({vendor:1})
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
