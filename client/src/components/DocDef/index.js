@@ -128,6 +128,13 @@ module.exports = function (data, client) {
         },
 
     }
-    pdfMake.createPdf(dd).open({}, window);
+    // Download PDF.  Default file name is "Item List - <Client Name>.pdf"
+    // pdfMake.createPdf(dd).download(`Item List - ${client}`);
+
+    // Open PDF in new tab
+    pdfMake.createPdf(dd).open();
+    
+    // Print PDF in new Window
+    // pdfMake.createPdf(dd).print();
 }
 
