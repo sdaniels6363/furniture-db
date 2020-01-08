@@ -48,23 +48,35 @@ var searchLex = function (url, category, roomName) {
             axios.get(result.url).then(function (response) {
 
                 var $ = cheerio.load(response.data);
+                result.tearsheet = $(".tearsheet").attr("href");
+                result.sku = $(".sku").text();
 
-                $(".tearsheet").each(function (i, element) {
-                    // console.log(element)
-                    result.tearsheet = $(this)
-                        .attr("href");
-                    // console.log(result.tearsheet)
+                db.Furniture.create(result)
+                .then(function (dbFurniture) {
 
-                    db.Furniture.create(result)
-                        .then(function (dbFurniture) {
+                    // console.log(dbFurniture);
+                })
+                .catch(function (err) {
 
-                            // console.log(dbFurniture);
-                        })
-                        .catch(function (err) {
-
-                            console.log(err);
-                        });
+                    console.log(err);
                 });
+
+                // $(".tearsheet").each(function (i, element) {
+                //     // console.log(element)
+                //     result.tearsheet = $(this)
+                //         .attr("href");
+                //     // console.log(result.tearsheet)
+
+                //     db.Furniture.create(result)
+                //         .then(function (dbFurniture) {
+
+                //             // console.log(dbFurniture);
+                //         })
+                //         .catch(function (err) {
+
+                //             console.log(err);
+                //         });
+                // });
 
             });
 
@@ -73,7 +85,6 @@ var searchLex = function (url, category, roomName) {
     });
 
 }
-
 async function runScrapes() {
     console.log("Scraping Lexington")
     await searchLex("https://lexington.com/beds", "beds", "bedroom");
