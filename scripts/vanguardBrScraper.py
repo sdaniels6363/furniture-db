@@ -180,7 +180,7 @@ category_url = [
         "roomName": "office"
     },{
         "url":"https://vanguardfurniture.com/styles?PageSize=2000000000&Room=OF&ProdType=047",
-        "category": "desk chairs",
+        "category": "chairs",
         "roomName": "office"
     },{
         "url":"https://vanguardfurniture.com/styles?PageSize=2000000000&Room=OF&ProdType=011",
