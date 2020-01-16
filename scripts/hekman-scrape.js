@@ -49,13 +49,12 @@ function hekmanScrape() {
             category: "mirrors",
             roomName: "bedroom"
         },
-        // Additional section to scrape.  To be uncommented after project completion.
-        // {
-        //     urlCategory: "home_office",
-        //     urlSection: "office_chairs",
-        //     category: "chairs",
-        //     roomName: "office"
-        // },
+        {
+            urlCategory: "home_office",
+            urlSection: "office_chairs",
+            category: "chairs",
+            roomName: "office"
+        },
     ];
     //Initialize Promises array.
     let promises = [];
