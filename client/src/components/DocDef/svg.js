@@ -1,6 +1,6 @@
 module.exports =`<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 width="496.667px" height="108.667px" viewBox="0 0 496.667 108.667" enable-background="new 0 0 496.667 108.667"
-xml:space="preserve" opacity="0.07">
+xml:space="preserve" opacity="0.15">
 <g>
 <g>
    <path fill="#002d39" d="M77.607,67.336c-4.003,4.995-9.264,7.492-15.781,7.492c-2.728,0-5.226-0.461-7.491-1.382

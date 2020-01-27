@@ -5,9 +5,9 @@ body {
     -o-background-size: cover;
     background-size: cover;
     overflow-x: hidden;
-  }
+}
 
-  .footer {
+.footer {
     background-color: #002d39;
     opacity: 0.6;
     background-blend-mode: multiply;
@@ -16,17 +16,9 @@ body {
     padding-top: 6px;
     text-align: center;
     margin-top: -2.5rem;
-  }
+}
 
-  #page-container {
+#page-container {
     position: relative;
     min-height: 100vh;
-  }
-
-  span[class^="PIN"] {
-    position: absolute;
-    top: 25px;
-    right: 40px;
-    z-index: 1; 
-    box-shadow: 3px 3px 5px rgba(0,0,0,.6);
-  }
+}
