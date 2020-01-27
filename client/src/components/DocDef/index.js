@@ -65,7 +65,7 @@ module.exports = function (data, client) {
                 {
                     svg: svg,
                     alignment: "center",
-                    // Dynamically centers the bakcground image.  108 is the height of the SVG, per svg.js
+                    // Dynamically centers the background image.  108 is the height of the SVG, per svg.js
                     margin: [0, (pageSize.height - 108) / 2, 0, 0],
                 }
             ]
