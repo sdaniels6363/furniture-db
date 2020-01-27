@@ -34,6 +34,7 @@ class Items extends Component {
             tempData.push(item.vendor)
           }
         });
+        tempData.sort();
         //Set states
         this.setState({ 
           items: res.data,

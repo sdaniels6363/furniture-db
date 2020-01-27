@@ -98,7 +98,96 @@ category_url = [
         "url": "https://vanguardfurniture.com/styles?PageSize=2000000000&Room=BR&ProdType=035",
         "category": "nightstands",
         "roomName": "bedroom"
+    },{
+        "url": "https://vanguardfurniture.com/styles?PageSize=2000000000&Room=DR&ProdType=036",
+        "category": "cabinets",
+        "roomName": "dining room",
+    },{
+        "url": "https://vanguardfurniture.com/styles?PageSize=2000000000&Room=DR&ProdType=014",
+        "category": "stools",
+        "roomName": "dining room"
+    },{
+        "url":"https://vanguardfurniture.com/styles?PageSize=2000000000&Room=DR&ProdType=005",
+        "category": "buffets",
+        "roomName": "dining room"
+    },{
+        "url":"https://vanguardfurniture.com/styles?PageSize=2000000000&Room=DR&ProdType=013",
+        "category": "chairs",
+        "roomName": "dining room"
+    },{
+        "url":"https://vanguardfurniture.com/styles?PageSize=2000000000&Room=DR&ProdType=007",
+        "category": "tables",
+        "roomName": "dining room"
+    },{
+        "url":"https://vanguardfurniture.com/styles?PageSize=2000000000&Room=DR&ProdType=008",
+        "category": "mirrors",
+        "roomName": "dining room"
+    },{
+        "url":"https://vanguardfurniture.com/styles?PageSize=2000000000&Room=LR&ProdType=018",
+        "category": "benches-ottomans",
+        "roomName": "living room"
+    },{
+        "url":"https://vanguardfurniture.com/styles?PageSize=2000000000&Room=LR&ProdType=029",
+        "category": "bookcases",
+        "roomName": "living room"
+    },{
+        "url":"https://vanguardfurniture.com/styles?PageSize=2000000000&Room=LR&ProdType=001",
+        "category": "chairs-ottomans",
+        "roomName": "living room"
+    },{
+        "url":"https://vanguardfurniture.com/styles?PageSize=2000000000&Room=LR&ProdType=017",
+        "category": "chaises",
+        "roomName": "living room"
+    },{
+        "url":"https://vanguardfurniture.com/styles?PageSize=2000000000&Room=LR&ProdType=037",
+        "category": "chests",
+        "roomName": "living room"
+    },{
+        "url":"https://vanguardfurniture.com/styles?PageSize=2000000000&Room=LR&ProdType=003",
+        "category": "cocktail tables",
+        "roomName": "living room"
+    },{
+        "url":"https://vanguardfurniture.com/styles?PageSize=2000000000&Room=LR&ProdType=012",
+        "category": "consoles",
+        "roomName": "living room"
+    },{
+        "url":"https://vanguardfurniture.com/styles?PageSize=2000000000&Room=LR&ProdType=011",
+        "category": "desks",
+        "roomName": "living room"
+    },{
+        "url":"https://vanguardfurniture.com/styles?PageSize=2000000000&?Room=LR&ProdType=008",
+        "category": "mirrors",
+        "roomName": "living room"
+    },{
+        "url":"https://vanguardfurniture.com/styles?PageSize=2000000000&Room=LR&ProdType=006",
+        "category": "sectionals",
+        "roomName": "living room"
+    },{
+        "url":"https://vanguardfurniture.com/styles?PageSize=2000000000&Room=LR&ProdType=009",
+        "category": "end table",
+        "roomName": "living room"
+    },{
+        "url":"https://vanguardfurniture.com/styles?PageSize=2000000000&Room=LR&ProdType=024",
+        "category": "sleepers",
+        "roomName": "living room"
+    },{
+        "url":"https://vanguardfurniture.com/styles?PageSize=2000000000&Room=LR&ProdType=004",
+        "category": "sofas",
+        "roomName": "living room"
+    },{
+        "url":"https://vanguardfurniture.com/styles?PageSize=2000000000&Room=OF&ProdType=029",
+        "category": "bookcases",
+        "roomName": "office"
+    },{
+        "url":"https://vanguardfurniture.com/styles?PageSize=2000000000&Room=OF&ProdType=047",
+        "category": "chairs",
+        "roomName": "office"
+    },{
+        "url":"https://vanguardfurniture.com/styles?PageSize=2000000000&Room=OF&ProdType=011",
+        "category": "desks",
+        "roomName": "office"
     }
+
 ]
 # create empty array
 details = []
