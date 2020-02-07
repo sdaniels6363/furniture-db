@@ -9,7 +9,7 @@ logger "Dropped furniture collection"
 # we do this everytime the script runs, this way we don't have to worry about duplicates, and we don't have to deal with adding/removing items.
 
 # Python Scripts
-python3 ./vanguardBrScraper.py
+python3 ./vanguardScraper.py
 logger "Scraped Vanguard"
 # Node Scripts
 node ./ambella-scrape.js
