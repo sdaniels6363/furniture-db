@@ -79,6 +79,14 @@ def parseLinks(url, category, roomName):
 # variables
 category_url = [
     {
+        "url":"https://vanguardfurniture.com/styles?PageSize=2000000000&ProdType=008",
+        "category": "mirrors",
+        "roomName": "bathroom"
+    },{
+        "url":'https://vanguardfurniture.com/styles?PageSize=2000000000&Collection=%3fMIYBV',
+        "category": "vanities",
+        "roomName": "bathroom"
+    },{
         "url": "https://vanguardfurniture.com/styles?PageSize=2000000000&Room=BR&ProdType=002",
         "category": "beds",
         "roomName": "bedroom"
@@ -186,6 +194,22 @@ category_url = [
         "url":"https://vanguardfurniture.com/styles?PageSize=2000000000&Room=OF&ProdType=011",
         "category": "desks",
         "roomName": "office"
+    },{
+        "url":"https://vanguardfurniture.com/coverings/?Type=F&PageSize=2000000000",
+        "category":"fabrics",
+        "roomName": "upholstery"
+    },{
+        "url":"https://vanguardfurniture.com/coverings/?Type=L&PageSize=2000000000",
+        "category":"leathers",
+        "roomName": "upholstery"
+    },{
+        "url":"https://vanguardfurniture.com/styles/TossPillows?PageSize=2000000000",
+        "category":"pillows",
+        "roomName": "upholstery"
+    },{
+        "url":"https://vanguardfurniture.com/coverings/?Type=T&PageSize=2000000000",
+        "category":"trims",
+        "roomName": "upholstery"
     }
 
 ]
