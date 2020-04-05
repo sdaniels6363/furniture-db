@@ -36,51 +36,96 @@ def parseLinks(url, category, roomName):
     # loop over all of the links
     for x in furniture:
         try:
-            itemLink = x['href']  # retrive the link for the item
-            if itemLink.startswith("/styles/sku"):
-                # retrieves the URL of the image for the item.
-                image = x.find("img").attrs['src']
-                
-                # first we extract the SKU out of itemLink:
-                # Ex: itemLink = '/styles/sku/W526Q-HF'
-                # strip removes "/styles/sku" and leaves us with W526Q-HF
-                sku = itemLink.strip("/styles/sku/")
-                
-                # tearsheet
-                tearsheet = "https://www.vanguardfurniture.com/style/%s" % (sku)
-                # this is what the link.text looks like
-                # example: '\n\n\n\n\n\r\n                                                    W526Q-HF\r\n                                                    Barrett\r\n                                                '
-                # as you can see that's useless, so the below line formats it nicely for us.
-                # Python uses strip, Javascript uses trim, they accomplish the same task.
-                description = "\n".join(x.text.splitlines()).strip().split("\n")[1].strip()
-                # result is description = 'Barrett'
-                
-                # create new object
-                newObject = {
-                    "description": description, 
-                    "category": category,
-                    "url": "https://www.vanguardfurniture.com%s" % (itemLink), 
-                    "sku": sku, 
-                    "image": image, 
-                    "tearsheet": tearsheet,
-                    "vendor": "Fairfield",
-                    "roomName": roomName
-                }
+            itemLink = "https://fairfieldchair.com"+x.find('a')['href']  # retrive the link for the item
+            image = "https://fairfieldchair.com"+x.find('img')['lazyload'] # retrieve the image link for the item.
+            sku = x.find('b').text
+            tearsheet = "https://fairfieldchair.com/tearsheet/ff/div/1/id/%s" % sku
+            description = x.find('span').text
+            # create new object
+            newObject = {
+                "description": description, 
+                "category": category,
+                "url": itemLink, 
+                "sku": sku, 
+                "image": image, 
+                "tearsheet": tearsheet,
+                "vendor": "Fairfield",
+                "roomName": roomName
+            }
 
-                # append a new object to the details array, we will pass this into Mongo later.
-                details.append(newObject)
-                
+            # append a new object to the details array, we will pass this into Mongo later.
+            results.append(newObject)
+            
         except KeyError:
             pass
         except AttributeError:
             pass
 
 
-chairs = "https://www.fairfieldchair.com/styles/-Retail-Upholstery-Chairs/div/1/cat/32/viewall/1"
-sofas = "https://www.fairfieldchair.com/styles/-Retail-Upholstery-Sofas%20&%20Sectionals/div/1/cat/31/catname/Sofas%20&%20Sectionals"
-beds = "https://www.fairfieldchair.com/styles/-Retail-Upholstery-Beds%20&%20Sleepers/div/1/cat/153/catname/Beds%20&%20Sleepers"
-settes = "https://www.fairfieldchair.com/styles/-Retail-Upholstery-settees/div/1/cat/33/catname/settees"
-chaises = "https://www.fairfieldchair.com/styles/-Retail-Upholstery-chaises/div/1/cat/34/catname/chaises"
-benches = "https://www.fairfieldchair.com/styles/-Retail-Upholstery-benches/div/1/cat/35/catname/benches"
-ottomans = "https://www.fairfieldchair.com/styles/-Retail-Upholstery-ottomans/div/1/cat/36/viewall/1"
-pillows = "https://www.fairfieldchair.com/styles/-Retail-Upholstery-Throw%20Pillows/div/1/cat/163/catname/Throw%20Pillows"
+
+categories = [
+    {
+        "url": "https://www.fairfieldchair.com/styles/-Retail-Upholstery-Chairs/div/1/cat/32/viewall/1",
+        "category": "chairs",
+        "roomName": "living room"
+    },{
+        "url":"https://www.fairfieldchair.com/styles/-Retail-Upholstery-Sofas%20&%20Sectionals/div/1/cat/31/catname/Sofas%20&%20Sectionals",
+        "category":"sofas",
+        "roomName": "living room"
+    },{
+        "url": "https://www.fairfieldchair.com/styles/-Retail-Upholstery-Beds%20&%20Sleepers/div/1/cat/153/catname/Beds%20&%20Sleepers",
+        "category": "beds",
+        "roomName": "bedroom"
+    },{
+        "url": "https://www.fairfieldchair.com/styles/-Retail-Upholstery-settees/div/1/cat/33/catname/settees",
+        "category": "benches-ottomans",
+        "roomName": "living room"
+    },{
+        "url": "https://www.fairfieldchair.com/styles/-Retail-Upholstery-benches/div/1/cat/35/catname/benches",
+        "category": "benches-ottomans",
+        "roomName": "bedroom"
+    },{
+        "url": "https://www.fairfieldchair.com/styles/-Retail-Upholstery-Throw%20Pillows/div/1/cat/163/catname/Throw%20Pillows",
+        "category": "throw pillows",
+        "roomName": "living room"
+    },{
+        "url": "https://www.fairfieldchair.com/styles/-Retail-Upholstery-chaises/div/1/cat/34/catname/chaises",
+        "category":"chaises",
+        "roomName":"living room"
+    },{
+        "url":"https://www.fairfieldchair.com/styles/-Retail-Upholstery-ottomans/div/1/cat/36/viewall/1",
+        "category":"ottomans",
+        "roomName":"living room"
+    },{
+        "url":"https://fairfieldchair.com/fabrics/--Retail-Fabrics/div/1/cat/all",
+        "category":"fabrics",
+        "roomName":"fabrics"
+    }
+]
+
+results = [] #empty array for results
+print("Scraping Fairfield")
+# over each category pull the page and parse the data
+for y in categories:
+    url = y['url']
+    category = y['category']
+    roomName = y['roomName']
+    parseLinks(url,category,roomName)
+
+
+# import env variable, if not defined use localhost
+envVar = (os.getenv('MONGODB_URI', "localhost"))
+
+# connect to the mongo server
+mongo = pymongo.MongoClient(envVar, 27017)
+
+# connect to the furniture database
+db = mongo.furniture
+
+# select the Fairfield collection
+furniture = db.furniture
+
+# use the pymongo insert_many function to add an array of values to the database
+result = furniture.insert_many(results,ordered=True,bypass_document_validation=False,session=None)
+
+print("Fairfield completed.")
