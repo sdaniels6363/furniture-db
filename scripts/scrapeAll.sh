@@ -11,6 +11,8 @@ logger "Dropped furniture collection"
 # Python Scripts
 python3 ./vanguardBrScraper.py
 logger "Scraped Vanguard"
+python3 ./fairfield.py
+logger "Scraped Fairfield"
 # Node Scripts
 node ./ambella-scrape.js
 logger "Scraped Ambella"
